@@ -1,0 +1,27 @@
+/*
+ Theme Name:      Digital Store
+ Description:     Used to style the TinyMCE editor.
+*/
+
+html .mceContentBody {
+    direction: rtl;
+    unicode-bidi: embed;
+    float: right;
+    max-width: 710px;
+}
+
+* {
+    font: 13px/19px normal sans-serif;
+}
+
+ul,ol {
+    margin: 0 2.5em 1.625em 0;
+}
+
+blockquote {
+    font-style: normal;
+}
+
+table {
+    text-align: right;
+}

@@ -1,0 +1,137 @@
+/*
+ Theme Name:    Digital Store
+ Description:   Used to style the TinyMCE editor.
+*/
+
+html .mceContentBody {
+    max-width: 710px;
+}
+
+* {
+    color: inherit;
+    font: 13px/19px sans-serif;
+    color: #464646;
+    font-style: inherit;
+    font-weight: inherit;
+}
+
+body {
+    font: 13px/19px sans-serif;
+    color: #464646;
+}
+
+h1,h2,h3,h4,h5 {
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 24px;
+    line-height: 31px;
+}
+
+h2 {
+    font-size: 19px;
+    line-height: 19px;
+}
+
+h3 {
+    font-size: 16px;
+    line-height: 19px;
+}
+
+h4 {
+    font-size: 14px;
+    line-height: 19px;
+}
+
+h5 {
+    font-size: 13px;
+    line-height: 19px;
+    font-weight: bold;
+}
+
+.highlight {
+    background: #FFE272;
+    width: auto;
+    display: inline;
+    padding: 2px 3px;
+}
+
+.entry-content blockquote {
+    padding-left: 1.462em;
+    font-style: italic;
+    border-left: 0.462em solid #dfdfdf;
+    margin-top: 0.889em;
+}
+
+/* =Buttons
+--------------------------------------------------------------*/
+.button,button,.edd_submit_plain,.dropdown-toggle,.edd_go_to_checkout,#edd_purchase_submit input,#submit {
+    display: inline-block;
+    *display: inline;
+    color: white;
+    font-weight: bold;
+    font-size: 1.077em;
+    text-shadow: 0 1px 1px #072038;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid #2e74a2;
+    *border: 0;
+    border-bottom-color: #0d448b;
+
+    -webkit-border-radius: 0.286em;
+    -moz-border-radius: 0.286em;
+    border-radius: 0.286em;
+    *margin-left: .3em;
+    padding: 0.5em 1.571em;
+
+    -webkit-box-shadow: inset 0 1px 0 #53b7e6;
+    -moz-box-shadow: inset 0 1px 0 #53b7e6;
+    box-shadow: inset 0 1px 0 #53b7e6;
+    background: #44a0e1;
+
+    background: -webkit-linear-gradient(top, #44a0e1 0%, #3d98e0 25%, #2f82d2 50%, #216fc8 76%, #1e68c6 100%);
+    background: -moz-linear-gradient(top, #44a0e1 0%, #3d98e0 25%, #2f82d2 50%, #216fc8 76%, #1e68c6 100%);
+    background: -o-linear-gradient(top, #44a0e1 0%, #3d98e0 25%, #2f82d2 50%, #216fc8 76%, #1e68c6 100%);
+    background: -ms-linear-gradient(top, #44a0e1 0%, #3d98e0 25%, #2f82d2 50%, #216fc8 76%, #1e68c6 100%);
+    background: linear-gradient(top, #44a0e1 0%, #3d98e0 25%, #2f82d2 50%, #216fc8 76%, #1e68c6 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#44a0e1', endColorstr='#1e68c6',GradientType=0 );
+}
+
+.button:hover,button:hover,.edd_submit_plain:hover,.dropdown-toggle:hover,.edd_go_to_checkout:hover,#edd_purchase_submit input:hover,#submit:hover {
+    background: #27a5ff;
+
+    background: -webkit-linear-gradient(top, #27a5ff 0%, #1f9aff 25%, #0385ff 50%, #006dea 76%, #0063e4 100%);
+    background: -moz-linear-gradient(top, #27a5ff 0%, #1f9aff 25%, #0385ff 50%, #006dea 76%, #0063e4 100%);
+    background: -o-linear-gradient(top, #27a5ff 0%, #1f9aff 25%, #0385ff 50%, #006dea 76%, #0063e4 100%);
+    background: -ms-linear-gradient(top, #27a5ff 0%, #1f9aff 25%, #0385ff 50%, #006dea 76%, #0063e4 100%);
+    background: linear-gradient(top, #27a5ff 0%, #1f9aff 25%, #0385ff 50%, #006dea 76%, #0063e4 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#27a5ff', endColorstr='#0063e4',GradientType=0 );
+}
+
+#submit:active,.button:active,button:active,.edd_submit_plain:active,.dropdown-toggle:active,.dropdown-toggle.active,.edd_go_to_checkout:active,#edd_purchase_submit input:active {
+    background-color: #064A7A;
+    background-color: #064A7A 9;
+    background-image: none;
+    outline: 0;
+
+    -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.button.btn-small {
+    font-size: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.385em 0.846em;
+
+    -webkit-border-radius: 0.308em;
+    -moz-border-radius: 0.308em;
+    border-radius: 0.308em;
+}
+
+.button a {
+    color: white;
+    text-decoration: none;
+}

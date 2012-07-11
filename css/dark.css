@@ -1,0 +1,81 @@
+/**
+ * @package     Digital Store Dark Skin
+ * @author      Matt Varone <contact@mattvarone.com>
+ * @copyright   Copyright (c) 2011, Matt Varone
+ * @license     GPLv2
+ * @version     1.0
+*/
+
+body,.single-download .entry-content,.single-post .entry-content,li.edd-cart-item,#edd_register_fields,#edd_login_fields,#edd_checkout_user_info, .widget_edd_downloads_calendar #wp-calendar, .widget_calendar #wp-calendar {
+    background: #0b0c0c;
+}
+
+.bypostauthor article,.bypostauthor .bypostauthor article {
+    overflow: hidden;
+    background: #383736;
+}
+
+.comment-author-admin article,.comment-author-admin .comment-author-admin article, .comment-reply-link, #cancel-comment-reply-link, a.post-edit-link, .digitalstore-pagination a:hover {
+    overflow: hidden;
+    background: #181818;
+}
+
+.comment-author-admin ul article,.bypostauthor ul article,td {
+    background: #0b0c0c;
+}
+
+.widget_search input,input,textarea,table th,#access ul li ul li:hover,#access ul li ul li {
+    background: #202122;
+    color: #c2c2c2;
+}
+
+body,#container,#branding h1,#branding h1 a {
+    color: #c9c9c9;
+}
+
+body,a,.entry-add-to-cart,a.edd-remove-from-cart,a.widget-download-title:hover,.entry-content a:hover,.widget a:hover,#access-secondary a:hover,.entry-utility a:hover,.type-post .entry-meta a:hover,.breadcrumbs a:hover,.view-all:hover,#comments a:hover,.latest-add-to-cart:hover,#colophon #credits a:hover,.digitalstore-pagination a:hover {
+    border-color: #3ca0e3;
+}
+
+a,#branding h1 a:hover,#access li a:hover,#access ul li:hover a,#access ul li:hover li a:hover,#access .digitalstore-checkout a:hover,#access-secondary a:hover,.entry-utility a:hover,.type-post .entry-meta a:hover,.breadcrumbs a:hover,.view-all:hover,#comments a:hover,.latest-add-to-cart:hover,#colophon #credits a:hover,.entry-content a:hover,.widget a:hover,.related-entry-title:hover,.display-listing h3 a:hover,.display-listing h4 a:hover,.downloads-meta h5 a:hover,h2.entry-title a:hover {
+    color: #3ca0e3;
+}
+
+#access ul li li a,#access ul .current-menu-item li a,#access ul .current-page-item li a,.more-link:hover,.format-link .entry-content a:hover,.highlight {
+    color: #202020;
+}
+
+h1,h2,h3,h4,#secondary h4.widget-title,#complementary h4.widget-title,h5,h6,#access li a,h3.entry-title a,h2.entry-title a,.more-link,.navigation a:hover,.display-listing h3 a,.display-listing h4 a,.downloads-meta h5 a, .related-entry-title {
+    color: #a8a8a8;
+}
+
+#main,#secondary {
+    border-color: #6b6b6b;
+}
+
+.entry,#comments,.navigation,#complementary div.widget li,#complementary,#colophon,#secondary h4.widget-title,.display-listing,#access ul li ul li,#access ul li ul,.single-download .entry-content,.single-post .entry-content,li.edd-cart-item,#edd_checkout_form_wrap fieldset,#comments fieldset,article.comment,footer.entry-meta,.single-download .edd_price_options,ul.related-entries img,.entry-image img,.entry-content blockquote,.widget_search input,.display-listing .entry-image img,li.edd-cart-item:nth-last-of-type(2),li.edd-cart-item:first-child,input,textarea,td,table th,table,.blog footer.entry-meta,.archive footer.entry-meta,.search footer.entry-meta,.blog footer.entry-meta,.digitalstore-pagination a,.latest-downloads img,.digitalstore-pagination .current,.commentlist #respond, .widget_edd_downloads_calendar #wp-calendar, .widget_calendar #wp-calendar, .widget_edd_downloads_calendar tfoot, .widget_calendar tfoot, .widget_edd_downloads_calendar td, .widget_edd_downloads_calendar th, .widget_calendar td, .widget_calendar th {
+    border-color: #35352f;
+}
+
+.section-title .view-all {
+    background-image: url(../img/all-inverted.png);
+}
+
+#access .digitalstore-checkout a {
+    background-image: url(../img/checkout-inverted.png);
+}
+
+.single-download .entry-content,.single-post .entry-content {
+    -webkit-box-shadow: #202020 0 2px 7px;
+    -moz-box-shadow: #202020 0 2px 7px;
+    box-shadow: #202020 0 2px 7px;
+}
+
+a.edd-remove-from-cart:hover {
+    color: #f36002;
+    border-color: #f36002;
+}
+
+code {
+    background: #262727;
+}

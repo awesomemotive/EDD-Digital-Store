@@ -1,0 +1,748 @@
+<?php
+/**
+ * Digital Store Theme Functions
+ *
+ * @package      Digital Store
+ * @subpackage   Functions
+ * @author       Matt Varone <contact@mattvarone.com>
+ * @copyright    Copyright (c) 2012, Matt Varone
+ * @link         http://www.mattvarone.com
+ * @license      http://opensource.org/licenses/gpl-2.0.php GNU Public License
+ * @since        1.0
+*/
+
+/*
+|--------------------------------------------------------------------------
+| Start of Functions.php
+|--------------------------------------------------------------------------
+*/
+
+// Set content width
+if ( ! isset( $content_width ) ) 
+    $content_width = 710;
+
+
+/** 
+ * Digital Store Theme Setup 
+ *
+ * Sets up theme defaults and registers support for various WordPress features.
+ *
+ * @return   void
+ * @access   private
+ * @since    1.0
+*/
+
+if ( ! function_exists( 'digitalstore_theme_setup' ) ) {
+    function digitalstore_theme_setup() {
+        
+        /**
+         * Make the theme available for translation.
+         * Translations can be added in the /lang/ directory.
+         */
+        load_theme_textdomain( 'digitalstore-mattvarone', get_template_directory() . '/lang' );
+        
+        $locale = get_locale();
+        $locale_file = get_template_directory() . "/lang/$locale.php";
+        if ( is_readable( $locale_file ) )
+            require_once( $locale_file );
+        
+        // Add support for specific features
+        add_theme_support( 'automatic-feed-links' );
+        add_theme_support( 'post-thumbnails' );
+        add_theme_support( 'menus' );
+        
+        // Add support to pages for specific features
+        add_post_type_support( 'page', 'excerpt' );
+        add_post_type_support( 'download', 'excerpt' );
+        
+        // Add support for custom backgrounds in 3.4+
+        add_theme_support( 'custom-background' );
+        
+        // Add TinyMCE editor style     
+        add_editor_style( 'style-editor.css' );
+        
+        // Define image sizes
+        set_post_thumbnail_size( 710, 388, true );
+        add_image_size( 'digitalstore_thumb_full', 707, 388, true );
+        add_image_size( 'digitalstore_thumb_large', 321, 292, true );
+        add_image_size( 'digitalstore_thumb_medium', 215, 217, true );
+        add_image_size( 'digitalstore_thumb_small', 155, 156, true );
+        add_image_size( 'digitalstore_thumb_thumb', 55, 55, true );
+        
+        // Register theme navigations
+        register_nav_menu( 'primary', __( 'Primary Menu', 'digitalstore-mattvarone' ) );
+        register_nav_menu( 'secondary', __( 'Secondary Menu', 'digitalstore-mattvarone' ) );
+        
+        // Set the title
+        add_filter( 'wp_title', 'digitalstore_site_title', 10, 3 );
+        
+        // Enqueue Scripts
+        add_action( 'wp_enqueue_scripts', 'digitalstore_theme_scripts', 100 );
+        
+        // Enqueue Styles
+        add_action( 'wp_enqueue_scripts', 'digitalstore_theme_styles', 100 );
+        
+        // Menu CSS Class
+        add_filter( 'nav_menu_css_class' , 'digitalstore_nav_checkout_class' , 10 , 2 );
+        
+        // Post class
+        add_filter( 'post_class', 'digitalstore_post_class' );
+        
+        // Disable the automatic purchase button
+        remove_filter( 'the_content', 'edd_append_purchase_link' );
+        
+        // Add to cart button
+        add_action( 'digitalstore_add_to_cart', 'digitalstore_add_to_cart_callback' );
+        
+        // Auto excerpt more
+        add_filter( 'excerpt_more', 'digitalstore_auto_excerpt_more' );
+        
+        // Custom excerpt more
+        add_filter( 'get_the_excerpt', 'digitalstore_custom_excerpt_more' );
+        
+        // Modify the excerpt length
+        add_filter( 'excerpt_length', 'digitalstore_excerpt_length' );
+        
+        // Set EDD Widgets Pack default image size
+        add_filter( 'edd_widgets_top_sellers_thumbnail_size', 'digitalstore_edd_widgets_thumbnail_size' );
+        add_filter( 'edd_widgets_most_recent_thumbnail_size', 'digitalstore_edd_widgets_thumbnail_size' );
+        add_filter( 'edd_widgets_most_commented_thumbnail_size', 'digitalstore_edd_widgets_thumbnail_size' );
+        add_filter( 'edd_widgets_related_downloads_thumbnail_size', 'digitalstore_edd_widgets_thumbnail_size' );
+        
+        // Set EDD Widgets Pack default image size
+        add_filter( 'edd_widgets_random_download_thumbnail_size', 'digitalstore_edd_widgets_single_thumbnail_size' );
+        add_filter( 'edd_widgets_featured_download_thumbnail_size', 'digitalstore_edd_widgets_single_thumbnail_size' );
+        
+        // Increse thumbnails quality
+        add_filter( 'jpeg_quality', 'digitalstore_theme_thumbs_quality' );
+        
+        // Transparent output for embeds
+        add_filter( 'embed_oembed_html', 'digitalstore_theme_wmode_transparent', 10, 3 );
+        
+        // Set the footer text
+        add_action( 'digitalstore_colophon_credits', 'digitalstore_add_colophon_credits' );
+        
+        // Theme filterable functions
+        $filterable_includes = array( 
+            'includes/sidebars.php',    // Sidebars
+            'includes/walker.php',      // Nav Walker
+            'includes/slideshow.php',   // Slideshow
+            'includes/tinymce.php',     // TinyMCE styles
+            'includes/comments.php',    // Comments
+            'includes/pagination.php',  // Pagination
+            'includes/breadcrumbs.php', // Breadcrumbs
+            'includes/related.php',     // Related downloads
+            'includes/customize.php',   // Customizer ( 3.4+ )
+            'includes/latest.php',      // Latest Downloads            
+            'includes/options.php',     // Theme Options
+        );
+        
+        // Allow child themes and plugins to filter the theme includes
+        $includes = apply_filters( 'digitalstore_theme_includes', $filterable_includes );
+        
+        // Include the theme functions files
+        foreach ( $includes as $include ) {
+            locate_template( $include, true );
+        }
+    }
+}
+add_action( 'after_setup_theme', 'digitalstore_theme_setup' );
+
+
+/** 
+ * Theme Scripts 
+ * 
+ * Enqueues and Localizes Javascript.
+ * 
+ * @return   void
+ * @access   private
+ * @since    1.0
+*/
+
+if ( ! function_exists( 'digitalstore_theme_scripts' ) ) {
+    function digitalstore_theme_scripts() {
+        // Modernizr
+        wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/libs/modernizr.js', array(), '2.0.6', false );
+        
+        // Comment form validation
+        if ( is_singular() && comments_open() && ! is_front_page() && ! is_page() )
+        wp_enqueue_script( 'validate', get_template_directory_uri() . '/js/inc/jquery.validate.min.js', array( 'jquery' ), '1.9.0', true );
+        
+        // Theme script file
+        if ( WP_DEBUG || SCRIPT_DEBUG )
+            $digitalstore_theme_script = 'scripts.dev.js';
+        else
+            $digitalstore_theme_script = 'scripts.min.js';
+        
+        wp_enqueue_script( 'digitalstore-theme-script', get_template_directory_uri() . '/js/' . $digitalstore_theme_script, array( 'jquery' ), '1.0' , true );
+        
+        // JS internationalization
+        $params = array( 
+            'theme_uri'         => get_template_directory_uri(), 
+            // Drop down menu
+            'in_goto'           => __( 'Go to...', 'digitalstore-mattvarone' ), 
+            // EDD widget
+            'in_gotocheckout'   => __( 'Go to Checkout', 'digitalstore-mattvarone' ), 
+            'checkout_uri'      => edd_get_checkout_uri(), 
+            // Comments validation
+            'in_author'         => __( 'Please enter a valid name.', 'digitalstore-mattvarone' ), 
+            'in_email'          => __( 'Please enter a valid email address.', 'digitalstore-mattvarone' ), 
+            'in_url'            => __( 'Please use a valid website address.', 'digitalstore-mattvarone' ), 
+            'in_comment'        => __( 'Message must be at least 2 characters long.', 'digitalstore-mattvarone' ), 
+        );
+        
+        // Script localization
+        wp_localize_script( 'digitalstore-theme-script', 'digitalstore_theme_js_params', apply_filters( 'digitalstore_theme_js_params', $params ) );
+    }
+}
+
+
+/** 
+ * Theme Styles 
+ * 
+ * Enqueues Styles.
+ * 
+ * @return   void
+ * @access   private
+ * @since    1.0
+*/
+
+if ( ! function_exists( 'digitalstore_theme_styles' ) ) {
+    function digitalstore_theme_styles() {
+        // enqueue the main stylesheet
+        wp_enqueue_style( 'style', get_stylesheet_uri() );
+    }
+}
+
+
+/** 
+ * Load Selectivizr 
+ * 
+ * Enqueues the comment reply script.
+ * 
+ * @return   void
+ * @access   private
+ * @since    1.0
+*/
+
+function digitalstore_ie_selectivizr() {
+    echo '<!--[if ( lt IE 10 ) & ( ! IEMobile )]>';
+    echo '<script src="'.get_template_directory_uri() . '/js/inc/selectivizr-min.js"></script>';
+    echo '<! [endif]-->';
+}
+add_action( 'wp_head', 'digitalstore_ie_selectivizr' );
+
+
+/** 
+ * Enqueue Comment Reply Script 
+ * 
+ * Enqueues the comment reply script.
+ * 
+ * @return   void
+ * @access   private
+ * @since    1.0
+*/
+
+function digitalstore_enqueue_comment_reply_script() {
+    if ( comments_open() && get_option( 'thread_comments' ) ) {
+        wp_enqueue_script( 'comment-reply' );
+    }
+}
+add_action( 'comment_form_before', 'digitalstore_enqueue_comment_reply_script' );
+
+
+/** 
+ * Site Title 
+ * 
+ * The site title of the current page.
+ * 
+ * @return   string
+ * @access   private
+ * @since    1.0
+*/
+
+if ( ! function_exists( 'digitalstore_site_title' ) ) {
+    function digitalstore_site_title( $title, $sep, $seplocation ) {
+        global $wp_query;
+        
+        $separator = apply_filters( 'digitalstore_page_title_separator', ' | ' );
+        
+        $on_front = get_option( 'show_on_front' );
+        
+        $out = "";
+        
+        if ( ( $on_front == "page" && is_front_page() ) || ( $on_front == "post" && is_home() ) ) { 
+            $out = get_bloginfo( 'name' ) . $separator .  get_bloginfo( 'description' );
+        }
+        
+        elseif ( ( $on_front == "page" && is_home() ) || ( $on_front == "post" && is_front_page() ) || is_singular() ) {
+            $id = $wp_query->get_queried_object_id();
+            
+            if ( is_front_page() )
+                $out = get_bloginfo( 'name' ) . $separator . get_bloginfo( 'name' );
+            elseif ( ! $out )
+                $out = get_post_field( 'post_title', $id );
+            
+            $out .= $separator. get_bloginfo( 'name' );
+        }
+        
+        elseif ( is_archive() ) {
+            
+            if ( is_category() ) {
+                $term = $wp_query->get_queried_object();
+                $out = $term->name;
+            }
+            elseif ( is_tag() ) {
+                $term = $wp_query->get_queried_object();
+                $out = $term->name;
+            }
+            elseif ( is_tax() ) {
+                $term = $wp_query->get_queried_object();
+                $out = $term->name;
+            }
+            elseif ( is_post_type_archive() ){
+                $cpt = $wp_query->get_queried_object();
+                $out = $cpt->label;
+            }
+            
+            elseif ( is_author() )
+                $out = get_the_author_meta( 'display_name', get_query_var( 'author' ) );
+                
+            elseif ( is_date () ) {
+                if ( get_query_var( 'minute' ) && get_query_var( 'hour' ) )
+                    $out = sprintf( __( 'Archive for %1$s', 'digitalstore-mattvarone' ), get_the_time( __( 'g:i a', 'digitalstore-mattvarone' ) ) );
+                
+                elseif ( get_query_var( 'minute' ) )
+                    $out = sprintf( __( 'Archive for minute %1$s', 'digitalstore-mattvarone' ), get_the_time( __( 'i', 'digitalstore-mattvarone' ) ) );
+                
+                elseif ( get_query_var( 'hour' ) )
+                    $out = sprintf( __( 'Archive for %1$s', 'digitalstore-mattvarone' ), get_the_time( __( 'g a', 'digitalstore-mattvarone' ) ) );
+                
+                elseif ( is_day() )
+                    $out = sprintf( __( 'Archive for %1$s', 'digitalstore-mattvarone' ), get_the_time( __( 'F jS, Y', 'digitalstore-mattvarone' ) ) );
+                
+                elseif ( get_query_var( 'w' ) )
+                    $out = sprintf( __( 'Archive for week %1$s of %2$s', 'digitalstore-mattvarone' ), get_the_time( __( 'W', 'digitalstore-mattvarone' ) ), get_the_time( __( 'Y', 'digitalstore-mattvarone' ) ) );
+                
+                elseif ( is_month() )
+                    $out = sprintf( __( 'Archive for %1$s', 'digitalstore-mattvarone' ), single_month_title( ' ', false ) );
+                
+                elseif ( is_year() )
+                    $out = sprintf( __( 'Archive for %1$s', 'digitalstore-mattvarone' ), get_the_time( __( 'Y', 'digitalstore-mattvarone' ) ) );
+            }
+            
+            $out .= $separator. get_bloginfo( 'name' );
+        }
+        
+        elseif ( is_search() ){
+            $out = sprintf( __( 'Search results for &quot;%1$s&quot;', 'digitalstore-mattvarone' ), esc_attr( get_search_query() ) );
+            $out .= $separator. get_bloginfo( 'name' );
+        }
+        
+        elseif ( is_404() ) {
+            $out = __( '404 Not Found', 'digitalstore-mattvarone' );
+            $out .= $separator. get_bloginfo( 'name' );
+        }
+        
+        if ( ( ( $page = $wp_query->get( 'paged' ) ) || ( $page = $wp_query->get( 'page' ) ) ) && $page > 1 )
+            $out = sprintf( __( '%1$s Page %2$s', 'digitalstore-mattvarone' ), $out . $separator, $page );
+        
+        echo apply_filters( 'digitalstore_site_title_output', $out );
+    }
+}
+
+
+/** 
+ * Nav Checkout Class 
+ * 
+ * Adds a special class to the navigation checkout page.
+ * 
+ * @return   array
+ * @access   private
+ * @since    1.0
+*/
+
+if ( ! function_exists( 'digitalstore_nav_checkout_class' ) ) {
+    function digitalstore_nav_checkout_class( $classes, $item ){
+        global $edd_options;
+        if ( isset( $edd_options['purchase_page'] ) ) {
+            if ( $item->object_id == $edd_options['purchase_page'] ) {
+                $classes[] = 'digitalstore-checkout';
+            }
+        }
+         return $classes;
+    }
+}
+
+
+
+/** 
+ * Digital Store Theme Header 
+ *
+ * Filters and return the theme header branding.
+ *
+ * @return   string
+ * @access   private
+ * @since    1.0
+*/
+
+if ( ! function_exists( 'digitalstore_get_theme_header' ) ) {
+    function digitalstore_get_theme_header() {
+        global $post;
+        
+        $on_front = get_option( 'show_on_front' );
+
+        if ( ( ( $on_front == "post" && is_home() ) || ( $on_front == "page" && is_front_page() ) ) && ! is_paged() ) {
+            // Homepage
+            $output = apply_filters( 'digitalstore_brand_home', '<h1>%1$s</h1>' ); 
+        } else {
+            // Inner page
+            $output = apply_filters( 'digitalstore_brand_inner', '<h1><a href="%2$s" title="%3$s">%1$s</a></h1>' );
+        }
+        
+        $image = false;
+        if ( function_exists('digitalstore_get_theme_options') ) {
+            $options = digitalstore_get_theme_options();
+            $image = ( $options['logo_image'] != '' ) ? $options['logo_image'] : false;
+        }
+        
+        if ( $image !== false ) {
+            $brand = sprintf( '<img src="%s" alt="%s"/>', $image, esc_attr( get_bloginfo( 'name' ) ) );
+        } else {
+            $brand = get_bloginfo( 'name' );
+        }
+        
+        printf( $output, $brand, get_site_url(), esc_attr( get_bloginfo( 'name' ) ) );
+    }
+}
+add_action( 'digitalstore_theme_brand', 'digitalstore_get_theme_header' );
+
+
+/**
+ * Exceprt Length
+ *
+ * Sets the post excerpt length to 40 words.
+ *
+ * @return   integer
+ * @access   private
+ * @since    1.0
+*/
+ 
+if ( ! function_exists( 'digitalstore_excerpt_length' ) ) {
+    function digitalstore_excerpt_length( $length ) {
+        return 40;
+    }
+}
+
+
+/** 
+ * Continue reading link 
+ *
+ * Returns a "Continue Reading" link for excerpts.
+ *
+ * @return   string
+ * @access   private
+ * @since    1.0
+*/
+
+if ( ! function_exists( 'digitalstore_continue_reading_link' ) ) {
+    function digitalstore_continue_reading_link() {
+        global $post;
+        
+        if ( is_singular( 'download' ) )
+        return;
+        
+        return ' <a href="'. esc_url( get_permalink() ) . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'digitalstore-mattvarone' ) . '</a>';
+    }
+}
+
+
+/**
+ * Auto Excerpt More
+ *
+ * @return   string
+ * @access   private
+ * @since    1.0
+*/
+
+if ( ! function_exists( 'digitalstore_auto_excerpt_more' ) ) {
+    function digitalstore_auto_excerpt_more( $more ) {
+        return ' &hellip;' . digitalstore_continue_reading_link();
+    }
+}
+
+ 
+/**
+ * Custom Excerpt More
+ *
+ * Adds a pretty "Continue Reading" link to custom post excerpts.
+ *
+ * @return   string
+ * @access   private
+ * @since    1.0
+*/ 
+ 
+if ( ! function_exists( 'digitalstore_custom_excerpt_more' ) ) {
+    function digitalstore_custom_excerpt_more( $output ) {
+        if ( has_excerpt() && ! is_attachment() ) {
+            $output .= digitalstore_continue_reading_link();
+        }
+        return $output;
+    }
+}
+
+
+/** 
+ * Digital Store Thumbs Quality
+ *
+ * Increases the default quality of WordPress thumbnails.
+ *
+ * @return   integer
+ * @access   private
+ * @since    1.0
+*/
+
+if ( ! function_exists( 'digitalstore_theme_thumbs_quality' ) ) {
+    function digitalstore_theme_thumbs_quality() {
+        return 99;
+    }
+}
+
+
+/** 
+ * Digital Store Widgets Thumbs Size
+ *
+ * Sets a custom size for the EDD widgets pack.
+ *
+ * @return   array
+ * @access   private
+ * @since    1.0
+*/
+
+if ( ! function_exists( 'digitalstore_edd_widgets_thumbnail_size' ) ) {
+    function digitalstore_edd_widgets_thumbnail_size( $size ) {
+        return array( '55', '55' );
+    }
+}
+
+
+/** 
+ * Digital Store Widgets Single Thumbs Size
+ *
+ * Sets a custom size for the EDD widgets pack.
+ *
+ * @return   array
+ * @access   private
+ * @since    1.0
+*/
+
+if ( ! function_exists( 'digitalstore_edd_widgets_single_thumbnail_size' ) ) {
+    function digitalstore_edd_widgets_single_thumbnail_size( $size ) {
+        return array( '155', '156' );
+    }
+}
+
+
+/** 
+ * Digital Post Class
+ *
+ * Adds a custom class to posts with thumbnails.
+ *
+ * @return   array
+ * @access   private
+ * @since    1.0
+*/
+
+if ( ! function_exists( 'digitalstore_post_class' ) ) {
+    function digitalstore_post_class( $classes ) {
+        global $post;
+        if ( has_post_thumbnail() ) {
+            $classes[] = 'has-post-thumbnail';
+        }
+        return $classes;
+    }
+}
+
+
+/** 
+ * Posted On 
+ * 
+ * Generates the entry meta for posts on single view.
+ * 
+ * @return   string
+ * @access   public
+ * @since    1.0
+*/
+
+if ( ! function_exists( 'digitalstore_posted_on' ) ) {
+    function digitalstore_posted_on() {
+        global $post;
+        
+        // Allow filtering     
+        $features = apply_filters( 'digitalstore_posted_on_features', array(  
+            'show_date' => 1, 
+            'show_author' => 1, 
+            'show_cats' => 0, 
+            'show_tags' => 0, 
+         ) );
+        
+        $out = "";
+        
+        if ( $features['show_date'] == 1 )
+            $out .= '<time class="entry-date">' . get_the_time( 'F j, Y' ) . '</time>';
+        
+        if ( $features['show_author'] == 1 ) {
+            $out .= ( $out != "" ) ? ' ' : '';
+            $url  = esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) );
+            $out .= __( 'by ', 'digitalstore-mattvarone' );
+            $out .= '<a href="' . $url . '" title="' . esc_attr__( 'View all posts by this author' , 'digitalstore-mattvarone' ) . '" >' . get_the_author() . '</a>';
+        }
+        
+        if ( $features['show_cats'] == 1 ) {
+            $categories_list = get_the_category_list( __( ', ', 'digitalstore-mattvarone' ) );
+            if ( $categories_list ){
+                $out .= ( $out != "" ) ? ' ' : '';
+                $out .= __( 'under ', 'digitalstore-mattvarone' ) . $categories_list; 
+            }
+        }
+        
+        if ( $features['show_tags'] == 1 ) {
+            $tag_list = get_the_tag_list( '', __( ', ', 'digitalstore-mattvarone' ) );
+            if ( $tag_list ) {
+                $out .= ( $out != "" ) ? __( ', ', 'digitalstore-mattvarone' ) : '';
+                $out .= __( 'tagged: ', 'digitalstore-mattvarone' ) . $tag_list;
+            }
+        }
+                
+        echo $out . '.';
+    }
+}
+
+
+/** 
+ * Add Footer Credits
+ *
+ * Echoes the footer credits option.
+ *
+ * @return   string
+ * @access   private
+ * @since    1.0
+*/
+
+if ( ! function_exists( 'digitalstore_add_colophon_credits' ) ) {
+    function digitalstore_add_colophon_credits() {
+        $options = digitalstore_get_theme_options();
+        echo $options['footer_text'];
+    }
+}
+
+
+/** 
+ * Add to Cart Button
+ *
+ * Echoes the custom digital store add-to-cart button.
+ *
+ * @return   string
+ * @access   private
+ * @since    1.0
+*/
+
+if ( ! function_exists( 'digitalstore_add_to_cart_callback' ) ) {
+    function digitalstore_add_to_cart_callback( $post ) {
+        global $edd_options;
+        
+        $out = '<div class="button-group add-to-cart clearfix">';
+        
+        if ( ! edd_item_in_cart( $post->ID ) ) {
+            $out .= do_shortcode( '[purchase_link id="' . $post->ID . '" text="' . esc_attr__( 'Add To Cart', 'digitalstore-mattvarone' ) . '" style="blue" type="text"]' );
+        } else {
+            $out .= '<a href="' . get_permalink( $edd_options['purchase_page'] ) . '" class="edd_go_to_checkout edd_button">' . __( 'Checkout', 'digitalstore-mattvarone' ) . '</a>';
+        }
+        
+        $out .= '<button class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu">';
+        
+        $title = urlencode( get_the_title( $post->ID ) );
+        $permalink = urlencode( get_permalink( $post->ID ) );
+        
+        if ( ! edd_item_in_cart( $post->ID ) ) {
+            $actions = array( 
+                'buy' => array( 
+                    'href' => '#addtocart', 
+                    'title' => sprintf( __( 'Buy %s', 'digitalstore-mattvarone' ), $title ), 
+                    'text' => __( 'Buy this File', 'digitalstore-mattvarone' ), 
+            ) );
+        } else {
+            $actions = array( 
+                'checkout' => array( 
+                    'href' => get_permalink( $edd_options['purchase_page'] ), 
+                    'title' => __( 'Checkout', 'digitalstore-mattvarone' ), 
+                    'text' => __( 'Go to Checkout', 'digitalstore-mattvarone' ), 
+            ) );
+        }
+        
+        $filterable_actions = array( 
+            'twitter' => array( 
+                'href' => sprintf( 'http://twitter.com/home?status=%s', sprintf( __( 'Check this out: %s', 'digitalstore-mattvarone' ), $permalink ) ), 
+                'title' => sprintf( __( 'Share %s on Twitter', 'digitalstore-mattvarone' ), $title ), 
+                'text' => __( 'Share on Twitter', 'digitalstore-mattvarone' ), 
+            ), 
+            'googleplus' => array( 
+                'href' => sprintf( 'https://plus.google.com/share?url=%s', $permalink ), 
+                'title' => sprintf( __( 'Add %s to Google Plus', 'digitalstore-mattvarone' ), $title ), 
+                'text' => __( 'Add to Google+', 'digitalstore-mattvarone' ), 
+            ), 
+            'facebook' => array( 
+                'href' => sprintf( 'http://www.facebook.com/sharer.php?u=%s&t=%s', $permalink, __( 'Check this out', 'digitalstore-mattvarone' ) ), 
+                'title' => sprintf( __( 'Share %s on Facebook', 'digitalstore-mattvarone' ), $title ), 
+                'text' => __( 'Share on Facebook', 'digitalstore-mattvarone' ), 
+            )
+        );
+        
+        $actions = array_merge( $actions, apply_filters( 'digitalstore_add_to_cart_actions', $filterable_actions, $post, $title, $permalink ) );
+        
+        foreach ( $actions as $action ) {
+            $out .= '<li><a href="' . $action['href'] . '" title="' . esc_attr( $action['title'] ) . '">' . $action['text'] . '</a></li>';
+        }
+        
+        $out .= '</ul>';
+        $out .= '</div>'; 
+         
+        echo $out;
+    }
+}
+
+
+/** 
+ * Edd The Price
+ *
+ * Echoes the price with a custom format.
+ *
+ * @return   string
+ * @access   private
+ * @since    1.0
+*/
+
+if ( ! function_exists( 'digitalstore_edd_the_price' ) ) {
+    function digitalstore_edd_the_price( $download_id ) {
+        if ( edd_has_variable_prices( $download_id ) ) {
+             $prices = get_post_meta( $download_id, 'edd_variable_prices', true );
+             $total = count( $prices ) - 1;
+             if ( $prices[0]['amount'] < $prices[$total]['amount'] ) {
+                 $min = $prices[0]['amount'];
+                 $max = $prices[$total]['amount'];
+             } else {
+                 $min = $prices[$total]['amount'];
+                 $max = $prices[0]['amount'];
+             }
+             return sprintf( '%s - %s', edd_currency_filter( $min ), edd_currency_filter( $max ) );
+         } else {
+             return edd_currency_filter( edd_get_download_price( $download_id ) );
+         }
+    }
+}
+
+/*
+|--------------------------------------------------------------------------
+| End of Functions.php
+|--------------------------------------------------------------------------
+*/

@@ -1,0 +1,667 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Digital Store\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-06-11 18:17-0300\n"
+"PO-Revision-Date: 2012-06-11 18:17-0300\n"
+"Last-Translator: Matt Varone <plugins@mattvarone.com>\n"
+"Language-Team: Matt Varone <contact@mattvarone.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e;esc_attr_e;esc_attr__\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.php:25
+msgid "Error 404"
+msgstr ""
+
+#: 404.php:29
+msgid "Sorry, but the content you are looking for could not be found. It may have been moved or even deleted. Please try searching or use one of the links below."
+msgstr ""
+
+#: 404.php:33
+msgid "Recent Posts"
+msgstr ""
+
+#: 404.php:45
+msgid "Topics"
+msgstr ""
+
+#: archive-download.php:22
+#, php-format
+msgid "All %s"
+msgstr ""
+
+#: archive-download.php:36
+#: archive.php:36
+#: author.php:38
+#: category.php:44
+#: date.php:71
+msgid "Nothing Found"
+msgstr ""
+
+#: archive-download.php:40
+#: archive.php:40
+#: date.php:75
+msgid "Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post."
+msgstr ""
+
+#: archive.php:22
+#: date.php:35
+msgid "Archives"
+msgstr ""
+
+#: author.php:24
+#, php-format
+msgid "Author Archives: <span class=\"vcard\">%s</span>"
+msgstr ""
+
+#: author.php:42
+msgid "Apologies, but no results were found for the requested author. Perhaps searching will help find a related post."
+msgstr ""
+
+#: category.php:23
+#, php-format
+msgid "Category: <span class=\"current\">%s</span>"
+msgstr ""
+
+#: category.php:48
+msgid "Apologies, but no results were found for the requested category. Perhaps searching will help find a related post."
+msgstr ""
+
+#: comments.php:18
+msgid "This entry is password protected. Enter the password to view any comments."
+msgstr ""
+
+#: comments.php:30
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: comments.php:31
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: comments.php:45
+msgid "Comments are closed."
+msgstr ""
+
+#: comments.php:51
+msgid "Leave a comment"
+msgstr ""
+
+#: comments.php:54
+msgid "Submit Comment"
+msgstr ""
+
+#: content-download.php:41
+msgid "View Details"
+msgstr ""
+
+#: content-download.php:43
+#: functions.php:662
+msgid "Add To Cart"
+msgstr ""
+
+#: content-download.php:46
+#: functions.php:664
+#: functions.php:683
+msgid "Checkout"
+msgstr ""
+
+#: content-page.php:36
+#: content-single-download.php:51
+#: content-single.php:34
+#: content.php:50
+#: content.php:54
+#: functions.php:460
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: content-page.php:37
+#: content-single-download.php:52
+#: content-single.php:35
+#: content.php:55
+msgid "Pages:"
+msgstr ""
+
+#: content-single-download.php:47
+msgid "Description"
+msgstr ""
+
+#: content-single-download.php:59
+#: content-single.php:42
+#, php-format
+msgid "Posted in %1$s and tagged %2$s."
+msgstr ""
+
+#: content-single-download.php:61
+#: content-single.php:44
+#, php-format
+msgid "Posted in %1$s."
+msgstr ""
+
+#: content.php:36
+#, php-format
+msgid "Permalink to %s"
+msgstr ""
+
+#: content.php:63
+#: content.php:72
+#: functions.php:607
+#: functions.php:615
+#: functions.php:617
+msgid ", "
+msgstr ""
+
+#: content.php:67
+#, php-format
+msgid "<span class=\"%1$s\">Posted in</span> %2$s"
+msgstr ""
+
+#: content.php:78
+#, php-format
+msgid "<span class=\"%1$s\">Tagged</span> %2$s"
+msgstr ""
+
+#: content.php:88
+msgid "Leave a reply"
+msgstr ""
+
+#: content.php:88
+msgid "1 Reply"
+msgstr ""
+
+#: content.php:88
+msgid "% Replies"
+msgstr ""
+
+#: date.php:29
+#, php-format
+msgid "Daily Archives: <span>%s</span>"
+msgstr ""
+
+#: date.php:31
+#, php-format
+msgid "Monthly Archives: <span>%s</span>"
+msgstr ""
+
+#: date.php:33
+#, php-format
+msgid "Yearly Archives: <span>%s</span>"
+msgstr ""
+
+#: functions.php:73
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:74
+msgid "Secondary Menu"
+msgstr ""
+
+#: functions.php:189
+msgid "Go to..."
+msgstr ""
+
+#: functions.php:191
+#: functions.php:684
+msgid "Go to Checkout"
+msgstr ""
+
+#: functions.php:194
+msgid "Please enter a valid name."
+msgstr ""
+
+#: functions.php:195
+msgid "Please enter a valid email address."
+msgstr ""
+
+#: functions.php:196
+msgid "Please use a valid website address."
+msgstr ""
+
+#: functions.php:197
+msgid "Message must be at least 2 characters long."
+msgstr ""
+
+#: functions.php:318
+#: functions.php:324
+#: functions.php:327
+#: functions.php:333
+#: functions.php:336
+#, php-format
+msgid "Archive for %1$s"
+msgstr ""
+
+#: functions.php:318
+msgid "g:i a"
+msgstr ""
+
+#: functions.php:321
+#, php-format
+msgid "Archive for minute %1$s"
+msgstr ""
+
+#: functions.php:321
+msgid "i"
+msgstr ""
+
+#: functions.php:324
+msgid "g a"
+msgstr ""
+
+#: functions.php:327
+msgid "F jS, Y"
+msgstr ""
+
+#: functions.php:330
+#, php-format
+msgid "Archive for week %1$s of %2$s"
+msgstr ""
+
+#: functions.php:330
+msgid "W"
+msgstr ""
+
+#: functions.php:330
+#: functions.php:336
+msgid "Y"
+msgstr ""
+
+#: functions.php:343
+#, php-format
+msgid "Search results for &quot;%1$s&quot;"
+msgstr ""
+
+#: functions.php:348
+msgid "404 Not Found"
+msgstr ""
+
+#: functions.php:353
+#, php-format
+msgid "%1$s Page %2$s"
+msgstr ""
+
+#: functions.php:602
+msgid "by "
+msgstr ""
+
+#: functions.php:603
+msgid "View all posts by this author"
+msgstr ""
+
+#: functions.php:610
+msgid "under "
+msgstr ""
+
+#: functions.php:618
+msgid "tagged: "
+msgstr ""
+
+#: functions.php:676
+#, php-format
+msgid "Buy %s"
+msgstr ""
+
+#: functions.php:677
+msgid "Buy this File"
+msgstr ""
+
+#: functions.php:690
+#, php-format
+msgid "Check this out: %s"
+msgstr ""
+
+#: functions.php:691
+#, php-format
+msgid "Share %s on Twitter"
+msgstr ""
+
+#: functions.php:692
+msgid "Share on Twitter"
+msgstr ""
+
+#: functions.php:696
+#, php-format
+msgid "Add %s to Google Plus"
+msgstr ""
+
+#: functions.php:697
+msgid "Add to Google+"
+msgstr ""
+
+#: functions.php:700
+msgid "Check this out"
+msgstr ""
+
+#: functions.php:701
+#, php-format
+msgid "Share %s on Facebook"
+msgstr ""
+
+#: functions.php:702
+msgid "Share on Facebook"
+msgstr ""
+
+#: home.php:27
+msgid "Our Blog"
+msgstr ""
+
+#: image.php:26
+#, php-format
+msgid "<span class=\"meta-prep meta-prep-entry-date\">Published </span> <span class=\"entry-date\"><abbr class=\"published\" title=\"%1$s\">%2$s</abbr></span> at <a href=\"%3$s\" title=\"Link to full-size image\">%4$s &times; %5$s</a> in <a href=\"%6$s\" title=\"Return to %7$s\" rel=\"gallery\">%8$s</a>"
+msgstr ""
+
+#: pagination.php:20
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr ""
+
+#: pagination.php:21
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: search.php:40
+msgid "Sorry, but nothing matched your search criteria. Please try again with some different keywords."
+msgstr ""
+
+#: searchform.php:16
+msgid "Search For"
+msgstr ""
+
+#: searchform.php:17
+msgid "Search this site"
+msgstr ""
+
+#: searchform.php:18
+msgid "Seach"
+msgstr ""
+
+#: tag.php:22
+#, php-format
+msgid "Tag Archives: %s"
+msgstr ""
+
+#: tag.php:48
+msgid "Apologies, but no results were found for the requested tag. Perhaps searching will help find a related post."
+msgstr ""
+
+#: taxonomy-download_category.php:46
+#: taxonomy-download_tag.php:48
+#: taxonomy.php:50
+msgid "Apologies, but no results were found for the requested taxonomy. Perhaps searching will help find a related post."
+msgstr ""
+
+#: taxonomy-download_tag.php:23
+#, php-format
+msgid "Tag: <span class=\"current\">%s</span>"
+msgstr ""
+
+#: includes/breadcrumbs.php:44
+#: includes/breadcrumbs.php:46
+msgid "Home"
+msgstr ""
+
+#: includes/breadcrumbs.php:90
+msgid "Category: "
+msgstr ""
+
+#: includes/breadcrumbs.php:92
+msgid "Tag: "
+msgstr ""
+
+#: includes/breadcrumbs.php:107
+msgid "Search"
+msgstr ""
+
+#: includes/comments.php:36
+msgid "Pingback"
+msgstr ""
+
+#: includes/comments.php:36
+#: includes/comments.php:85
+msgid "Edit"
+msgstr ""
+
+#: includes/comments.php:52
+#, php-format
+msgid "<span class=\"fn\">%s</span>"
+msgstr ""
+
+#: includes/comments.php:58
+#, php-format
+msgid "%1$s %2$s"
+msgstr ""
+
+#: includes/comments.php:69
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: includes/comments.php:81
+msgid "Reply"
+msgstr ""
+
+#: includes/comments.php:85
+msgid "Edit this comment"
+msgstr ""
+
+#: includes/comments.php:86
+msgid "Delete this comment"
+msgstr ""
+
+#: includes/comments.php:86
+msgid "Delete"
+msgstr ""
+
+#: includes/comments.php:87
+msgid "Mark comment as Spam"
+msgstr ""
+
+#: includes/comments.php:87
+msgid "Spam"
+msgstr ""
+
+#: includes/customize.php:44
+msgid "Skins"
+msgstr ""
+
+#: includes/customize.php:56
+msgid "Variations"
+msgstr ""
+
+#: includes/customize.php:72
+msgid "Highlight Color"
+msgstr ""
+
+#: includes/customize.php:78
+msgid "Footer"
+msgstr ""
+
+#: includes/customize.php:91
+#: includes/options.php:31
+msgid "Footer Text"
+msgstr ""
+
+#: includes/latest.php:30
+#, php-format
+msgid "Latest %s"
+msgstr ""
+
+#: includes/latest.php:62
+msgid "View All"
+msgstr ""
+
+#: includes/latest.php:81
+msgid "View Product"
+msgstr ""
+
+#: includes/options.php:26
+msgid "Display Options"
+msgstr ""
+
+#: includes/options.php:27
+msgid "Branding"
+msgstr ""
+
+#: includes/options.php:28
+#: includes/options.php:375
+#: includes/customize/class-wp-customize-controls.php:39
+msgid "Logo Image"
+msgstr ""
+
+#: includes/options.php:29
+msgid "Color Scheme"
+msgstr ""
+
+#: includes/options.php:30
+msgid "Accent Color"
+msgstr ""
+
+#: includes/options.php:63
+msgid "Theme Options"
+msgstr ""
+
+#: includes/options.php:63
+msgid "Options"
+msgstr ""
+
+#: includes/options.php:182
+msgid "Media Library"
+msgstr ""
+
+#: includes/options.php:201
+msgid "Set as logo"
+msgstr ""
+
+#: includes/options.php:224
+msgid "by"
+msgstr ""
+
+#: includes/options.php:270
+msgid "Light"
+msgstr ""
+
+#: includes/options.php:271
+msgid "Dark"
+msgstr ""
+
+#: includes/options.php:314
+#, php-format
+msgid "%s Theme Options"
+msgstr ""
+
+#: includes/options.php:378
+msgid "Remove Logo Image"
+msgstr ""
+
+#: includes/options.php:379
+msgid "This will remove the logo image."
+msgstr ""
+
+#: includes/options.php:384
+msgid "Choose an image from your computer:"
+msgstr ""
+
+#: includes/options.php:388
+msgid "Upload"
+msgstr ""
+
+#: includes/options.php:395
+msgid "Choose from image library"
+msgstr ""
+
+#: includes/options.php:428
+msgid "Select the theme color scheme"
+msgstr ""
+
+#: includes/options.php:448
+msgid "Select a Color"
+msgstr ""
+
+#: includes/options.php:451
+#, php-format
+msgid "Default color: %s"
+msgstr ""
+
+#: includes/options.php:476
+msgid "The footer bottom left text"
+msgstr ""
+
+#: includes/options.php:496
+msgid "Thumbnail"
+msgstr ""
+
+#: includes/options.php:496
+msgid "Medium"
+msgstr ""
+
+#: includes/options.php:496
+msgid "Large"
+msgstr ""
+
+#: includes/options.php:496
+msgid "Full Size"
+msgstr ""
+
+#: includes/pagination.php:37
+#, php-format
+msgid "Page %d of %d"
+msgstr ""
+
+#: includes/pagination.php:47
+msgid "&laquo;"
+msgstr ""
+
+#: includes/pagination.php:48
+msgid "&raquo;"
+msgstr ""
+
+#: includes/related.php:110
+#, php-format
+msgid "Related %s"
+msgstr ""
+
+#: includes/sidebars.php:28
+msgid "Primary | Widget Area"
+msgstr ""
+
+#: includes/sidebars.php:30
+msgid "The primary widgets area"
+msgstr ""
+
+#: includes/sidebars.php:38
+msgid "Complementary | Widget Area"
+msgstr ""
+
+#: includes/sidebars.php:40
+msgid "The complementary widgets area"
+msgstr ""
+
+#: includes/tinymce.php:54
+msgid "Buttons"
+msgstr ""
+
+#: includes/tinymce.php:56
+msgid "Button"
+msgstr ""
+
+#: includes/tinymce.php:58
+msgid "Button Small"
+msgstr ""
+
+#: includes/tinymce.php:61
+msgid "Utility"
+msgstr ""
+
+#: includes/tinymce.php:63
+msgid "Highlight"
+msgstr ""
+
+#: includes/customize/class-wp-customize-controls.php:44
+msgid "No Image"
+msgstr ""
+
+#: includes/customize/class-wp-customize-controls.php:45
+msgid "Removed"
+msgstr ""
+

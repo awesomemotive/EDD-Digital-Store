@@ -1,4 +1,4 @@
 *** Digital Store Changelog ***
 
-=== 1.0 ===
-* Initial Release
+=== 0.1 beta ===
+* Beta version, not ready for production.

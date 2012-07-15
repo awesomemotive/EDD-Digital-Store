@@ -107,7 +107,7 @@ if ( ! function_exists( 'digitalstore_related_entries_callback' ) ) {
         
         $post_type_obj = get_post_type_object( $post_type );
         
-        $out = '<h3 class="section-title related-entries-title">' . sprintf( __( 'Related %s', 'digitalstore-mattvarone' ), $post_type_obj->labels->menu_name  ) . '</h3>';
+        $out = '<h3 class="section-title related-entries-title">' . sprintf( __( 'Related %s', 'edd-digitalstore' ), $post_type_obj->labels->menu_name  ) . '</h3>';
         $out .= '<ul class="related-entries">';
         
         $link  = '<a href="%s" title="%s" rel="bookmark" class="%s">%s</a>';

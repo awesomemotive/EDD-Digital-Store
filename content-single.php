@@ -3,9 +3,9 @@
  * Partial: Content Single
  *
  * @package      Digital Store
- * @author       Matt Varone <contact@mattvarone.com>
- * @copyright    Copyright (c) 2012, Matt Varone
- * @link         http://www.mattvarone.com
+ * @author       Easy Digital Downloads - http://easydigitaldownloads.com
+ * @copyright    Copyright (c) 2012, Easy Digital Downloads
+ * @link         http://www.easydigitaldownloads.com.com
  * @license      http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since        1.0
 */
@@ -31,17 +31,17 @@ do_action( 'digitalstore_before_content', $post ); ?>
             </header><!-- .entry-header -->
 
             <div class="entry-content">
-                <?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'digitalstore-mattvarone' ) ); ?>
-                <?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'digitalstore-mattvarone' ), 'after' => '</div>' ) ); ?>
+                <?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'edd-digitalstore' ) ); ?>
+                <?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'edd-digitalstore' ), 'after' => '</div>' ) ); ?>
             </div><!-- .entry-content -->
             
             <footer class="entry-utility">
                 <?php
                     $tag_list = get_the_tag_list( '', ', ' );
                     if ( '' != $tag_list ) {
-                        $utility_text = __( 'Posted in %1$s and tagged %2$s.', 'digitalstore-mattvarone' );
+                        $utility_text = __( 'Posted in %1$s and tagged %2$s.', 'edd-digitalstore' );
                     } else {
-                        $utility_text = __( 'Posted in %1$s.', 'digitalstore-mattvarone' );
+                        $utility_text = __( 'Posted in %1$s.', 'edd-digitalstore' );
                     }
                     printf(
                         $utility_text,

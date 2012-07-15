@@ -57,7 +57,7 @@ add_action( 'wp_enqueue_scripts', 'digitalstore_front_slideshow_scripts' );
 
 if ( ! function_exists( 'digitalstore_theme_slideshow_add_page' ) ) {
     function digitalstore_theme_slideshow_add_page() {
-        $page = add_theme_page( __( 'Theme Slideshow', 'digitalstore-mattvarone' ), __( 'Slideshow', 'digitalstore-mattvarone' ), 'edit_theme_options', 'theme_slideshow', 'digitalstore_theme_slideshow_render_page' );
+        $page = add_theme_page( __( 'Theme Slideshow', 'edd-digitalstore' ), __( 'Slideshow', 'edd-digitalstore' ), 'edit_theme_options', 'theme_slideshow', 'digitalstore_theme_slideshow_render_page' );
     }
 }
 add_action( 'admin_menu', 'digitalstore_theme_slideshow_add_page' );

@@ -3,9 +3,9 @@
  * Default Taxonomy Template
  *
  * @package      Digital Store
- * @author       Matt Varone <contact@mattvarone.com>
- * @copyright    Copyright (c) 2012, Matt Varone
- * @link         http://www.mattvarone.com
+ * @author       Easy Digital Downloads - http://easydigitaldownloads.com
+ * @copyright    Copyright (c) 2012, Easy Digital Downloads
+ * @link         http://www.easydigitaldownloads.com.com
  * @license      http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since        1.0
 */
@@ -43,11 +43,11 @@ get_header( 'taxonomy' ); ?>
             <?php else: ?>
                 
                 <header class="entry-header">
-                    <h1 class="entry-title"><?php _e( 'Nothing Found', 'digitalstore-mattvarone' ); ?></h1>
+                    <h1 class="entry-title"><?php _e( 'Nothing Found', 'edd-digitalstore' ); ?></h1>
                 </header><!-- .entry-header -->
                 
                 <div class="entry-content">
-                    <p><?php _e( 'Apologies, but no results were found for the requested taxonomy. Perhaps searching will help find a related post.', 'digitalstore-mattvarone' ); ?></p>
+                    <p><?php _e( 'Apologies, but no results were found for the requested taxonomy. Perhaps searching will help find a related post.', 'edd-digitalstore' ); ?></p>
                     <?php get_search_form(); ?>
                 </div><!-- .entry-content -->
                     

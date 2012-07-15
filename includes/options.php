@@ -23,12 +23,12 @@
 if ( ! function_exists( 'digitalstore_theme_options_init' ) ) {
     function digitalstore_theme_options_init() {
         register_setting( 'digitalstore_options', 'digitalstore_theme_options', 'digitalstore_theme_options_validate' );
-        add_settings_section( 'display',  __( 'Display Options', 'digitalstore-mattvarone' ), '__return_false', 'theme_options' );
-        add_settings_section( 'branding',  __( 'Branding', 'digitalstore-mattvarone' ), '__return_false', 'theme_options' );        
-        add_settings_field( 'logo_image', __( 'Logo Image', 'digitalstore-mattvarone' ), 'digitalstore_settings_field_logo_image', 'theme_options', 'branding' );
-        add_settings_field( 'theme_skin', __( 'Color Scheme', 'digitalstore-mattvarone' ), 'digitalstore_settings_field_skin', 'theme_options', 'display' );
-        add_settings_field( 'accent_color', __( 'Accent Color', 'digitalstore-mattvarone' ), 'digitalstore_settings_field_accent_color', 'theme_options', 'display' );
-        add_settings_field( 'footer_text', __( 'Footer Text', 'digitalstore-mattvarone' ), 'digitalstore_settings_field_footer_text', 'theme_options', 'branding' );
+        add_settings_section( 'display',  __( 'Display Options', 'edd-digitalstore' ), '__return_false', 'theme_options' );
+        add_settings_section( 'branding',  __( 'Branding', 'edd-digitalstore' ), '__return_false', 'theme_options' );        
+        add_settings_field( 'logo_image', __( 'Logo Image', 'edd-digitalstore' ), 'digitalstore_settings_field_logo_image', 'theme_options', 'branding' );
+        add_settings_field( 'theme_skin', __( 'Color Scheme', 'edd-digitalstore' ), 'digitalstore_settings_field_skin', 'theme_options', 'display' );
+        add_settings_field( 'accent_color', __( 'Accent Color', 'edd-digitalstore' ), 'digitalstore_settings_field_accent_color', 'theme_options', 'display' );
+        add_settings_field( 'footer_text', __( 'Footer Text', 'edd-digitalstore' ), 'digitalstore_settings_field_footer_text', 'theme_options', 'branding' );
     }
 }
 add_action( 'admin_init', 'digitalstore_theme_options_init' );
@@ -60,7 +60,7 @@ add_filter( 'option_page_capability_digitalstore_options', 'digitalstore_option_
 
 if ( ! function_exists( 'digitalstore_theme_options_add_page' ) ) {
     function digitalstore_theme_options_add_page() {
-        $page = add_theme_page( __( 'Theme Options', 'digitalstore-mattvarone' ), __( 'Options', 'digitalstore-mattvarone' ), 'edit_theme_options', 'theme_options', 'digitalstore_theme_options_render_page' );
+        $page = add_theme_page( __( 'Theme Options', 'edd-digitalstore' ), __( 'Options', 'edd-digitalstore' ), 'edit_theme_options', 'theme_options', 'digitalstore_theme_options_render_page' );
         add_action( "load-$page", 'digitalstore_options_take_action', 49 );
         add_filter( 'attachment_fields_to_edit', 'digitalstore_attachment_fields_to_edit', 10, 2 );
 		add_filter( 'media_upload_tabs', 'digitalstore_options_filter_upload_tabs' );
@@ -179,7 +179,7 @@ add_action( 'admin_init', 'digitalstore_options_handle_upload' );
 if ( ! function_exists( 'digitalstore_options_filter_upload_tabs' ) ) {
     function digitalstore_options_filter_upload_tabs( $tabs ) {
         if ( isset( $_REQUEST['context'] ) && $_REQUEST['context'] == 'custom-logo-image' )
-			return array( 'library' => __( 'Media Library', 'digitalstore-mattvarone' ) );
+			return array( 'library' => __( 'Media Library', 'edd-digitalstore' ) );
 
 		return $tabs;
     }
@@ -198,7 +198,7 @@ if ( ! function_exists( 'digitalstore_attachment_fields_to_edit' ) ) {
     function digitalstore_attachment_fields_to_edit( $form_fields, $post ) {
     	if ( isset( $_REQUEST['context'] ) && $_REQUEST['context'] == 'custom-logo-image' ) {
     		$form_fields = array( 'image-size' => $form_fields['image-size'] );
-    		$form_fields['buttons'] = array( 'tr' => '<tr class="submit"><td></td><td><a data-attachment-id="' . $post->ID . '" class="wp-set-logo-image" href="#">' . _( 'Set as logo', 'digitalstore-mattvarone' ) . '</a></td></tr>' );
+    		$form_fields['buttons'] = array( 'tr' => '<tr class="submit"><td></td><td><a data-attachment-id="' . $post->ID . '" class="wp-set-logo-image" href="#">' . _( 'Set as logo', 'edd-digitalstore' ) . '</a></td></tr>' );
     		$form_fields['context'] = array( 'input' => 'hidden', 'value' => 'custom-logo-image' );
     	}
 
@@ -221,7 +221,7 @@ if ( ! function_exists( 'digitalstore_get_theme_options' ) ) {
         
         $defaults = apply_filters( 'digitalstore_default_theme_options', array( 
             'logo_image' => '',
-            'footer_text' => sprintf( '<strong>EDD Digital Store</strong> %s <a href="http://mattvarone.com">Matt Varone</a>.', __( 'by' , 'digitalstore-mattvarone' ) ), 
+            'footer_text' => sprintf( '<strong>EDD Digital Store</strong> %s <a href="http://mattvarone.com">Matt Varone</a>.', __( 'by' , 'edd-digitalstore' ) ), 
             'theme_skin' => 'light', 
             'accent_color' => digitalstore_get_default_accent_color( 'light' ), 
          ) );
@@ -311,7 +311,7 @@ if ( ! function_exists( 'digitalstore_theme_options_render_page' ) ) {
         ?>
         <div class="wrap">
             <?php screen_icon(); ?>
-            <h2><?php printf( __( '%s Theme Options', 'digitalstore-mattvarone' ), wp_get_theme() ); ?></h2>
+            <h2><?php printf( __( '%s Theme Options', 'edd-digitalstore' ), wp_get_theme() ); ?></h2>
             <?php settings_errors(); ?>
             
             <form method="post" action="options.php" class="digitalstore-options-form" enctype="multipart/form-data">
@@ -372,27 +372,27 @@ if ( ! function_exists( 'digitalstore_settings_field_logo_image' ) ) {
         ?>
         
         <?php if ( isset( $options['logo_image'] ) && $options['logo_image'] != "" ): ?>
-            <img class="digitalstore-image-logo" src="<?php echo $options['logo_image']; ?>" alt="<?php esc_attr_e( 'Logo Image', 'digitalstore-mattvarone' ); ?>"/>
+            <img class="digitalstore-image-logo" src="<?php echo $options['logo_image']; ?>" alt="<?php esc_attr_e( 'Logo Image', 'edd-digitalstore' ); ?>"/>
             <br/>
             <?php wp_nonce_field( 'custom-logo-image-remove', '_wpnonce-logo-image-remove' ); ?>
-            <?php submit_button( __( 'Remove Logo Image', 'digitalstore-mattvarone' ), 'delete', 'digitalstore-remove-logo-image', false ); ?><br/>
-            <p class="description"><?php _e( 'This will remove the logo image.', 'digitalstore-mattvarone' ) ?></p>
+            <?php submit_button( __( 'Remove Logo Image', 'edd-digitalstore' ), 'delete', 'digitalstore-remove-logo-image', false ); ?><br/>
+            <p class="description"><?php _e( 'This will remove the logo image.', 'edd-digitalstore' ) ?></p>
             <br/>
         <?php endif; ?>
 
         <div id="upload-form">
-            <label for="upload"><?php _e( 'Choose an image from your computer:', 'digitalstore-mattvarone' ); ?></label>
+            <label for="upload"><?php _e( 'Choose an image from your computer:', 'edd-digitalstore' ); ?></label>
             <br/>
             <input type="file" id="upload" name="import" />
             <?php wp_nonce_field( 'digitalstore-custom-logo-image-upload', '_wpnonce-custom-logo-image-upload' ); ?>
-            <?php submit_button( __( 'Upload', 'digitalstore-mattvarone' ), 'button', 'digitalstore-upload-logo-image', false ); ?>
+            <?php submit_button( __( 'Upload', 'edd-digitalstore' ), 'button', 'digitalstore-upload-logo-image', false ); ?>
             <?php
                 $image_library_url = get_upload_iframe_src( 'image', null, 'library' );
         	    $image_library_url = remove_query_arg( 'TB_iframe', $image_library_url );
         	    $image_library_url = add_query_arg( array( 'context' => 'custom-logo-image', 'TB_iframe' => 1 ), $image_library_url );
             ?>
             <span class="howto">or</span>
-            <a class="thickbox" href="<?php echo $image_library_url; ?>"><?php _e( 'Choose from image library', 'digitalstore-mattvarone' ); ?></a>
+            <a class="thickbox" href="<?php echo $image_library_url; ?>"><?php _e( 'Choose from image library', 'edd-digitalstore' ); ?></a>
         </div>
         <?php
     }
@@ -425,7 +425,7 @@ if ( ! function_exists( 'digitalstore_settings_field_skin' ) ) {
                 }
             ?>
         </select>
-        <label class="description" for="digitalstore_theme_options[theme_skin]"><?php _e( 'Select the theme color scheme', 'digitalstore-mattvarone' ); ?>.</label>
+        <label class="description" for="digitalstore_theme_options[theme_skin]"><?php _e( 'Select the theme color scheme', 'edd-digitalstore' ); ?>.</label>
         <?php
     }
 }
@@ -445,10 +445,10 @@ if ( ! function_exists( 'digitalstore_settings_field_accent_color' ) ) {
         ?>
         <input type="text" name="digitalstore_theme_options[accent_color]" id="accent-color" value="<?php echo '#' . esc_attr( $options['accent_color'] ); ?>" />
         <a href="#" class="pickcolor hide-if-no-js" id="accent-color-example"></a>
-        <input type="button" class="pickcolor button hide-if-no-js" value="<?php esc_attr_e( 'Select a Color', 'digitalstore-mattvarone' ); ?>" />
+        <input type="button" class="pickcolor button hide-if-no-js" value="<?php esc_attr_e( 'Select a Color', 'edd-digitalstore' ); ?>" />
         <div id="colorPickerDiv" style="z-index: 100; background:#eee; border:1px solid #ccc; position:absolute; display:none;"></div>
         <br />
-        <span><?php printf( __( 'Default color: %s', 'digitalstore-mattvarone' ), '<span id="default-color">' . digitalstore_get_default_accent_color( $options['theme_skin'] ) . '</span>' ); ?></span>
+        <span><?php printf( __( 'Default color: %s', 'edd-digitalstore' ), '<span id="default-color">' . digitalstore_get_default_accent_color( $options['theme_skin'] ) . '</span>' ); ?></span>
         <?php
     }
 }
@@ -473,7 +473,7 @@ if ( ! function_exists( 'digitalstore_settings_field_footer_text' ) ) {
             <textarea class="large-text" name="digitalstore_theme_options[footer_text]" id="footer-text" cols="50" rows="4"><?php echo esc_textarea( $options['footer_text'] ); ?></textarea>
         <?php endif ?>
             
-        <label class="description" for="sample-text-input"><?php _e( 'The footer bottom left text', 'digitalstore-mattvarone' ); ?>.</label>
+        <label class="description" for="sample-text-input"><?php _e( 'The footer bottom left text', 'edd-digitalstore' ); ?>.</label>
         <?php
     }
 }

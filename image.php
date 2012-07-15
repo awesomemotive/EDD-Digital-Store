@@ -3,9 +3,9 @@
  * Image Attachment
  *
  * @package      Digital Store
- * @author       Matt Varone <contact@mattvarone.com>
- * @copyright    Copyright (c) 2012, Matt Varone
- * @link         http://www.mattvarone.com
+ * @author       Easy Digital Downloads - http://easydigitaldownloads.com
+ * @copyright    Copyright (c) 2012, Easy Digital Downloads
+ * @link         http://www.easydigitaldownloads.com.com
  * @license      http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since        1.0
 */
@@ -23,7 +23,7 @@ get_header('image'); ?>
                             <div class="entry-meta">
                                 <?php
                                     $metadata = wp_get_attachment_metadata();
-                                    printf( __( '<span class="meta-prep meta-prep-entry-date">Published </span> <span class="entry-date"><abbr class="published" title="%1$s">%2$s</abbr></span> at <a href="%3$s" title="Link to full-size image">%4$s &times; %5$s</a> in <a href="%6$s" title="Return to %7$s" rel="gallery">%8$s</a>', 'digitalstore-mattvarone' ),
+                                    printf( __( '<span class="meta-prep meta-prep-entry-date">Published </span> <span class="entry-date"><abbr class="published" title="%1$s">%2$s</abbr></span> at <a href="%3$s" title="Link to full-size image">%4$s &times; %5$s</a> in <a href="%6$s" title="Return to %7$s" rel="gallery">%8$s</a>', 'edd-digitalstore' ),
                                         esc_attr( get_the_time() ),
                                         get_the_date(),
                                         esc_url( wp_get_attachment_url() ),
@@ -76,7 +76,7 @@ get_header('image'); ?>
 
                             <div class="entry-description">
                                 <?php the_content(); ?>
-                                <?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'digitalstore-mattvarone' ) . '</span>', 'after' => '</div>' ) ); ?>
+                                <?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'edd-digitalstore' ) . '</span>', 'after' => '</div>' ) ); ?>
                             </div><!-- .entry-description -->
 
                         </div><!-- .entry-content -->

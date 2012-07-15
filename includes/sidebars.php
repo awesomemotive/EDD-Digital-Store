@@ -25,9 +25,9 @@
 if ( ! function_exists( 'digitalstore_theme_sidebars' ) ) {
     function digitalstore_theme_sidebars() {
         register_sidebar( array(
-            'name' => __( 'Primary | Widget Area', 'digitalstore-mattvarone' ),
+            'name' => __( 'Primary | Widget Area', 'edd-digitalstore' ),
             'id' => 'primary-widget-area',
-            'description' => __( 'The primary widgets area', 'digitalstore-mattvarone' ),
+            'description' => __( 'The primary widgets area', 'edd-digitalstore' ),
             'before_widget' => '<div class="%2$s widget">',
             'after_widget' => "</div>",
             'before_title' => '<h4 class="widget-title">',
@@ -35,9 +35,9 @@ if ( ! function_exists( 'digitalstore_theme_sidebars' ) ) {
          ) );
          
          register_sidebar( array(
-            'name' => __( 'Complementary | Widget Area', 'digitalstore-mattvarone' ),
+            'name' => __( 'Complementary | Widget Area', 'edd-digitalstore' ),
             'id' => 'complementary-widget-area',
-            'description' => __( 'The complementary widgets area', 'digitalstore-mattvarone' ),
+            'description' => __( 'The complementary widgets area', 'edd-digitalstore' ),
             'before_widget' => '<div class="%2$s widget">',
             'after_widget' => "</div>",
             'before_title' => '<h4 class="widget-title">',

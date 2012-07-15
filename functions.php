@@ -4,9 +4,9 @@
  *
  * @package      Digital Store
  * @subpackage   Functions
- * @author       Matt Varone <contact@mattvarone.com>
- * @copyright    Copyright (c) 2012, Matt Varone
- * @link         http://www.mattvarone.com
+ * @author       Easy Digital Downloads - http://easydigitaldownloads.com
+ * @copyright    Copyright (c) 2012, Easy Digital Downloads
+ * @link         http://www.easydigitaldownloads.com.com
  * @license      http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since        1.0
 */
@@ -39,7 +39,7 @@ if ( ! function_exists( 'digitalstore_theme_setup' ) ) {
          * Make the theme available for translation.
          * Translations can be added in the /lang/ directory.
          */
-        load_theme_textdomain( 'digitalstore-mattvarone', get_template_directory() . '/lang' );
+        load_theme_textdomain( 'edd-digitalstore', get_template_directory() . '/lang' );
         
         $locale = get_locale();
         $locale_file = get_template_directory() . "/lang/$locale.php";
@@ -70,8 +70,8 @@ if ( ! function_exists( 'digitalstore_theme_setup' ) ) {
         add_image_size( 'digitalstore_thumb_thumb', 55, 55, true );
         
         // Register theme navigations
-        register_nav_menu( 'primary', __( 'Primary Menu', 'digitalstore-mattvarone' ) );
-        register_nav_menu( 'secondary', __( 'Secondary Menu', 'digitalstore-mattvarone' ) );
+        register_nav_menu( 'primary', __( 'Primary Menu', 'edd-digitalstore' ) );
+        register_nav_menu( 'secondary', __( 'Secondary Menu', 'edd-digitalstore' ) );
         
         // Set the title
         add_filter( 'wp_title', 'digitalstore_site_title', 10, 3 );
@@ -180,15 +180,15 @@ if ( ! function_exists( 'digitalstore_theme_scripts' ) ) {
         $params = array( 
             'theme_uri'         => get_template_directory_uri(), 
             // Drop down menu
-            'in_goto'           => __( 'Go to...', 'digitalstore-mattvarone' ), 
+            'in_goto'           => __( 'Go to...', 'edd-digitalstore' ), 
             // EDD widget
-            'in_gotocheckout'   => __( 'Go to Checkout', 'digitalstore-mattvarone' ), 
+            'in_gotocheckout'   => __( 'Go to Checkout', 'edd-digitalstore' ), 
             'checkout_uri'      => edd_get_checkout_uri(), 
             // Comments validation
-            'in_author'         => __( 'Please enter a valid name.', 'digitalstore-mattvarone' ), 
-            'in_email'          => __( 'Please enter a valid email address.', 'digitalstore-mattvarone' ), 
-            'in_url'            => __( 'Please use a valid website address.', 'digitalstore-mattvarone' ), 
-            'in_comment'        => __( 'Message must be at least 2 characters long.', 'digitalstore-mattvarone' ), 
+            'in_author'         => __( 'Please enter a valid name.', 'edd-digitalstore' ), 
+            'in_email'          => __( 'Please enter a valid email address.', 'edd-digitalstore' ), 
+            'in_url'            => __( 'Please use a valid website address.', 'edd-digitalstore' ), 
+            'in_comment'        => __( 'Message must be at least 2 characters long.', 'edd-digitalstore' ), 
         );
         
         // Script localization
@@ -310,42 +310,42 @@ if ( ! function_exists( 'digitalstore_site_title' ) ) {
                 
             elseif ( is_date () ) {
                 if ( get_query_var( 'minute' ) && get_query_var( 'hour' ) )
-                    $out = sprintf( __( 'Archive for %1$s', 'digitalstore-mattvarone' ), get_the_time( __( 'g:i a', 'digitalstore-mattvarone' ) ) );
+                    $out = sprintf( __( 'Archive for %1$s', 'edd-digitalstore' ), get_the_time( __( 'g:i a', 'edd-digitalstore' ) ) );
                 
                 elseif ( get_query_var( 'minute' ) )
-                    $out = sprintf( __( 'Archive for minute %1$s', 'digitalstore-mattvarone' ), get_the_time( __( 'i', 'digitalstore-mattvarone' ) ) );
+                    $out = sprintf( __( 'Archive for minute %1$s', 'edd-digitalstore' ), get_the_time( __( 'i', 'edd-digitalstore' ) ) );
                 
                 elseif ( get_query_var( 'hour' ) )
-                    $out = sprintf( __( 'Archive for %1$s', 'digitalstore-mattvarone' ), get_the_time( __( 'g a', 'digitalstore-mattvarone' ) ) );
+                    $out = sprintf( __( 'Archive for %1$s', 'edd-digitalstore' ), get_the_time( __( 'g a', 'edd-digitalstore' ) ) );
                 
                 elseif ( is_day() )
-                    $out = sprintf( __( 'Archive for %1$s', 'digitalstore-mattvarone' ), get_the_time( __( 'F jS, Y', 'digitalstore-mattvarone' ) ) );
+                    $out = sprintf( __( 'Archive for %1$s', 'edd-digitalstore' ), get_the_time( __( 'F jS, Y', 'edd-digitalstore' ) ) );
                 
                 elseif ( get_query_var( 'w' ) )
-                    $out = sprintf( __( 'Archive for week %1$s of %2$s', 'digitalstore-mattvarone' ), get_the_time( __( 'W', 'digitalstore-mattvarone' ) ), get_the_time( __( 'Y', 'digitalstore-mattvarone' ) ) );
+                    $out = sprintf( __( 'Archive for week %1$s of %2$s', 'edd-digitalstore' ), get_the_time( __( 'W', 'edd-digitalstore' ) ), get_the_time( __( 'Y', 'edd-digitalstore' ) ) );
                 
                 elseif ( is_month() )
-                    $out = sprintf( __( 'Archive for %1$s', 'digitalstore-mattvarone' ), single_month_title( ' ', false ) );
+                    $out = sprintf( __( 'Archive for %1$s', 'edd-digitalstore' ), single_month_title( ' ', false ) );
                 
                 elseif ( is_year() )
-                    $out = sprintf( __( 'Archive for %1$s', 'digitalstore-mattvarone' ), get_the_time( __( 'Y', 'digitalstore-mattvarone' ) ) );
+                    $out = sprintf( __( 'Archive for %1$s', 'edd-digitalstore' ), get_the_time( __( 'Y', 'edd-digitalstore' ) ) );
             }
             
             $out .= $separator. get_bloginfo( 'name' );
         }
         
         elseif ( is_search() ){
-            $out = sprintf( __( 'Search results for &quot;%1$s&quot;', 'digitalstore-mattvarone' ), esc_attr( get_search_query() ) );
+            $out = sprintf( __( 'Search results for &quot;%1$s&quot;', 'edd-digitalstore' ), esc_attr( get_search_query() ) );
             $out .= $separator. get_bloginfo( 'name' );
         }
         
         elseif ( is_404() ) {
-            $out = __( '404 Not Found', 'digitalstore-mattvarone' );
+            $out = __( '404 Not Found', 'edd-digitalstore' );
             $out .= $separator. get_bloginfo( 'name' );
         }
         
         if ( ( ( $page = $wp_query->get( 'paged' ) ) || ( $page = $wp_query->get( 'page' ) ) ) && $page > 1 )
-            $out = sprintf( __( '%1$s Page %2$s', 'digitalstore-mattvarone' ), $out . $separator, $page );
+            $out = sprintf( __( '%1$s Page %2$s', 'edd-digitalstore' ), $out . $separator, $page );
         
         echo apply_filters( 'digitalstore_site_title_output', $out );
     }
@@ -452,7 +452,7 @@ if ( ! function_exists( 'digitalstore_continue_reading_link' ) ) {
         if ( is_singular( 'download' ) )
         return;
         
-        return ' <a href="'. esc_url( get_permalink() ) . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'digitalstore-mattvarone' ) . '</a>';
+        return ' <a href="'. esc_url( get_permalink() ) . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'edd-digitalstore' ) . '</a>';
     }
 }
 
@@ -594,23 +594,23 @@ if ( ! function_exists( 'digitalstore_posted_on' ) ) {
         if ( $features['show_author'] == 1 ) {
             $out .= ( $out != "" ) ? ' ' : '';
             $url  = esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) );
-            $out .= __( 'by ', 'digitalstore-mattvarone' );
-            $out .= '<a href="' . $url . '" title="' . esc_attr__( 'View all posts by this author' , 'digitalstore-mattvarone' ) . '" >' . get_the_author() . '</a>';
+            $out .= __( 'by ', 'edd-digitalstore' );
+            $out .= '<a href="' . $url . '" title="' . esc_attr__( 'View all posts by this author' , 'edd-digitalstore' ) . '" >' . get_the_author() . '</a>';
         }
         
         if ( $features['show_cats'] == 1 ) {
-            $categories_list = get_the_category_list( __( ', ', 'digitalstore-mattvarone' ) );
+            $categories_list = get_the_category_list( __( ', ', 'edd-digitalstore' ) );
             if ( $categories_list ){
                 $out .= ( $out != "" ) ? ' ' : '';
-                $out .= __( 'under ', 'digitalstore-mattvarone' ) . $categories_list; 
+                $out .= __( 'under ', 'edd-digitalstore' ) . $categories_list; 
             }
         }
         
         if ( $features['show_tags'] == 1 ) {
-            $tag_list = get_the_tag_list( '', __( ', ', 'digitalstore-mattvarone' ) );
+            $tag_list = get_the_tag_list( '', __( ', ', 'edd-digitalstore' ) );
             if ( $tag_list ) {
-                $out .= ( $out != "" ) ? __( ', ', 'digitalstore-mattvarone' ) : '';
-                $out .= __( 'tagged: ', 'digitalstore-mattvarone' ) . $tag_list;
+                $out .= ( $out != "" ) ? __( ', ', 'edd-digitalstore' ) : '';
+                $out .= __( 'tagged: ', 'edd-digitalstore' ) . $tag_list;
             }
         }
                 
@@ -654,9 +654,9 @@ if ( ! function_exists( 'digitalstore_add_to_cart_callback' ) ) {
         $out = '<div class="button-group add-to-cart clearfix">';
         
         if ( ! edd_item_in_cart( $post->ID ) ) {
-            $out .= do_shortcode( '[purchase_link id="' . $post->ID . '" text="' . esc_attr__( 'Add To Cart', 'digitalstore-mattvarone' ) . '" style="blue" type="text"]' );
+            $out .= do_shortcode( '[purchase_link id="' . $post->ID . '" text="' . esc_attr__( 'Add To Cart', 'edd-digitalstore' ) . '" style="blue" type="text"]' );
         } else {
-            $out .= '<a href="' . get_permalink( $edd_options['purchase_page'] ) . '" class="edd_go_to_checkout edd_button">' . __( 'Checkout', 'digitalstore-mattvarone' ) . '</a>';
+            $out .= '<a href="' . get_permalink( $edd_options['purchase_page'] ) . '" class="edd_go_to_checkout edd_button">' . __( 'Checkout', 'edd-digitalstore' ) . '</a>';
         }
         
         $out .= '<button class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu">';
@@ -668,33 +668,33 @@ if ( ! function_exists( 'digitalstore_add_to_cart_callback' ) ) {
             $actions = array( 
                 'buy' => array( 
                     'href' => '#addtocart', 
-                    'title' => sprintf( __( 'Buy %s', 'digitalstore-mattvarone' ), $title ), 
-                    'text' => __( 'Buy this File', 'digitalstore-mattvarone' ), 
+                    'title' => sprintf( __( 'Buy %s', 'edd-digitalstore' ), $title ), 
+                    'text' => __( 'Buy this File', 'edd-digitalstore' ), 
             ) );
         } else {
             $actions = array( 
                 'checkout' => array( 
                     'href' => get_permalink( $edd_options['purchase_page'] ), 
-                    'title' => __( 'Checkout', 'digitalstore-mattvarone' ), 
-                    'text' => __( 'Go to Checkout', 'digitalstore-mattvarone' ), 
+                    'title' => __( 'Checkout', 'edd-digitalstore' ), 
+                    'text' => __( 'Go to Checkout', 'edd-digitalstore' ), 
             ) );
         }
         
         $filterable_actions = array( 
             'twitter' => array( 
-                'href' => sprintf( 'http://twitter.com/home?status=%s', sprintf( __( 'Check this out: %s', 'digitalstore-mattvarone' ), $permalink ) ), 
-                'title' => sprintf( __( 'Share %s on Twitter', 'digitalstore-mattvarone' ), $title ), 
-                'text' => __( 'Share on Twitter', 'digitalstore-mattvarone' ), 
+                'href' => sprintf( 'http://twitter.com/home?status=%s', sprintf( __( 'Check this out: %s', 'edd-digitalstore' ), $permalink ) ), 
+                'title' => sprintf( __( 'Share %s on Twitter', 'edd-digitalstore' ), $title ), 
+                'text' => __( 'Share on Twitter', 'edd-digitalstore' ), 
             ), 
             'googleplus' => array( 
                 'href' => sprintf( 'https://plus.google.com/share?url=%s', $permalink ), 
-                'title' => sprintf( __( 'Add %s to Google Plus', 'digitalstore-mattvarone' ), $title ), 
-                'text' => __( 'Add to Google+', 'digitalstore-mattvarone' ), 
+                'title' => sprintf( __( 'Add %s to Google Plus', 'edd-digitalstore' ), $title ), 
+                'text' => __( 'Add to Google+', 'edd-digitalstore' ), 
             ), 
             'facebook' => array( 
-                'href' => sprintf( 'http://www.facebook.com/sharer.php?u=%s&t=%s', $permalink, __( 'Check this out', 'digitalstore-mattvarone' ) ), 
-                'title' => sprintf( __( 'Share %s on Facebook', 'digitalstore-mattvarone' ), $title ), 
-                'text' => __( 'Share on Facebook', 'digitalstore-mattvarone' ), 
+                'href' => sprintf( 'http://www.facebook.com/sharer.php?u=%s&t=%s', $permalink, __( 'Check this out', 'edd-digitalstore' ) ), 
+                'title' => sprintf( __( 'Share %s on Facebook', 'edd-digitalstore' ), $title ), 
+                'text' => __( 'Share on Facebook', 'edd-digitalstore' ), 
             )
         );
         

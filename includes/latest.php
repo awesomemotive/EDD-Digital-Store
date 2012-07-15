@@ -27,7 +27,7 @@ if ( ! function_exists( 'digitalstore_latest_downloads' ) ) {
         
         // parse attributes
         $atts = wp_parse_args( $args, array(
-            'title'    =>  __( 'Latest %s', 'digitalstore-mattvarone' ),
+            'title'    =>  __( 'Latest %s', 'edd-digitalstore' ),
             'all'      => 1,
             'limit'    => 6,
             'thumb'    => 1,
@@ -59,7 +59,7 @@ if ( ! function_exists( 'digitalstore_latest_downloads' ) ) {
             <div class="section-title">                        
                 <h3 class="latest-<?php echo $class; ?>-title"><?php  printf( $atts['title'], $post_type_obj->labels->menu_name ); ?></h3>
                 <?php if ( $atts['all'] == 1 ): ?>
-                    <a href="<?php echo get_post_type_archive_link( 'download' ); ?>" class="view-all" ><span><?php _e( 'View All', 'digitalstore-mattvarone' ); ?></span></a><!-- .view-all -->
+                    <a href="<?php echo get_post_type_archive_link( 'download' ); ?>" class="view-all" ><span><?php _e( 'View All', 'edd-digitalstore' ); ?></span></a><!-- .view-all -->
                 <?php endif; ?>
             </div><!-- .section-title -->
             <ul class="latest-<?php echo $class; ?>">

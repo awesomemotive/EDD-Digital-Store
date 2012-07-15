@@ -40,10 +40,10 @@ if ( ! function_exists( 'digitalstore_breadcrubms' ) ) {
         $out = '<p class="breadcrumbs">';          
                 
         if ( $on_front == "page" && is_home() ) {
-            $blog_title = isset( $blog_page ) ? get_the_title( $blog_page ) : __( 'Our Blog', 'digitalstore-mattvarone' );
-            $out .= sprintf( $link, site_url(), __( 'Home', 'digitalstore-mattvarone' ) ) . $separator . sprintf( $current, $blog_title );
+            $blog_title = isset( $blog_page ) ? get_the_title( $blog_page ) : __( 'Our Blog', 'edd-digitalstore' );
+            $out .= sprintf( $link, site_url(), __( 'Home', 'edd-digitalstore' ) ) . $separator . sprintf( $current, $blog_title );
         } else {
-            $out .= sprintf( $link, site_url(), __( 'Home', 'digitalstore-mattvarone' ) );
+            $out .= sprintf( $link, site_url(), __( 'Home', 'edd-digitalstore' ) );
         }
         
         if ( is_singular() ) {
@@ -87,9 +87,9 @@ if ( ! function_exists( 'digitalstore_breadcrubms' ) ) {
                 }
                 $out .= $separator . sprintf( $current, $wp_query->queried_object->name );
             } else if ( is_category() ) {
-                $out .= $separator . __( 'Category: ', 'digitalstore-mattvarone' ) . sprintf( $current, $wp_query->queried_object->name );
+                $out .= $separator . __( 'Category: ', 'edd-digitalstore' ) . sprintf( $current, $wp_query->queried_object->name );
             } else if ( is_tag() ) {
-                $out .= $separator . __( 'Tag: ', 'digitalstore-mattvarone' ) . sprintf( $current, $wp_query->queried_object->name );
+                $out .= $separator . __( 'Tag: ', 'edd-digitalstore' ) . sprintf( $current, $wp_query->queried_object->name );
             } else if ( is_date() ) {
                 $out .= $separator;
                 if ( is_day() ) {
@@ -102,9 +102,9 @@ if ( ! function_exists( 'digitalstore_breadcrubms' ) ) {
                     $out .= sprintf( $current, get_query_var( 'year' ) );
                 }
             } else if ( is_404() ) {
-                $out .= $separator . sprintf( $current, __( 'Error 404', 'digitalstore-mattvarone' ) );
+                $out .= $separator . sprintf( $current, __( 'Error 404', 'edd-digitalstore' ) );
             } else if ( is_search() ) {
-                $out .= $separator . sprintf( $current, __( 'Search', 'digitalstore-mattvarone' ) );
+                $out .= $separator . sprintf( $current, __( 'Search', 'edd-digitalstore' ) );
             }
             
         } 

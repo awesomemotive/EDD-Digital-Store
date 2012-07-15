@@ -41,7 +41,7 @@ if ( ! function_exists( 'digitalstore_preview_add_controls' ) ) {
         
         /* Skin */
         $wp_customize->add_section( 'digitalstore_skins', array(
-            'title'    => __( 'Skins', 'digitalstore-mattvarone' ),
+            'title'    => __( 'Skins', 'edd-digitalstore' ),
             'priority' => 6,
          ) );
         
@@ -53,7 +53,7 @@ if ( ! function_exists( 'digitalstore_preview_add_controls' ) ) {
          ) );
 
         $wp_customize->add_control( 'digitalstore_theme_options[theme_skin]', array(
-            'label'      => __( 'Variations', 'digitalstore-mattvarone' ),
+            'label'      => __( 'Variations', 'edd-digitalstore' ),
             'section'    => 'digitalstore_skins',
             'type'       => 'select',
             'choices'    => digitalstore_theme_skin_options(),
@@ -69,13 +69,13 @@ if ( ! function_exists( 'digitalstore_preview_add_controls' ) ) {
          ) );
         
         $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'digitalstore_theme_options[accent_color]', array(
-            'label'   => __( 'Highlight Color', 'digitalstore-mattvarone' ),
+            'label'   => __( 'Highlight Color', 'edd-digitalstore' ),
             'section' => 'digitalstore_skins',
          ) ) );
                
         /* Footer Text */
         $wp_customize->add_section( 'digitalstore_footer', array(
-            'title'    => __( 'Footer', 'digitalstore-mattvarone' ),
+            'title'    => __( 'Footer', 'edd-digitalstore' ),
             'priority' => 45,
          ) );
 
@@ -88,7 +88,7 @@ if ( ! function_exists( 'digitalstore_preview_add_controls' ) ) {
          ) );
 
         $wp_customize->add_control( new DigitalStore_WP_Customize_Textarea_Control( $wp_customize, 'digitalstore_theme_options[footer_text]', array(
-            'label'    => __( 'Footer Text', 'digitalstore-mattvarone' ),
+            'label'    => __( 'Footer Text', 'edd-digitalstore' ),
             'section'  => 'digitalstore_footer',
          ) ) );
      

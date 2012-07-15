@@ -34,7 +34,7 @@ function digitalstore_pagination( $range = 4, $return = false, $_wp_query = null
     
     $out = '<p class="digitalstore-pagination">';
     
-    $pages_text = sprintf( __( 'Page %d of %d', 'digitalstore-mattvarone' ), number_format_i18n( $paged ), number_format_i18n( $max_page ) );
+    $pages_text = sprintf( __( 'Page %d of %d', 'edd-digitalstore' ), number_format_i18n( $paged ), number_format_i18n( $max_page ) );
     
     $out .= '<span class="pages">' . $pages_text . '</span>';
     
@@ -44,8 +44,8 @@ function digitalstore_pagination( $range = 4, $return = false, $_wp_query = null
       'total'       => $wp_query->max_num_pages,
       'current'     => $current,
       'end_size'    => $range,
-      'prev_text'   => __( '&laquo;', 'digitalstore-mattvarone' ),
-      'next_text'   => __( '&raquo;', 'digitalstore-mattvarone' ),
+      'prev_text'   => __( '&laquo;', 'edd-digitalstore' ),
+      'next_text'   => __( '&raquo;', 'edd-digitalstore' ),
       'type'        => 'plain'
     );
     

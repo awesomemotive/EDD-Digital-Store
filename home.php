@@ -3,9 +3,9 @@
  * Default Template
  *
  * @package      Digital Store
- * @author       Matt Varone <contact@mattvarone.com>
- * @copyright    Copyright (c) 2012, Matt Varone
- * @link         http://www.mattvarone.com
+ * @author       Easy Digital Downloads - http://easydigitaldownloads.com
+ * @copyright    Copyright (c) 2012, Easy Digital Downloads
+ * @link         http://www.easydigitaldownloads.com.com
  * @license      http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since        1.0
 */
@@ -24,7 +24,7 @@ get_header(); ?>
         <header class="page-header">
             <h1 class="page-title"><?php 
                 $blog_page = get_option( 'page_for_posts' );
-                echo isset( $blog_page ) ? get_the_title( $blog_page ) : __( 'Our Blog', 'digitalstore-mattvarone' );
+                echo isset( $blog_page ) ? get_the_title( $blog_page ) : __( 'Our Blog', 'edd-digitalstore' );
             ?></h1><!-- .page-title -->
         </header><!-- .page-header -->
         

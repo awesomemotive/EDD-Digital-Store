@@ -41,8 +41,8 @@ if ( ! class_exists( 'DigitalStore_WP_Customize_Logo_Image_Control' ) ) {
     			'context'  => 'custom-logo-image', 
     			'removed'  => 'removed', 
     			'statuses' => array( 
-    			    '' => __( 'No Image', 'digitalstore-mattvarone' ),
-    			    'removed' => __( 'Removed', 'digitalstore-mattvarone' )
+    			    '' => __( 'No Image', 'edd-digitalstore' ),
+    			    'removed' => __( 'Removed', 'edd-digitalstore' )
     			)
     		 ) );
     	}

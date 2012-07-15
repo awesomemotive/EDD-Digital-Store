@@ -51,16 +51,16 @@ if ( ! function_exists( 'digitalstore_theme_mce_styles' ) ) {
       $style_formats = array(
           
           // Buttons
-          array( 'title' => __( 'Buttons', 'digitalstore-mattvarone' ) ),
+          array( 'title' => __( 'Buttons', 'edd-digitalstore' ) ),
           // Primary Button
-          array( 'title' => __( 'Button', 'digitalstore-mattvarone' ), 'inline' => 'span',  'classes' => 'button' ),
+          array( 'title' => __( 'Button', 'edd-digitalstore' ), 'inline' => 'span',  'classes' => 'button' ),
           // Smaller Button
-          array( 'title' => __( 'Button Small', 'digitalstore-mattvarone' ), 'inline' => 'span',  'classes' => 'button btn-small' ),
+          array( 'title' => __( 'Button Small', 'edd-digitalstore' ), 'inline' => 'span',  'classes' => 'button btn-small' ),
           
           // Utilities
-          array( 'title' => __( 'Utility', 'digitalstore-mattvarone' ) ),
+          array( 'title' => __( 'Utility', 'edd-digitalstore' ) ),
           // Highlight text
-          array( 'title' => __( 'Highlight', 'digitalstore-mattvarone' ), 'inline'   => 'span', 'classes' => 'highlight' ),
+          array( 'title' => __( 'Highlight', 'edd-digitalstore' ), 'inline'   => 'span', 'classes' => 'highlight' ),
       );
 
       $settings['style_formats'] = json_encode( $style_formats );

@@ -5,8 +5,9 @@
  * This file will be loaded by WordPress for all 404 views.
  *
  * @package      Digital Store
- * @author       Matt Varone <contact@mattvarone.com>
- * @copyright    Copyright (c) 2012, Matt Varone 
+ * @author       Easy Digital Downloads - http://easydigitaldownloads.com
+ * @copyright    Copyright (c) 2012, Easy Digital Downloads
+ * @link         http://www.easydigitaldownloads.com.com
  * @license      http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since        1.0
 */
@@ -22,15 +23,15 @@ get_header( '404' ); ?>
                 <?php do_action( 'digitalstore_before_template_header' ); ?>
 
                 <header class="entry-header">
-                    <h1 class="entry-title"><?php _e( 'Error 404', 'digitalstore-mattvarone' ); ?></h1><!-- entry-header -->
+                    <h1 class="entry-title"><?php _e( 'Error 404', 'edd-digitalstore' ); ?></h1><!-- entry-header -->
                 </header><!-- .entry-header -->
 
                 <div class="entry-content">
-                    <p><?php _e( 'Sorry, but the content you are looking for could not be found. It may have been moved or even deleted. Please try searching or use one of the links below.', 'digitalstore-mattvarone' ); ?></p>
+                    <p><?php _e( 'Sorry, but the content you are looking for could not be found. It may have been moved or even deleted. Please try searching or use one of the links below.', 'edd-digitalstore' ); ?></p>
 
                     <?php get_search_form(); ?>
 
-                    <h3><?php _e( 'Recent Posts', 'digitalstore-mattvarone' ); ?></h3>
+                    <h3><?php _e( 'Recent Posts', 'edd-digitalstore' ); ?></h3>
 
                     <ul>
                     <?php
@@ -42,7 +43,7 @@ get_header( '404' ); ?>
                     ?>
                     </ul>
 
-                    <h3><?php _e( 'Topics', 'digitalstore-mattvarone' ); ?></h3>
+                    <h3><?php _e( 'Topics', 'edd-digitalstore' ); ?></h3>
 
                     <div class="topics">
                     <?php

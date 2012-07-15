@@ -3,9 +3,9 @@
  * Partial: Content Download
  *
  * @package      Digital Store
- * @author       Matt Varone <contact@mattvarone.com>
- * @copyright    Copyright (c) 2012, Matt Varone
- * @link         http://www.mattvarone.com
+ * @author       Easy Digital Downloads - http://easydigitaldownloads.com
+ * @copyright    Copyright (c) 2012, Easy Digital Downloads
+ * @link         http://www.easydigitaldownloads.com.com
  * @license      http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since        1.0
 */
@@ -38,12 +38,12 @@ do_action( 'digitalstore_before_content', $post ); ?>
                 <?php
                     if ( ! edd_item_in_cart( $post->ID ) ) {
                         if ( edd_has_variable_prices( $post->ID ) ) {
-                            echo '<a href="' . get_permalink() . '" class="btn-small button edd_button">' . __( 'View Details', 'digitalstore-mattvarone' ) . '</a>';
+                            echo '<a href="' . get_permalink() . '" class="btn-small button edd_button">' . __( 'View Details', 'edd-digitalstore' ) . '</a>';
                         } else {
-                            echo do_shortcode( '[purchase_link id="' . $post->ID . '" text="' . __( 'Add To Cart', 'digitalstore-mattvarone' ) . '" style="blue"]' );
+                            echo do_shortcode( '[purchase_link id="' . $post->ID . '" text="' . __( 'Add To Cart', 'edd-digitalstore' ) . '" style="blue"]' );
                         }
                     } else {
-                        echo '<a href="' . get_permalink( $edd_options['purchase_page'] ) . '" class="edd_go_to_checkout edd_button">' . __( 'Checkout', 'digitalstore-mattvarone' ) . '</a>';
+                        echo '<a href="' . get_permalink( $edd_options['purchase_page'] ) . '" class="edd_go_to_checkout edd_button">' . __( 'Checkout', 'edd-digitalstore' ) . '</a>';
                     }
                 ?>                
                 <span class="entry-price"><?php echo digitalstore_edd_the_price( $post->ID ); ?></span>

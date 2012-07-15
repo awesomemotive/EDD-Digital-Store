@@ -3,9 +3,9 @@
  * Partial: Content Page 
  *
  * @package      Digital Store
- * @author       Matt Varone <contact@mattvarone.com>
- * @copyright    Copyright (c) 2012, Matt Varone
- * @link         http://www.mattvarone.com
+ * @author       Easy Digital Downloads - http://easydigitaldownloads.com
+ * @copyright    Copyright (c) 2012, Easy Digital Downloads
+ * @link         http://www.easydigitaldownloads.com.com
  * @license      http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since        1.0
 */
@@ -33,8 +33,8 @@ do_action( 'digitalstore_before_content', $post ); ?>
         <?php endif ?>
         
         <div class="entry-content">
-            <?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'digitalstore-mattvarone' ) ); ?>
-            <?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'digitalstore-mattvarone' ), 'after' => '</div>' ) ); ?>
+            <?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'edd-digitalstore' ) ); ?>
+            <?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'edd-digitalstore' ), 'after' => '</div>' ) ); ?>
         </div><!-- .entry-content -->
         
         <?php edit_post_link(); ?>

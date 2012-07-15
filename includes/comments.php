@@ -33,7 +33,7 @@ if ( ! function_exists( 'digitalstore_theme_comment' ) ) {
             case 'trackback' :
         ?>
         <li class="pingback">
-            <p><span class="fn"><?php _e( 'Pingback', 'digitalstore-mattvarone' ); ?></span> <?php comment_author_link(); ?><?php edit_comment_link( __( 'Edit', 'digitalstore-mattvarone' ), '<span class="edit-link">', '</span>' ); ?></p>
+            <p><span class="fn"><?php _e( 'Pingback', 'edd-digitalstore' ); ?></span> <?php comment_author_link(); ?><?php edit_comment_link( __( 'Edit', 'edd-digitalstore' ), '<span class="edit-link">', '</span>' ); ?></p>
         <?php
             break;
             default :
@@ -49,13 +49,13 @@ if ( ! function_exists( 'digitalstore_theme_comment' ) ) {
                             </div><!-- comment-avatar -->
 
                             <div class="comment-author-meta">
-                                <?php printf( __( '<span class="fn">%s</span>', 'digitalstore-mattvarone' ), get_comment_author_link() ); ?>
+                                <?php printf( __( '<span class="fn">%s</span>', 'edd-digitalstore' ), get_comment_author_link() ); ?>
                                 <?php
 
                                 printf( '<time pubdate datetime="%2$s">%3$s</time> <a href="%1$s" class="comment-link">#</a>',
                                     esc_url( get_comment_link( $comment->comment_ID ) ),
                                     get_comment_time( 'c' ),
-                                    sprintf( __( '%1$s %2$s', 'digitalstore-mattvarone' ), get_comment_date(), get_comment_time() )
+                                    sprintf( __( '%1$s %2$s', 'edd-digitalstore' ), get_comment_date(), get_comment_time() )
                                      );
                                 ?>
                             </div><!-- comment-author-meta -->
@@ -66,7 +66,7 @@ if ( ! function_exists( 'digitalstore_theme_comment' ) ) {
 
                                 <?php if ( $comment->comment_approved == '0' ) : ?>
                                     <em class="comment-awaiting-moderation">
-                                        <?php _e( 'Your comment is awaiting moderation.', 'digitalstore-mattvarone' ); ?>
+                                        <?php _e( 'Your comment is awaiting moderation.', 'edd-digitalstore' ); ?>
                                     </em><!-- .comment-awaiting-moderation -->
                                 <?php endif; ?>
 
@@ -78,13 +78,13 @@ if ( ! function_exists( 'digitalstore_theme_comment' ) ) {
                                     <?php
 
                                     printf( '<span class="reply">%1$s</span>',
-                                        get_comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply', 'digitalstore-mattvarone' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) )
+                                        get_comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply', 'edd-digitalstore' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) )
                                      ) );
 
                                     if ( current_user_can( 'moderate_comments' ) ) {
-                                        echo '<a href="' . get_edit_comment_link( $comment->comment_ID ) . '" title="' . __( 'Edit this comment', 'digitalstore-mattvarone' ) . '">' . __( 'Edit', 'digitalstore-mattvarone' ) . '</a>';
-                                        echo ' &middot; <a href="' . admin_url( "comment.php?action=cdc&dt&c=" . $comment->comment_ID ) . ' title="'. __( 'Delete this comment', 'digitalstore-mattvarone' ) .'">' . __( 'Delete', 'digitalstore-mattvarone' ) . '</a>';
-                                        echo ' &middot; <a href="' . admin_url( "comment.php?action=cdc&dt=spam&c=" . $comment->comment_ID ) . ' title="'. __( 'Mark comment as Spam', 'digitalstore-mattvarone' ) . '">' . __( 'Spam', 'digitalstore-mattvarone' ) . '</a>';
+                                        echo '<a href="' . get_edit_comment_link( $comment->comment_ID ) . '" title="' . __( 'Edit this comment', 'edd-digitalstore' ) . '">' . __( 'Edit', 'edd-digitalstore' ) . '</a>';
+                                        echo ' &middot; <a href="' . admin_url( "comment.php?action=cdc&dt&c=" . $comment->comment_ID ) . ' title="'. __( 'Delete this comment', 'edd-digitalstore' ) .'">' . __( 'Delete', 'edd-digitalstore' ) . '</a>';
+                                        echo ' &middot; <a href="' . admin_url( "comment.php?action=cdc&dt=spam&c=" . $comment->comment_ID ) . ' title="'. __( 'Mark comment as Spam', 'edd-digitalstore' ) . '">' . __( 'Spam', 'edd-digitalstore' ) . '</a>';
                                     }
                                     ?>
                                 </span><!-- .comment-meta -->

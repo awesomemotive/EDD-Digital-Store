@@ -136,7 +136,7 @@ pre {
   white-space: pre;
   white-space: pre-wrap;
   word-wrap: break-word;
-  padding: 20px;
+  padding: 0 20px 20px;
   font-size: 13px;
   line-height: 1.53847em;
   -webkit-transition: background 0.4s ease;
@@ -819,12 +819,18 @@ html[xmlns] .slides {
   overflow: hidden;
 }
 
-.entry-content h2 {
+.entry-content h1, .entry-content h2 {
   margin-bottom: 1.071em;
 }
 
 .entry-content ul {
   list-style: square;
+  margin: 0 30px 1.071em;
+}
+
+.entry-content ol {
+  list-style: decimal;
+  margin: 0 30px 1.071em;
 }
 
 .entry-content a:hover, .widget a:hover {
@@ -1590,6 +1596,7 @@ input, textarea {
   font-weight: bold;
   font-size: 1.077em;
   line-height: 1.143em;
+  height: auto;
   text-shadow: 0 1px 1px #072038;
   vertical-align: middle;
   cursor: pointer;

@@ -91,6 +91,9 @@ if ( ! function_exists( 'digitalstore_theme_setup' ) ) {
         // Disable the automatic purchase button
         remove_filter( 'the_content', 'edd_append_purchase_link' );
         
+        // Remove default EDD CSS
+        remove_action( 'wp_enqueue_scripts', 'edd_register_styles' );
+
         // Add to cart button
         add_action( 'digitalstore_add_to_cart', 'digitalstore_add_to_cart_callback' );
         
@@ -652,9 +655,10 @@ if ( ! function_exists( 'digitalstore_add_to_cart_callback' ) ) {
         global $edd_options;
         
         $out = '<div class="button-group add-to-cart clearfix">';
-        
+    
+
         if ( ! edd_item_in_cart( $post->ID ) ) {
-            $out .= do_shortcode( '[purchase_link id="' . $post->ID . '" text="' . esc_attr__( 'Add To Cart', 'edd-digitalstore' ) . '" style="blue" type="text"]' );
+            $out .= do_shortcode( '[purchase_link id="' . $post->ID . '" text="' . esc_attr__( 'Add To Cart', 'edd-digitalstore' ) . '" style="text"]' );
         } else {
             $out .= '<a href="' . get_permalink( $edd_options['purchase_page'] ) . '" class="edd_go_to_checkout edd_button">' . __( 'Checkout', 'edd-digitalstore' ) . '</a>';
         }

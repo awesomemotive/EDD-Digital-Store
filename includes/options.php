@@ -4,9 +4,9 @@
  *
  * @package      Digital Store
  * @subpackage   Options
- * @author       Matt Varone <contact@mattvarone.com>
- * @copyright    Copyright (c) 2012, Matt Varone
- * @link         http://www.mattvarone.com
+ * @author       Easy Digital Downloads - http://easydigitaldownloads.com
+ * @copyright    Copyright (c) 2012, Easy Digital Downloads
+ * @link         http://www.easydigitaldownloads.com.com
  * @license      http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since        1.0
 */
@@ -221,7 +221,7 @@ if ( ! function_exists( 'digitalstore_get_theme_options' ) ) {
         
         $defaults = apply_filters( 'digitalstore_default_theme_options', array( 
             'logo_image' => '',
-            'footer_text' => sprintf( '<strong>EDD Digital Store</strong> %s <a href="http://mattvarone.com">Matt Varone</a>.', __( 'by' , 'edd-digitalstore' ) ), 
+            'footer_text' => sprintf( '<strong>EDD Digital Store</strong> %s <a href="http://easydigitaldownloads.com">Easy Digital Downloads</a>.', __( 'by' , 'edd-digitalstore' ) ), 
             'theme_skin' => 'light', 
             'accent_color' => digitalstore_get_default_accent_color( 'light' ), 
          ) );

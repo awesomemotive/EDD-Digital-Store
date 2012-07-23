@@ -4,7 +4,8 @@ Theme URI: http://www.easydigitaldownloads.com/theme/digitalstore
 Description: A semantic & responsive HTML5 theme for your awesome digital store.
 Author: Easy Digital Downloads
 Author URI: http://www.easydigitaldownloads.com/
-Version: 1.0
+Version: 0.9
+Github Theme URI: https://github.com/sksmatt/Digital-Store
 Tags: white, dark, light, flexible-width, custom-colors, editor-style, featured-images, threaded-comments, translation-ready
 license: GPL2
 License URI: http://opensource.org/licenses/gpl-2.0.php
@@ -1978,6 +1979,16 @@ input, textarea {
 
 #complementary .widget:nth-child(5n) {
   clear: left;
+}
+
+#complementary ul.menu li a {
+  font-weight: normal;
+  color: #3C9BE3;
+}
+
+#complementary ul.menu li a:hover {
+  border-bottom: none;
+  text-decoration: underline;
 }
 
 /* =Sidebars

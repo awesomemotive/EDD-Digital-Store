@@ -63,7 +63,7 @@ if ( ! function_exists( 'digitalstore_preview_add_controls' ) ) {
         $wp_customize->add_setting( 'digitalstore_theme_options[accent_color]', array(
             'default'           => $options['accent_color'],
             'control'           => 'color',
-            'sanitize_callback' => 'sanitize_hexcolor',
+            'sanitize_callback' => 'digitalstore_sanitize_hex',
             'capability'        => digitalstore_option_page_capability(),
             'type'              => 'option',
          ) );
@@ -110,6 +110,23 @@ add_action( 'customize_register', 'digitalstore_preview_add_controls' );
 if ( ! function_exists( 'digitalstore_sanitize_footer_text' ) ) {
     function digitalstore_sanitize_footer_text( $value = "" ) {
         return stripslashes_deep( $value );
+    }
+}
+
+
+/** 
+ * Digital Store Sanitize Hex Color
+ *
+ * Sanitizes the color picker color codes
+ *
+ * @return   string
+ * @access   private
+ * @since    1.0
+*/
+
+if ( ! function_exists( 'digitalstore_sanitize_hex' ) ) {
+    function digitalstore_sanitize_hex( $color = "" ) {
+        return stripslashes_deep( $color );
     }
 }
 

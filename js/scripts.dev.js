@@ -1,4 +1,4 @@
-/* Digital Store scripts by Matt Varone - http://www.mattvarone.com */
+/* Digital Store scripts by Easy Digital Downloads - http://easydigitaldownloads.com */
 
 var digitalstore_theme_js_params;
 (function ($, digitalstore_theme_js_params) {

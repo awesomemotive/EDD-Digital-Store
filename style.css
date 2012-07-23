@@ -720,8 +720,8 @@ html[xmlns] .slides {
 }
 
 .flex-control-nav li a {
-  width: 1.429em;
-  height: 1.429em;
+  width: 10px;
+  height: 10px;
   display: block;
   background: url(img/slideshow/bg-slideshow-pag.png) no-repeat 0 0;
   cursor: pointer;
@@ -729,11 +729,11 @@ html[xmlns] .slides {
 }
 
 .flex-control-nav li a:hover {
-  background-position: 0 -1.429em;
+  background-position: -10px 0;
 }
 
 .flex-control-nav li a.active {
-  background-position: 0 -2.857em;
+  background-position: -10px 0;
   cursor: default;
 }
 

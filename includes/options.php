@@ -198,7 +198,7 @@ if ( ! function_exists( 'digitalstore_attachment_fields_to_edit' ) ) {
     function digitalstore_attachment_fields_to_edit( $form_fields, $post ) {
     	if ( isset( $_REQUEST['context'] ) && $_REQUEST['context'] == 'custom-logo-image' ) {
     		$form_fields = array( 'image-size' => $form_fields['image-size'] );
-    		$form_fields['buttons'] = array( 'tr' => '<tr class="submit"><td></td><td><a data-attachment-id="' . $post->ID . '" class="wp-set-logo-image" href="#">' . _( 'Set as logo', 'edd-digitalstore' ) . '</a></td></tr>' );
+    		$form_fields['buttons'] = array( 'tr' => '<tr class="submit"><td></td><td><a data-attachment-id="' . $post->ID . '" class="wp-set-logo-image" href="#">' . __( 'Set as logo', 'edd-digitalstore' ) . '</a></td></tr>' );
     		$form_fields['context'] = array( 'input' => 'hidden', 'value' => 'custom-logo-image' );
     	}
 

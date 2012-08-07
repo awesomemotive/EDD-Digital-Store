@@ -2349,6 +2349,7 @@ a.widget-download-title:hover {
     clear: none;
     margin-right: 0;
     text-align:center;
+    font-size: 10px;
   }
 
   #complementary .widget {

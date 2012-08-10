@@ -144,7 +144,7 @@ if ( ! function_exists( 'digitalstore_theme_setup' ) ) {
         $includes = apply_filters( 'digitalstore_theme_includes', $filterable_includes );
         
         // Include the theme functions files
-        foreach ( $includes as $include ) {
+        foreach ( $includes as $key => $include ) {
             locate_template( $include, true );
         }
     }

@@ -1,4 +1,3 @@
-*** Digital Store Changelog ***
+*** Digital Store Theme ***
 
-=== 0.1 beta ===
-* Beta version, not ready for production.
+More on: http://easydigitaldownloads.com/digital-store/

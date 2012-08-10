@@ -24,32 +24,30 @@
 
 if ( ! function_exists( 'digitalstore_front_slideshow' ) ) {
     function digitalstore_front_slideshow() {
-        ?>
+        
+        // set args
+        $slide_args = array(
+            'post_type'         => 'edd_slide',
+            'posts_per_page'    => -1,
+            'suppress_filters'  => true
+        );
+        
+        // get slides
+        $slides = get_posts( apply_filters('digitalstore_slide_query_args', $slide_args ) );
+        
+        // check
+        if( $slides ) : ?>
         <div class="slideshow">
             <ul class="slides">
                 <?php 
-                $slide_args = array(
-                    'post_type' => 'edd_slide',
-                    'posts_per_page' => -1,
-                    'suppress_filters' => true
-                );
-                $slides = get_posts( apply_filters('digitalstore_slide_query_args', $slide_args ) );
-                if( $slides ) :
                     foreach( $slides as $slide ) :
-                        $slide_image_args = apply_filters('digitalstore_slide_image_args', array('alt' => '', 'title' => '') );
+                        $slide_image_args = apply_filters( 'digitalstore_slide_image_args', array( 'alt' => '', 'title' => '' ) );
                         echo '<li>' . get_the_post_thumbnail( $slide->ID, 'digitalstore_thumb_full', $slide_image_args ) . '</li>';
-                    endforeach;
-                else :
-                    ?>
-                    <li><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/slide-3.jpg" alt=""/></li>                
-                    <li><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/slide-1.jpg" alt=""/></li>
-                    <li><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/slide-2.jpg" alt=""/></li>
-                    <?php
-                endif; 
-                ?>
+                    endforeach; ?>
             </ul>
         </div>
         <?php
+        endif;
     }
 }
 add_action( 'digitalstore_store_front', 'digitalstore_front_slideshow', 1 );
@@ -127,7 +125,7 @@ function digitalstore_slide_add_meta_boxe() {
     remove_meta_box( 'postimagediv', 'edd_slide', 'side' );
 
     // Add a custom featured image meta box
-    add_meta_box( 'postimagediv', 'Slide Image', 'post_thumbnail_meta_box', 'edd_slide', 'normal', 'high' );
+    add_meta_box( 'postimagediv',  __( 'Slide Image', 'edd-digitalstore' ), 'post_thumbnail_meta_box', 'edd_slide', 'normal', 'high' );
 
 }
 add_action( 'add_meta_boxes_slide',  'digitalstore_slide_add_meta_boxe', 999 );
@@ -146,8 +144,8 @@ function digitalstore_slide_post_thumbnail_html( $output ) {
 
     // beware of translated admin
     if ( ! empty ( $post_type ) && 'edd_slide' == $post_type ) {
-        $output = str_replace( 'Set featured image', 'Select / Upload a slide image', $output );
-        $output = str_replace( 'Remove featured image', 'Remove slide image', $output );
+        $output = str_replace( 'Set featured image',  __( 'Select / Upload a slide image', 'edd-digitalstore' ), $output );
+        $output = str_replace( 'Remove featured image',  __( 'Remove slide image', 'edd-digitalstore' ), $output );
     }
 
     return $output;
@@ -166,7 +164,7 @@ add_filter( 'admin_post_thumbnail_html', 'digitalstore_slide_post_thumbnail_html
 function digitalstore_slide_edit_columns( $columns ) {
     $columns = array(
         'cb' => '<input type="checkbox" />',
-        'thumbnail' => 'Slide',
+        'thumbnail' =>  __( 'Slide', 'edd-digitalstore' ),
     );
 
     return $columns;

@@ -127,17 +127,17 @@ if ( ! function_exists( 'digitalstore_theme_setup' ) ) {
         
         // Theme filterable functions
         $filterable_includes = array( 
-            'includes/sidebars.php',    // Sidebars
-            'includes/walker.php',      // Nav Walker
-            'includes/slideshow.php',   // Slideshow
-            'includes/tinymce.php',     // TinyMCE styles
-            'includes/comments.php',    // Comments
-            'includes/pagination.php',  // Pagination
-            'includes/breadcrumbs.php', // Breadcrumbs
-            'includes/related.php',     // Related downloads
-            'includes/customize.php',   // Customizer ( 3.4+ )
-            'includes/latest.php',      // Latest Downloads            
-            'includes/options.php',     // Theme Options
+            'sidebar'           => 'includes/sidebars.php',    // Sidebars
+            'nav-walker'        => 'includes/walker.php',      // Nav Walker
+            'slideshow'         => 'includes/slideshow.php',   // Slideshow
+            'tinymce-styles'    => 'includes/tinymce.php',     // TinyMCE styles
+            'comments'          => 'includes/comments.php',    // Comments
+            'pagination'        => 'includes/pagination.php',  // Pagination
+            'breadcrumbs'       => 'includes/breadcrumbs.php', // Breadcrumbs
+            'related-downloads' => 'includes/related.php',     // Related downloads
+            'customizer'        => 'includes/customize.php',   // Customizer ( 3.4+ )
+            'latest-downloads'  => 'includes/latest.php',      // Latest Downloads
+            'options'           => 'includes/options.php',     // Theme Options
         );
         
         // Allow child themes and plugins to filter the theme includes

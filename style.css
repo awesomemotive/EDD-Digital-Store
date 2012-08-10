@@ -935,7 +935,7 @@ html[xmlns] .slides {
 /* =Latest Downloads
 -------------------------------------------------------------- */
 
-.section-latest-downloads {
+.section-latest {
   margin-bottom: 2.923em;
   overflow: hidden;
 }
@@ -949,26 +949,26 @@ html[xmlns] .slides {
   float: left;
 }
 
-.latest-downloads li {
+.latest-listing li {
   float: left;
   margin-bottom: 1.462em;
 }
 
-.latest-downloads .edd_button, .latest-downloads .edd_submit_plain, .downloads-wrapper .edd_button, .downloads-wrapper .edd_submit_plain {
+.latest-listing .edd_button, .latest-listing .edd_submit_plain, .downloads-wrapper .edd_button, .downloads-wrapper .edd_submit_plain {
   float: left;
 }
-.latest-downloads .edd_button, .downloads-wrapper .edd_button {
+.latest-listing .edd_button, .downloads-wrapper .edd_button {
   padding-bottom: 0.462em;
 }
-.latest-downloads .edd_has_purchased, .downloads-wrapper .edd_has_purchased {
+.latest-listing .edd_has_purchased, .downloads-wrapper .edd_has_purchased {
   display: none;
 }
 
-.latest-downloads .edd_button, .latest-downloads .edd_submit_plain {
+.latest-listing .edd_button, .latest-listing .edd_submit_plain {
   margin-top: 0.538em;
 }
 
-a.downloads-thumbnail, .related-entry-thumb {
+a.latest-thumbnail, .related-entry-thumb {
   border: 1px solid #bfbfbf;
   position: relative; 
   overflow: hidden;
@@ -986,18 +986,18 @@ a.downloads-thumbnail, .related-entry-thumb {
   bottom: 1em;
 }
 
-.latest-downloads {
+.latest-listing {
   text-align: center;
 }
-.latest-downloads .latest-add-to-cart {
+.latest-listing .latest-add-to-cart {
   float: left;
   font-weight: bold;
 }
-.latest-downloads .entry-price {
+.latest-listing .entry-price {
   float: right;
 }
 
-ul.latest-downloads .entry-price {
+ul.latest-listing .entry-price {
   color: #808080;
 }
 
@@ -1012,29 +1012,29 @@ ul.related-entries {
   overflow: hidden;
 }
 
-ul.related-entries li, ul.latest-downloads li {
+ul.related-entries li, ul.latest-listing li {
   width: 21.83%;
   margin-right: 4.23%;
   float: left;
   display: inline;
 }
 
-.ie9 ul.related-entries li, .ie9 ul.latest-downloads li {
+.ie9 ul.related-entries li, .ie9 ul.latest-listing li {
   width:20.83%;
 }
 
-.oldie ul.related-entries li, .oldie ul.latest-downloads li {
+.oldie ul.related-entries li, .oldie ul.latest-listing li {
   width:20.83%;
 }
 
 ul.related-entries li:nth-child(4n),
-ul.latest-downloads li:nth-child(4n) {
+ul.latest-listing li:nth-child(4n) {
   margin-right: 0;
   clear: right;
 }
 
 ul.related-entries li:nth-child(4n+1),
-ul.latest-downloads li:nth-child(4n+1) {
+ul.latest-listing li:nth-child(4n+1) {
   clear: left;
 }
 
@@ -1052,7 +1052,7 @@ ul.latest-downloads li:nth-child(4n+1) {
   color: #3c9be3;
 }
 
-ul.related-entries img, ul.latest-downloads img {
+ul.related-entries img, ul.latest-listing img {
   display:block;
 }
 
@@ -1287,15 +1287,15 @@ article.comment {
   border: 1px solid #bfbfbf;
 }
 
-.display-listing h3 a, .display-listing h4 a, .downloads-meta h5 a {
+.display-listing h3 a, .display-listing h4 a, .latest-meta h5 a {
   color: #464646;
 }
 
-.display-listing h3 a:hover, .display-listing h4 a:hover, .downloads-meta h5 a:hover {
+.display-listing h3 a:hover, .display-listing h4 a:hover, .latest-meta h5 a:hover {
   color: #3c9be3;
 }
 
-.entry-meta, .downloads-meta {
+.entry-meta, .latest-meta {
   clear: both;
   overflow: hidden;
 }
@@ -1507,7 +1507,8 @@ form input.edd-input, #comments form input {
   margin: 0 0.231em 0 0;
 }
 
-#edd_register_fields, #edd_login_fields, #edd_checkout_user_info, #edd_discount_code {
+#edd_register_fields, #edd_login_fields, #edd_checkout_user_info, 
+#edd_discount_code, #edd_terms_agreement, #edd_payment_mode_select  {
   background: white;
 }
 
@@ -1516,7 +1517,7 @@ form input.edd-input, #comments form input {
   padding: 1.462em;
 }
 
-fieldset#edd_purchase_submit, #edd_checkout_form_wrap fieldset fieldset {
+fieldset#edd_purchase_submit, #edd_checkout_form_wrap fieldset fieldset, fieldset#edd_payment_mode_submit {
   border: none;
   padding-bottom: 0;
 }
@@ -1525,13 +1526,25 @@ fieldset#edd_purchase_submit, #edd_checkout_form_wrap fieldset fieldset {
   padding-left: 0;
 }
 
-#edd_checkout_form_wrap #edd_discount_code {
+#edd_checkout_form_wrap #edd_discount_code, #edd_checkout_form_wrap #edd_terms_agreement {
   border-top: 0;
+}
+
+fieldset#edd_terms_agreement {
+	padding: 0.1em 1.462em;
 }
 
 .edd_cart_actions a:hover {
   color: red;
   border-color: red;
+}
+
+#edd-gateway {
+  margin-right:1em;
+}
+
+#edd_payment_mode_select p {
+  margin-bottom:0;
 }
 
 /* =404
@@ -1585,7 +1598,7 @@ input, textarea {
 /* =Buttons
 -------------------------------------------------------------- */
 .button, button, .edd_submit_plain, .button-group .dropdown-toggle, .edd_go_to_checkout,
-#edd_purchase_submit input, #submit {
+#edd_purchase_submit input, #submit, #edd_next_button, .edd-add-to-cart {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   -ms-box-sizing: content-box;
@@ -1622,8 +1635,8 @@ input, textarea {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#44a0e1', endColorstr='#1e68c6',GradientType=0 );
 }
 
-.button:hover, button:hover, .edd_submit_plain:hover, .button-group .dropdown-toggle:hover,
-.edd_go_to_checkout:hover, #edd_purchase_submit input:hover, #submit:hover {
+.button:hover, button:hover, .edd_submit_plain:hover, .button-group .dropdown-toggle:hover, .edd_go_to_checkout:hover, 
+#edd_purchase_submit input:hover, #submit:hover, #edd_next_button:hover, .edd-add-to-cart:hover {
   background: #27a5ff;
   background: -moz-linear-gradient(top, #27a5ff 0%, #1f9aff 25%, #0385ff 50%, #006dea 76%, #0063e4 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #27a5ff), color-stop(25%, #1f9aff), color-stop(50%, #0385ff), color-stop(76%, #006dea), color-stop(100%, #0063e4));
@@ -1634,8 +1647,7 @@ input, textarea {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#27a5ff', endColorstr='#0063e4',GradientType=0 );
 }
 
-#submit:active, .button:active, button:active, .edd_submit_plain:active, .button-group .dropdown-toggle:active,
-.button-group .dropdown-toggle.active, .edd_go_to_checkout:active, #edd_purchase_submit input:active {
+#submit:active, .button:active, button:active, .edd_submit_plain:active, .button-group .dropdown-toggle:active, .button-group .dropdown-toggle.active, .edd_go_to_checkout:active, #edd_purchase_submit input:active, #edd_next_button:active, .edd-add-to-cart:active {
   background-color: #064A7A;
   background-image: none;
   outline: 0;
@@ -1682,7 +1694,7 @@ input, textarea {
   border-left-color: #064A7A;
 }
 
-.latest-downloads .edd_button, .latest-downloads .edd_submit_plain,
+.latest-listing .edd_button, .latest-listing .edd_submit_plain,
 .downloads-wrapper .edd_button, .downloads-wrapper .edd_submit_plain, .button.btn-small {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
@@ -2344,7 +2356,7 @@ a.widget-download-title:hover {
     width: 100%;
   }
 
-  ul.latest-downloads li, ul.related-entries li {
+  ul.latest-listing li, ul.related-entries li {
     width: 50%;
     clear: none;
     margin-right: 0;
@@ -2376,7 +2388,7 @@ a.widget-download-title:hover {
     margin-top: 0.692em;
   }
 
-  .display-listing .entry-meta, .display-listing .downloads-meta {
+  .display-listing .entry-meta, .display-listing .latest-meta {
     float: left;
     clear: none;
   }
@@ -2385,11 +2397,11 @@ a.widget-download-title:hover {
     width: 100%;
   }
   
-  a.downloads-thumbnail, .related-entry-thumb {
+  a.latest-thumbnail, .related-entry-thumb {
     border-color:transparent;
   }
   
-  ul.related-entries img, ul.latest-downloads img {
+  ul.related-entries img, ul.latest-listing img {
     margin: 0 auto;
   }
 }

@@ -51,21 +51,20 @@ if ( ! function_exists( 'digitalstore_latest_downloads' ) ) {
          
         // create query
         $downloads = new WP_Query( $params );
-        $class = strtolower( $post_type_obj->label );
         
         // loop
         if ( $downloads->have_posts() ) { ?>
-        <div class="section-latest-<?php echo $class; ?>">
+        <div class="section-latest latest-<?php echo strtolower( $post_type_obj->label ); ?>">
             <div class="section-title">                        
                 <h3 class="latest-<?php echo $class; ?>-title"><?php  printf( $atts['title'], $post_type_obj->labels->menu_name ); ?></h3>
                 <?php if ( $atts['all'] == 1 ): ?>
                     <a href="<?php echo get_post_type_archive_link( 'download' ); ?>" class="view-all" ><span><?php _e( 'View All', 'edd-digitalstore' ); ?></span></a><!-- .view-all -->
                 <?php endif; ?>
             </div><!-- .section-title -->
-            <ul class="latest-<?php echo $class; ?>">
+            <ul class="latest-listing">
             <?php while ( $downloads->have_posts() ) : $downloads->the_post(); ?>
                 <li>
-                    <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="<?php echo $class; ?>-thumbnail">
+                    <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="latest-thumbnail">
                     <div class="edd-the-price">
                         <?php echo digitalstore_edd_the_price( get_the_ID() ); ?>
                     </div>
@@ -74,16 +73,16 @@ if ( ! function_exists( 'digitalstore_latest_downloads' ) ) {
                     <?php elseif ( $atts['fallback'] != "" ): ?>
                         <img src="<?php echo $atts['fallback']; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
                     <?php endif; ?>
-                    </a><!-- <?php echo $class ?>-thumbnail -->
+                    </a><!-- latest-thumbnail -->
                     
-                    <div class="<?php echo $class; ?>-meta">
+                    <div class="latest-meta">
                         <h5><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h5>
-                    </div><!-- <?php echo $class ?>-meta -->
+                    </div><!-- latest-meta -->
                     
                 </li>
             <?php endwhile; ?>
-            </ul><!-- .latest-<?php echo $class ?> -->
-        </div><!-- .section-latest-<?php echo $class ?> -->
+            </ul><!-- .latest-listing -->
+        </div><!-- .section-latest.<?php echo $class ?> -->
         <?php 
         }
         wp_reset_query();

@@ -119,9 +119,6 @@ if ( ! function_exists( 'digitalstore_theme_setup' ) ) {
         // Increse thumbnails quality
         add_filter( 'jpeg_quality', 'digitalstore_theme_thumbs_quality' );
         
-        // Transparent output for embeds
-        add_filter( 'embed_oembed_html', 'digitalstore_theme_wmode_transparent', 10, 3 );
-        
         // Set the footer text
         add_action( 'digitalstore_colophon_credits', 'digitalstore_add_colophon_credits' );
         

@@ -727,6 +727,7 @@ if ( ! function_exists( 'digitalstore_edd_the_price' ) ) {
     function digitalstore_edd_the_price( $download_id ) {
         if ( edd_has_variable_prices( $download_id ) ) {
              $prices = get_post_meta( $download_id, 'edd_variable_prices', true );
+             digitalstore_sort_prices_by( $prices, 'amount' );
              $total = count( $prices ) - 1;
              if ( $prices[0]['amount'] < $prices[$total]['amount'] ) {
                  $min = $prices[0]['amount'];
@@ -739,6 +740,25 @@ if ( ! function_exists( 'digitalstore_edd_the_price' ) ) {
          } else {
              return edd_currency_filter( edd_get_download_price( $download_id ) );
          }
+    }
+}
+
+
+/**
+ * Digitalstore Sort Prices By
+ *
+ * @access      private
+ * @since       1.1
+ * @return      void
+*/
+if ( ! function_exists( 'digitalstore_sort_prices' ) ) {
+    function digitalstore_sort_prices_by( &$arr, $col ) {
+        $sort_col = array();
+        foreach ( $arr as $key => $row ) {
+            $sort_col[$key] = $row[$col];
+        }
+
+        array_multisort( $sort_col, SORT_ASC, $arr );
     }
 }
 

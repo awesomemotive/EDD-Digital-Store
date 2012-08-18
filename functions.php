@@ -652,7 +652,6 @@ if ( ! function_exists( 'digitalstore_add_to_cart_callback' ) ) {
         global $edd_options;
         
         $out = '<div class="button-group add-to-cart clearfix">';
-    
 
         if ( ! edd_item_in_cart( $post->ID ) ) {
             $out .= do_shortcode( '[purchase_link id="' . $post->ID . '" text="' . esc_attr__( 'Add To Cart', 'edd-digitalstore' ) . '" style="text"]' );
@@ -714,7 +713,7 @@ if ( ! function_exists( 'digitalstore_add_to_cart_callback' ) ) {
 
 
 /** 
- * Edd The Price
+ * Digital Store The Price
  *
  * Echoes the price with a custom format.
  *
@@ -745,13 +744,13 @@ if ( ! function_exists( 'digitalstore_edd_the_price' ) ) {
 
 
 /**
- * Digitalstore Sort Prices By
+ * Digital Store Sort Prices By
  *
  * @access      private
- * @since       1.1
+ * @since       1.0.2
  * @return      void
 */
-if ( ! function_exists( 'digitalstore_sort_prices' ) ) {
+if ( ! function_exists( 'digitalstore_sort_prices_by' ) ) {
     function digitalstore_sort_prices_by( &$arr, $col ) {
         $sort_col = array();
         foreach ( $arr as $key => $row ) {

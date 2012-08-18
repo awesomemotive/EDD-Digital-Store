@@ -35,6 +35,9 @@ if ( ! function_exists( 'digitalstore_latest_downloads' ) ) {
             'fallback' => get_stylesheet_directory_uri() . '/img/nopic.gif',
          ) );
         
+        // filter atts
+        $atts = apply_filters( 'digitalstore_latest_downloads_atts', $atts );
+        
         // get post type object
         $post_type_obj = get_post_type_object( 'download' );
         

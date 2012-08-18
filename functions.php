@@ -169,7 +169,7 @@ if ( ! function_exists( 'digitalstore_theme_scripts' ) ) {
         wp_enqueue_script( 'validate', get_template_directory_uri() . '/js/inc/jquery.validate.min.js', array( 'jquery' ), '1.9.0', true );
         
         // Theme script file
-        if ( WP_DEBUG || SCRIPT_DEBUG )
+        if ( WP_DEBUG )
             $digitalstore_theme_script = 'scripts.dev.js';
         else
             $digitalstore_theme_script = 'scripts.min.js';

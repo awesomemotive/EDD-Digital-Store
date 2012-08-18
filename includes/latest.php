@@ -29,7 +29,7 @@ if ( ! function_exists( 'digitalstore_latest_downloads' ) ) {
         $atts = wp_parse_args( $args, array(
             'title'    =>  __( 'Latest %s', 'edd-digitalstore' ),
             'all'      => 1,
-            'limit'    => 6,
+            'limit'    => get_option( 'posts_per_page' ),
             'thumb'    => 1,
             'size'     => 'digitalstore_thumb_small',
             'fallback' => get_stylesheet_directory_uri() . '/img/nopic.gif',

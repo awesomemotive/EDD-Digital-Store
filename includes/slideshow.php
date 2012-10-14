@@ -43,7 +43,8 @@ if ( ! function_exists( 'digitalstore_front_slideshow' ) ) {
                     foreach( $slides as $slide ) :
                         $slide_image_args = apply_filters( 'digitalstore_slide_image_args', array( 'alt' => '', 'title' => '' ) );
                         echo '<li>' . get_the_post_thumbnail( $slide->ID, 'digitalstore_thumb_full', $slide_image_args ) . '</li>';
-                    endforeach; ?>
+                    endforeach; 
+                ?>
             </ul>
         </div>
         <?php

@@ -38,7 +38,7 @@ do_action( 'digitalstore_before_content', $post ); ?>
                 <?php
                     if ( ! edd_item_in_cart( $post->ID ) ) {
                         if ( edd_has_variable_prices( $post->ID ) ) {
-                            echo '<a href="' . get_permalink() . '" class="btn-small button edd_button">' . __( 'View Details', 'edd-digitalstore' ) . '</a>';
+                            echo '<a href="' . get_permalink() . '" class="button edd_button">' . __( 'View Details', 'edd-digitalstore' ) . '</a>';
                         } else {
                             echo do_shortcode( '[purchase_link id="' . $post->ID . '" text="' . __( 'Add To Cart', 'edd-digitalstore' ) . '" style="blue"]' );
                         }

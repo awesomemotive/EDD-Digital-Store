@@ -917,17 +917,24 @@ html[xmlns] .slides {
   margin-bottom: 19px;
   border: 1px solid #DFDFDF;
 }
+.single-download .edd_price_options ul {
+  margin: 0;
+}
+
 .single-download .edd_price_options li {
   display: inline-block;
+  padding: 0 0.3em;
 }
 .single-download .edd_price_options br {
   clear: both;
 }
 .single-download .edd_price_options input {
   margin-top: 3px;
-  margin-right: 9px;
+  margin-right: 4px;
+  margin-left: 4px;
   border: 0;
 }
+
 .single-download .edd_price_options label {
   margin-bottom: 4px;
 }

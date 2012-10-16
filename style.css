@@ -1704,8 +1704,7 @@ input, textarea {
   border-left-color: #064A7A;
 }
 
-.latest-listing .edd_button, .latest-listing .edd_submit_plain,
-.downloads-wrapper .edd_button, .downloads-wrapper .edd_submit_plain, .button.btn-small {
+.latest-listing .edd_button, .latest-listing .edd_submit_plain, .downloads-wrapper .edd_submit_plain, .button.btn-small {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   -ms-box-sizing: content-box;

@@ -917,6 +917,9 @@ html[xmlns] .slides {
   margin-bottom: 19px;
   border: 1px solid #DFDFDF;
 }
+.single-download .edd_price_options li {
+  display: inline-block;
+}
 .single-download .edd_price_options br {
   clear: both;
 }
@@ -929,7 +932,7 @@ html[xmlns] .slides {
   margin-bottom: 4px;
 }
 .single-download .edd_price_options input, .single-download .edd_price_options label {
-  float: left;
+  display: inline-block;
 }
 
 /* =Latest Downloads
@@ -1348,6 +1351,10 @@ article.comment {
   display: block;
 }
 
+.post-type-archive .edd_download_purchase_form, .archive .edd_download_purchase_form  {
+  float: left;
+}
+
 .blog .edd_price_options, .archive .edd_price_options, .search .edd_price_options, .blog .edd_price_options {
   display: none;
 }
@@ -1690,7 +1697,7 @@ input, textarea {
   border-bottom-left-radius: 0;
   padding: 0 0.786em 0.929em;
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 110px;
 }
 .button-group .dropdown-toggle:active, .button-group .dropdown-toggle.active {

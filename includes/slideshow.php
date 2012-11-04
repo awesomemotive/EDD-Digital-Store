@@ -103,7 +103,7 @@ if ( ! function_exists( 'digitalstore_theme_slideshow_post_type' ) ) {
             'has_archive' => false, 
             'hierarchical' => false,
             'supports' => array( 'thumbnail' ),
-            'register_meta_box_cb' => 'digitalstore_slide_add_meta_boxe'
+            'register_meta_box_cb' => 'digitalstore_slide_add_meta_boxes'
         );
 
         register_post_type('edd_slide', $slide_show_args);
@@ -120,23 +120,26 @@ add_action( 'init', 'digitalstore_theme_slideshow_post_type' );
  * @return      void
 */
 
-function digitalstore_slide_add_meta_boxe() {
+function digitalstore_slide_add_meta_boxes() {
 
     // Remove the default featured image meta box
     remove_meta_box( 'postimagediv', 'edd_slide', 'side' );
 
     // Add a custom featured image meta box
-    add_meta_box( 'postimagediv',  __( 'Slide Image', 'edd-digitalstore' ), 'post_thumbnail_meta_box', 'edd_slide', 'normal', 'high' );
+    add_meta_box( 'postimagediv`',  __( 'Slide Image', 'edd-digitalstore' ), 'post_thumbnail_meta_box', 'edd_slide', 'normal', 'high' );
+    
+    // add the URL input
+    add_meta_box( 'digitalstore_slide_meta',  __( 'Slide Meta', 'edd-digitalstore' ), 'digitalstore_slide_meta_box', 'edd_slide', 'normal', 'high' );
 
 }
-add_action( 'add_meta_boxes_slide',  'digitalstore_slide_add_meta_boxe', 999 );
+add_action( 'add_meta_boxes_slide',  'digitalstore_slide_add_meta_boxes', 999 );
 
 
 /**
  * Replace "Featured Image" Labels
  *
  * @access      private
- * @since       1.0 
+ * @since       1.0
  * @return      void
 */
 
@@ -152,6 +155,66 @@ function digitalstore_slide_post_thumbnail_html( $output ) {
     return $output;
 }
 add_filter( 'admin_post_thumbnail_html', 'digitalstore_slide_post_thumbnail_html' );
+
+
+/**
+ * Displays the Slide Meta Meta Box
+ *
+ * @access      private
+ * @since       1.0.5
+ * @return      void
+*/
+
+function digitalstore_slide_meta_box() {
+
+    global $post;
+
+    $slide_url = get_post_meta( $post->ID, 'digitalstore_slide_url', true );
+
+    echo '<p>';
+        echo '<label for="digitalstore_slide_url">' . __( 'Slide URL', 'edd-digitalstore' ) . '</label><br/>';
+        echo '<input type="text" name="digitalstore_slide_url" id="digitalstore_slide_url" class="regular-text" placeholder="' . esc_attr__( 'http://', 'edd-digitalstore' ) . '" value="' . esc_url( $slide_url ) . '"/>';
+    echo '</p>';
+
+    wp_nonce_field( basename( __FILE__ ), 'digitalstore_slide_meta_box_nonce' );
+
+}
+
+
+/**
+ * Meta Box Save
+ *
+ * Save data from meta box.
+ *
+ * @access      private
+ * @since       1.0.5
+ * @return      void
+ */
+function digitalstore_save_meta_box( $post_id ) {
+    global $post;
+    
+    // verify nonce
+    if ( ! isset( $_POST['digitalstore_slide_meta_box_nonce'] ) || ! wp_verify_nonce( $_POST['digitalstore_slide_meta_box_nonce'], basename( __FILE__ ) ) )
+        return $post_id;
+
+    // check autosave
+    if ( ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) || ( defined( 'DOING_AJAX') && DOING_AJAX ) || isset( $_REQUEST['bulk_edit'] ) )
+        return $post_id;
+    
+    //don't save if only a revision
+    if ( isset( $post->post_type ) && $post->post_type == 'revision' ) 
+        return $post_id;
+
+    if( isset( $_POST['digitalstore_slide_url'] ) ) {
+
+        $url = sanitize_text_field( $_POST['digitalstore_slide_url'] );
+
+        $url = apply_filters( 'digitalstore_slide_url_save', $url );
+
+        update_post_meta( $post_id, 'digitalstore_slide_url', $url );
+    }
+}
+add_action( 'save_post', 'digitalstore_save_meta_box' );
 
 
 /**

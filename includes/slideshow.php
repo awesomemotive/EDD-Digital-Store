@@ -42,7 +42,8 @@ if ( ! function_exists( 'digitalstore_front_slideshow' ) ) {
                 <?php 
                     foreach( $slides as $slide ) :
                         $slide_image_args = apply_filters( 'digitalstore_slide_image_args', array( 'alt' => '', 'title' => '' ) );
-                        echo '<li>' . get_the_post_thumbnail( $slide->ID, 'digitalstore_thumb_full', $slide_image_args ) . '</li>';
+                        $slide_url = get_post_meta( $slide->ID, 'digitalstore_slide_url', true );
+                        echo '<li><a href="' . esc_url( $slide_url ) . '"">' . get_the_post_thumbnail( $slide->ID, 'digitalstore_thumb_full', $slide_image_args ) . '</a></li>';
                     endforeach; 
                 ?>
             </ul>

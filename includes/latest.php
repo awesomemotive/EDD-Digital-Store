@@ -56,7 +56,7 @@ if ( ! function_exists( 'digitalstore_latest_downloads' ) ) {
         $downloads = new WP_Query( $params );
         
         // loop
-        if ( $downloads->have_posts() ) { ?>
+        if ( $downloads->have_posts() ) { $i = 1; ?>
         <div class="section-latest latest-<?php echo strtolower( $post_type_obj->label ); ?>">
             <div class="section-title">                        
                 <h3 class="latest-<?php echo $class; ?>-title"><?php  printf( $atts['title'], $post_type_obj->labels->menu_name ); ?></h3>
@@ -66,7 +66,7 @@ if ( ! function_exists( 'digitalstore_latest_downloads' ) ) {
             </div><!-- .section-title -->
             <ul class="latest-listing">
             <?php while ( $downloads->have_posts() ) : $downloads->the_post(); ?>
-                <li>
+                <li<?php if( $i % 4 == 0 ) echo ' class="last"'; ?>>
                     <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="latest-thumbnail">
                     <div class="edd-the-price">
                         <?php echo digitalstore_edd_the_price( get_the_ID() ); ?>
@@ -83,7 +83,7 @@ if ( ! function_exists( 'digitalstore_latest_downloads' ) ) {
                     </div><!-- latest-meta -->
                     
                 </li>
-            <?php endwhile; ?>
+            <?php $i++; endwhile; ?>
             </ul><!-- .latest-listing -->
         </div><!-- .section-latest.<?php echo $class ?> -->
         <?php 

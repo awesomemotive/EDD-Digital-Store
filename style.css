@@ -1038,7 +1038,8 @@ ul.related-entries li, ul.latest-listing li {
 }
 
 ul.related-entries li:nth-child(4n),
-ul.latest-listing li:nth-child(4n) {
+ul.latest-listing li:nth-child(4n),
+ul.latest-listing li.last {
   margin-right: 0;
   clear: right;
 }

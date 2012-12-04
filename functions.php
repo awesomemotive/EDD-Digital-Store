@@ -737,7 +737,7 @@ if ( ! function_exists( 'digitalstore_edd_the_price' ) ) {
              }
              return sprintf( '%s - %s', edd_currency_filter( $min ), edd_currency_filter( $max ) );
          } else {
-             return edd_currency_filter( edd_get_download_price( $download_id ) );
+             return edd_currency_filter( edd_format_amount( edd_get_download_price( $download_id ) ) );
          }
     }
 }

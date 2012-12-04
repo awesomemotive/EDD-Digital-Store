@@ -4,7 +4,7 @@ Theme URI: http://www.easydigitaldownloads.com/theme/digitalstore
 Description: A semantic & responsive HTML5 theme for your awesome digital store.
 Author: Easy Digital Downloads
 Author URI: http://www.easydigitaldownloads.com/
-Version: 1.0.6
+Version: 1.0.7
 Github Theme URI: https://github.com/sksmatt/Digital-Store
 Tags: white, dark, light, flexible-width, custom-colors, editor-style, featured-images, threaded-comments, translation-ready
 license: GPL2
@@ -1624,6 +1624,7 @@ input, textarea {
   color: white;
   font-weight: bold;
   font-size: 1.077em;
+  min-width: 78px;
   line-height: 1.143em;
   height: auto;
   text-shadow: 0 1px 1px #072038;
@@ -1636,7 +1637,7 @@ input, textarea {
   -moz-border-radius: 0.286em;
   border-radius: 0.286em;
   *margin-left: 0.3em;
-  padding: 0.5em 1.571em;
+  padding: 0.5em 1.2em;
   -webkit-box-shadow: inset 0 1px 0 #53b7e6;
   -moz-box-shadow: inset 0 1px 0 #53b7e6;
   box-shadow: inset 0 1px 0 #53b7e6;
@@ -1648,6 +1649,16 @@ input, textarea {
   background: -ms-linear-gradient(top, #44a0e1 0%, #3d98e0 25%, #2f82d2 50%, #216fc8 76%, #1e68c6 100%);
   background: linear-gradient(top, #44a0e1 0%, #3d98e0 25%, #2f82d2 50%, #216fc8 76%, #1e68c6 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#44a0e1', endColorstr='#1e68c6',GradientType=0 );
+}
+.firefox .button, .firefox button, .firefox .edd-submit.text, .firefox .button-group .firefox .dropdown-toggle,
+.firefox #edd_purchase_submit input, .firefox #submit, .firefox #edd_next_button, .firefox .edd-add-to-cart {
+  font-size: 0.989em;
+}
+.firefox .edd_go_to_checkout.edd-submit {
+   font-size: 1.077em;
+}
+.button-group .dropdown-toggle { 
+  min-width: 0;
 }
 
 .button:hover, button:hover, .edd_submit_plain:hover, .button-group .dropdown-toggle:hover, .edd_go_to_checkout:hover, 

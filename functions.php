@@ -654,7 +654,7 @@ if ( ! function_exists( 'digitalstore_add_to_cart_callback' ) ) {
         $out = '<div class="button-group add-to-cart clearfix">';
 
         if ( ! edd_item_in_cart( $post->ID ) ) {
-            $out .= do_shortcode( '[purchase_link id="' . $post->ID . '" text="' . esc_attr__( 'Add To Cart', 'edd-digitalstore' ) . '" style="text"]' );
+            $out .= do_shortcode( '[purchase_link id="' . $post->ID . '" price="0" text="' . esc_attr__( 'Add To Cart', 'edd-digitalstore' ) . '" style="text"]' );
         } else {
             $out .= '<a href="' . get_permalink( $edd_options['purchase_page'] ) . '" class="edd_go_to_checkout edd_button">' . __( 'Checkout', 'edd-digitalstore' ) . '</a>';
         }

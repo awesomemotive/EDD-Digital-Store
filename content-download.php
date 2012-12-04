@@ -40,7 +40,7 @@ do_action( 'digitalstore_before_content', $post ); ?>
                         if ( edd_has_variable_prices( $post->ID ) ) {
                             echo '<a href="' . get_permalink() . '" class="button edd_button">' . __( 'View Details', 'edd-digitalstore' ) . '</a>';
                         } else {
-                            echo do_shortcode( '[purchase_link id="' . $post->ID . '" text="' . __( 'Add To Cart', 'edd-digitalstore' ) . '" style="blue"]' );
+                            echo do_shortcode( '[purchase_link id="' . $post->ID . '" price="0" text="' . __( 'Add To Cart', 'edd-digitalstore' ) . '" style="blue"]' );
                         }
                     } else {
                         echo '<a href="' . get_permalink( $edd_options['purchase_page'] ) . '" class="edd_go_to_checkout edd_button">' . __( 'Checkout', 'edd-digitalstore' ) . '</a>';

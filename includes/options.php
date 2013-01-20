@@ -24,11 +24,12 @@ if ( ! function_exists( 'digitalstore_theme_options_init' ) ) {
     function digitalstore_theme_options_init() {
         register_setting( 'digitalstore_options', 'digitalstore_theme_options', 'digitalstore_theme_options_validate' );
         add_settings_section( 'display',  __( 'Display Options', 'edd-digitalstore' ), '__return_false', 'theme_options' );
-        add_settings_section( 'branding',  __( 'Branding', 'edd-digitalstore' ), '__return_false', 'theme_options' );        
+        add_settings_section( 'branding',  __( 'Branding', 'edd-digitalstore' ), '__return_false', 'theme_options' );
         add_settings_field( 'logo_image', __( 'Logo Image', 'edd-digitalstore' ), 'digitalstore_settings_field_logo_image', 'theme_options', 'branding' );
         add_settings_field( 'theme_skin', __( 'Color Scheme', 'edd-digitalstore' ), 'digitalstore_settings_field_skin', 'theme_options', 'display' );
         add_settings_field( 'accent_color', __( 'Accent Color', 'edd-digitalstore' ), 'digitalstore_settings_field_accent_color', 'theme_options', 'display' );
         add_settings_field( 'footer_text', __( 'Footer Text', 'edd-digitalstore' ), 'digitalstore_settings_field_footer_text', 'theme_options', 'branding' );
+        add_settings_field( 'license_key', __( 'License Key', 'edd-digitalstore' ), 'digitalstore_settings_field_license_key', 'theme_options', 'branding' );
     }
 }
 add_action( 'admin_init', 'digitalstore_theme_options_init' );
@@ -100,7 +101,7 @@ add_action( 'admin_print_styles-appearance_page_theme_options', 'digitalstore_ad
 
 if ( ! function_exists( 'digitalstore_options_take_action' ) ) {
     function digitalstore_options_take_action() {
-                
+
         if ( empty($_POST) )
 			return;
 
@@ -125,17 +126,17 @@ add_action( 'admin_init', 'digitalstore_options_take_action' );
 
 if ( ! function_exists( 'digitalstore_options_handle_upload' ) ) {
     function digitalstore_options_handle_upload() {
-                
+
         if ( empty( $_FILES ) )
 			return;
-		
+
         if ( isset($_POST['digitalstore-upload-logo-image']) && isset($_POST['action']) && $_POST['action'] == 'update' ) {
 
     		check_admin_referer( 'digitalstore-custom-logo-image-upload', '_wpnonce-custom-logo-image-upload' );
-		
+
     		$overrides = array( 'test_form' => false );
     		$file = wp_handle_upload( $_FILES['import'], $overrides );
-     
+
          	if ( isset( $file['error'] ) )
     			wp_die( $file['error'] );
 
@@ -145,11 +146,11 @@ if ( ! function_exists( 'digitalstore_options_handle_upload' ) ) {
     		$filename = basename( $file );
 
     		// Construct the object array
-    		$object = array( 
-    			'post_title' => $filename, 
-    			'post_content' => $url, 
-    			'post_mime_type' => $type, 
-    			'guid' => $url, 
+    		$object = array(
+    			'post_title' => $filename,
+    			'post_content' => $url,
+    			'post_mime_type' => $type,
+    			'guid' => $url,
     			'context' => 'custom-background'
     		 );
 
@@ -157,13 +158,13 @@ if ( ! function_exists( 'digitalstore_options_handle_upload' ) ) {
     		$id = wp_insert_attachment( $object, $file );
 
     		// Add the meta-data
-    		wp_update_attachment_metadata( $id, wp_generate_attachment_metadata( $id, $file ) );		
+    		wp_update_attachment_metadata( $id, wp_generate_attachment_metadata( $id, $file ) );
     		digitalstore_theme_update_logo_image( $url );
-	    
+
 	    }
-	    
+
     }
-    
+
 }
 add_action( 'admin_init', 'digitalstore_options_handle_upload' );
 
@@ -218,14 +219,15 @@ if ( ! function_exists( 'digitalstore_attachment_fields_to_edit' ) ) {
 if ( ! function_exists( 'digitalstore_get_theme_options' ) ) {
     function digitalstore_get_theme_options() {
         $saved = ( array ) get_option( 'digitalstore_theme_options' );
-        
-        $defaults = apply_filters( 'digitalstore_default_theme_options', array( 
+
+        $defaults = apply_filters( 'digitalstore_default_theme_options', array(
             'logo_image' => '',
-            'footer_text' => sprintf( '<strong>EDD Digital Store</strong> %s <a href="http://easydigitaldownloads.com">Easy Digital Downloads</a>.', __( 'by' , 'edd-digitalstore' ) ), 
-            'theme_skin' => 'light', 
-            'accent_color' => digitalstore_get_default_accent_color( 'light' ), 
+            'footer_text' => sprintf( '<strong>EDD Digital Store</strong> %s <a href="http://easydigitaldownloads.com">Easy Digital Downloads</a>.', __( 'by' , 'edd-digitalstore' ) ),
+            'theme_skin' => 'light',
+            'accent_color' => digitalstore_get_default_accent_color( 'light' ),
+            'license_key' => '',
          ) );
-        
+
         $options = wp_parse_args( $saved, $defaults );
         $options = array_intersect_key( $options, $defaults );
         if ( $options['logo_image'] == 'removed' ) {
@@ -266,9 +268,9 @@ if ( ! function_exists( 'digitalstore_theme_update_logo_image' ) ) {
 
 if ( ! function_exists( 'digitalstore_theme_skin_options' ) ) {
     function digitalstore_theme_skin_options() {
-        $options = array( 
-            'light' => __( 'Light', 'edd' ), 
-            'dark'  => __( 'Dark', 'edd' ), 
+        $options = array(
+            'light' => __( 'Light', 'edd' ),
+            'dark'  => __( 'Dark', 'edd' ),
         );
         return apply_filters( 'digitalstore_theme_skin_options_array', $options );
     }
@@ -284,9 +286,9 @@ if ( ! function_exists( 'digitalstore_theme_skin_options' ) ) {
 */
 
 if ( ! function_exists( 'digitalstore_get_default_accent_color' ) ) {
-    function digitalstore_get_default_accent_color( $skin ) {        
-        $defaults = apply_filters( 'digitalstore_default_accent_colors', array( 
-            'light' => '3c9be3', 
+    function digitalstore_get_default_accent_color( $skin ) {
+        $defaults = apply_filters( 'digitalstore_default_accent_colors', array(
+            'light' => '3c9be3',
             'dark'  => '3c9be3'
         ) );
         if ( array_key_exists( $skin, $defaults ) ) {
@@ -313,7 +315,7 @@ if ( ! function_exists( 'digitalstore_theme_options_render_page' ) ) {
             <?php screen_icon(); ?>
             <h2><?php printf( __( '%s Theme Options', 'edd-digitalstore' ), wp_get_theme() ); ?></h2>
             <?php settings_errors(); ?>
-            
+
             <form method="post" action="options.php" class="digitalstore-options-form" enctype="multipart/form-data">
                 <?php
                     settings_fields( 'digitalstore_options' );
@@ -341,18 +343,21 @@ if ( ! function_exists( 'digitalstore_theme_options_validate' ) ) {
 
         if ( isset( $input['logo_image'] ) && ! empty( $input['logo_image'] ) )
             $output['logo_image'] = stripslashes_deep( $input['logo_image'] );
-                
+
         if ( isset( $input['theme_skin'] ) && array_key_exists( $input['theme_skin'], digitalstore_theme_skin_options() ) )
             $output['theme_skin'] = stripslashes_deep( $input['theme_skin'] );
-        
+
         $output['accent_color'] = $defaults['accent_color'] = digitalstore_get_default_accent_color( $output['theme_skin'] );
-        
+
         if ( isset( $input['accent_color'] ) && preg_match( '/^#?([a-f0-9]{3}){1,2}$/i', $input['accent_color'] ) )
             $output['accent_color'] = strtolower( ltrim( $input['accent_color'], '#' ) );
-        
+
         if ( isset( $input['footer_text'] ) && ! empty( $input['footer_text'] ) )
             $output['footer_text'] = stripslashes_deep( $input['footer_text'] );
-        
+
+        if ( isset( $input['license_key'] ) && ! empty( $input['license_key'] ) )
+            $output['license_key'] = stripslashes_deep( trim( $input['license_key'] ) );
+
         return apply_filters( 'digitalstore_theme_options_validate',  $output, $input, $defaults );
     }
 }
@@ -370,7 +375,7 @@ if ( ! function_exists( 'digitalstore_settings_field_logo_image' ) ) {
     function digitalstore_settings_field_logo_image() {
         $options = digitalstore_get_theme_options();
         ?>
-        
+
         <?php if ( isset( $options['logo_image'] ) && $options['logo_image'] != "" ): ?>
             <img class="digitalstore-image-logo" src="<?php echo $options['logo_image']; ?>" alt="<?php esc_attr_e( 'Logo Image', 'edd-digitalstore' ); ?>"/>
             <br/>
@@ -416,10 +421,10 @@ if ( ! function_exists( 'digitalstore_settings_field_skin' ) ) {
                 $stored = $options['theme_skin'];
                 foreach ( digitalstore_theme_skin_options() as $value => $label ) {
                     $selected = ( $stored === $value ) ? ' selected="selected" ' : '';
-                    printf( '<option value="%s" data-default-color="%s"%s>%s</option>', 
-                        esc_attr( $value ), 
-                        digitalstore_get_default_accent_color( $value ), 
-                        $selected, 
+                    printf( '<option value="%s" data-default-color="%s"%s>%s</option>',
+                        esc_attr( $value ),
+                        digitalstore_get_default_accent_color( $value ),
+                        $selected,
                         $label
                     );
                 }
@@ -464,16 +469,35 @@ if ( ! function_exists( 'digitalstore_settings_field_accent_color' ) ) {
 
 if ( ! function_exists( 'digitalstore_settings_field_footer_text' ) ) {
     function digitalstore_settings_field_footer_text() {
-        
+
         $options = digitalstore_get_theme_options(); ?>
-        
+
         <?php if ( function_exists( 'wp_editor' ) ): ?>
             <?php wp_editor( $options['footer_text'], 'digitalstore_theme_options[footer_text]', array( 'textarea_rows' => 4, 'teeny' => true ) ); ?>
         <?php else: ?>
             <textarea class="large-text" name="digitalstore_theme_options[footer_text]" id="footer-text" cols="50" rows="4"><?php echo esc_textarea( $options['footer_text'] ); ?></textarea>
         <?php endif ?>
-            
+
         <label class="description" for="sample-text-input"><?php _e( 'The footer bottom left text', 'edd-digitalstore' ); ?>.</label>
+        <?php
+    }
+}
+
+
+/**
+ * Settings Field License Key
+ *
+ * @access      private
+ * @since       1.1
+ * @return      void
+*/
+
+if ( ! function_exists( 'digitalstore_settings_field_license_key' ) ) {
+    function digitalstore_settings_field_license_key() {
+
+        $options = digitalstore_get_theme_options(); ?>
+        <input class="regular-text" type="text" name="digitalstore_theme_options[license_key]" id="license-text" value="<?php echo esc_textarea( $options['license_key'] ); ?>"/>
+        <label class="description" for="sample-text-input"><?php _e( 'Theme license key for automatic updatess', 'edd-digitalstore' ); ?>.</label>
         <?php
     }
 }
@@ -490,9 +514,9 @@ if ( ! function_exists( 'digitalstore_settings_field_footer_text' ) ) {
 if ( ! function_exists( 'digitalstore_ajax_set_logo_image' ) ) {
     function digitalstore_ajax_set_logo_image() {
 		if ( ! current_user_can( digitalstore_option_page_capability() ) || ! isset( $_POST['attachment_id'] ) ) exit;
-		
+
 		$attachment_id = absint( $_POST['attachment_id'] );
-		
+
 		$sizes = array_keys( apply_filters( 'image_size_names_choose', array( 'thumbnail' => __( 'Thumbnail' ), 'medium' => __( 'Medium' ), 'large' => __( 'Large' ), 'full' => __( 'Full Size' ) ) ) );
 		$size = 'thumbnail';
 		if ( in_array( $_POST['size'], $sizes ) )
@@ -500,9 +524,9 @@ if ( ! function_exists( 'digitalstore_ajax_set_logo_image' ) ) {
 
 		$url = wp_get_attachment_image_src( $attachment_id, $size );
 		$thumbnail = wp_get_attachment_image_src( $attachment_id, 'thumbnail' );
-		
+
 		digitalstore_theme_update_logo_image( esc_url( $url[0] ) );
-		
+
 		exit;
     }
 }
@@ -594,9 +618,9 @@ if ( ! function_exists( 'digitalstore_print_theme_accent' ) ) {
 
         if ( $options['accent_color'] === digitalstore_get_default_accent_color( $options['theme_skin'] ) )
         return;
-            
+
         ?>
-        
+
         <style type="text/css" media="screen">
             a, #branding h1 a:hover, #access li a:hover, #access ul li:hover a, #access ul li:hover li a:hover, #access .digitalstore-checkout a:hover, #access-secondary a:hover, .entry-utility a:hover, .type-post .entry-meta a:hover, .breadcrumbs a:hover, .view-all:hover, #comments a:hover, .latest-add-to-cart:hover, #colophon #credits a:hover, .entry-content a:hover, .widget a:hover,  .related-entry-title:hover, .related-entry-title, .display-listing h3 a:hover, .display-listing h4 a:hover, .downloads-meta h5 a:hover, h2.entry-title a:hover, #complementary ul.menu li a { color: #<?php echo $options['accent_color']; ?>!important }
             body, a, .entry-add-to-cart, a.edd-remove-from-cart, a.widget-download-title:hover, .entry-content a:hover, .widget a:hover, #access-secondary a:hover, .entry-utility a:hover, .type-post .entry-meta a:hover, .breadcrumbs a:hover, .view-all:hover, #comments a:hover, .latest-add-to-cart:hover, #colophon #credits a:hover, .digitalstore-pagination a:hover, #complementary ul.menu li a:hover { border-color: #<?php echo $options['accent_color']; ?> }
@@ -605,3 +629,42 @@ if ( ! function_exists( 'digitalstore_print_theme_accent' ) ) {
     }
 }
 add_action( 'wp_head', 'digitalstore_print_theme_accent' );
+
+
+/**
+ * Digital Store Theme License
+ *
+ * @access      private
+ * @since       1.1
+ * @return      void
+*/
+function digitalstore_activate_license() {
+
+    if( isset( $_POST['digitalstore_theme_options'] ) ) {
+
+        if( isset( $_POST['digitalstore_theme_options']['license_key'] ) )
+            $key = trim( $_POST['digitalstore_theme_options']['license_key'] );
+        else
+            return;
+
+        if( get_option('digitalstore_license_key_status') == 'valid' )
+            return; // License already activated
+
+        $api_params = array(
+            'edd_action' => 'activate_license',
+            'license'    => $key,
+            'item_name'  => urlencode( EDD_DIGITAL_STORE_THEME_NAME )
+        );
+
+        $response = wp_remote_get( add_query_arg( $api_params, EDD_DIGITAL_STORE_STORE_URL ), array( 'timeout' => 15, 'sslverify' => false ) );
+
+        if ( is_wp_error( $response ) )
+            return false;
+
+        $license_data = json_decode( wp_remote_retrieve_body( $response ) );
+
+        update_option( 'digitalstore_license_key_status', $license_data->license );
+
+    }
+}
+add_action( 'admin_init', 'digitalstore_activate_license' );

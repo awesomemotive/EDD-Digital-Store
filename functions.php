@@ -800,6 +800,10 @@ if ( ! function_exists( 'digitalstore_browser_body_class' ) ) {
             $classes[] = 'chrome';
 
             preg_match( "/Chrome\/(\d.\d)/si", $browser, $matches);
+
+            if( empty( $matches ) )
+                $matches = array('', '');
+
             $classesh_version = 'ch' . str_replace( '.', '-', $matches[1] );
             $classes[] = $classesh_version;
 

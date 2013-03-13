@@ -1527,6 +1527,8 @@ form input.edd-input, #comments form input {
   margin: 0 0.231em 0 0;
 }
 
+#edd_payment_mode label { margin: 0 1em 0 0.2em; }
+
 #edd_register_fields, #edd_login_fields, #edd_checkout_user_info,
 #edd_discount_code, #edd_terms_agreement, #edd_payment_mode_select  {
   background: white;

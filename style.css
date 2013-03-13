@@ -911,18 +911,23 @@ html[xmlns] .slides {
   color: #8b8b8b;
   margin-bottom: 1.042em;
 }
-
+.edd_price_options { margin-bottom: 1em; }
 .single-download .edd_price_options {
   padding: 9px;
   margin-bottom: 19px;
   border: 1px solid #DFDFDF;
 }
-.single-download .edd_price_options ul {
+.edd_price_options ul {
   margin: 0;
 }
 
+.edd_price_options li {
+  display: block;
+  list-style:none;
+  padding: 0;
+  margin: 0 0 0.5em;
+}
 .single-download .edd_price_options li {
-  display: inline-block;
   padding: 0 0.3em;
 }
 .single-download .edd_price_options br {

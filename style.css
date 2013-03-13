@@ -1601,6 +1601,42 @@ fieldset#edd_terms_agreement input {
   border-bottom: 1px solid #bfbfbf;
 }
 
+/* =Profile Editor
+-------------------------------------------------------------- */
+
+#edd_profile_editor_form {
+  border: 1px solid #bfbfbf;
+  border-top: none;
+}
+#edd_profile_editor_form legend {
+  font-weight: bold;
+  background: #f8f8f8;
+  border-bottom: 1px solid #bfbfbf;
+  border-top: 1px solid #bfbfbf;
+  width: 98%;
+  padding: 0.769em 1% 0.692em;
+}
+#edd_profile_editor_form p {
+  margin: 0 0 0.8em;
+  padding: 0 0.769em;
+}
+#edd_profile_editor_form #edd_profile_name_wrap,
+#edd_profile_editor_form #edd_profile_password_wrap {
+  padding-top: 0.769em;
+}
+#edd_profile_editor_form label {
+  display: inline-block;
+  width: 35%;
+  margin-bottom: 0.8em;
+}
+#edd_profile_editor_form input[type="text"],
+#edd_profile_editor_form input[type="password"],
+#edd_profile_editor_form input[type="email"] {
+  display: inline-block;
+  width: 40%;
+  margin-bottom: 0.8em;
+}
+
 /* =404
 -------------------------------------------------------------- */
 .topics {
@@ -1652,7 +1688,7 @@ input, textarea {
 /* =Buttons
 -------------------------------------------------------------- */
 .button, button, .edd-submit.text, .button-group .dropdown-toggle, .edd_go_to_checkout,
-#edd_purchase_submit input, #submit, #edd_next_button, .edd-add-to-cart {
+#edd_purchase_submit input, #submit, #edd_next_button, .edd-add-to-cart, #edd_profile_editor_submit {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   -ms-box-sizing: content-box;
@@ -1701,7 +1737,7 @@ input, textarea {
 }
 
 .button:hover, button:hover, .edd_submit_plain:hover, .button-group .dropdown-toggle:hover, .edd_go_to_checkout:hover,
-#edd_purchase_submit input:hover, #submit:hover, #edd_next_button:hover, .edd-add-to-cart:hover {
+#edd_purchase_submit input:hover, #submit:hover, #edd_next_button:hover, .edd-add-to-cart:hover, #edd_profile_editor_submit:hover {
   background: #27a5ff;
   background: -moz-linear-gradient(top, #27a5ff 0%, #1f9aff 25%, #0385ff 50%, #006dea 76%, #0063e4 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #27a5ff), color-stop(25%, #1f9aff), color-stop(50%, #0385ff), color-stop(76%, #006dea), color-stop(100%, #0063e4));
@@ -1712,7 +1748,8 @@ input, textarea {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#27a5ff', endColorstr='#0063e4',GradientType=0 );
 }
 
-#submit:active, .button:active, button:active, .edd_submit_plain:active, .button-group .dropdown-toggle:active, .button-group .dropdown-toggle.active, .edd_go_to_checkout:active, #edd_purchase_submit input:active, #edd_next_button:active, .edd-add-to-cart:active {
+#submit:active, .button:active, button:active, .edd_submit_plain:active, .button-group .dropdown-toggle:active, .button-group .dropdown-toggle.active, .edd_go_to_checkout:active, 
+#edd_purchase_submit input:active, #edd_next_button:active, .edd-add-to-cart:active, #edd_profile_editor_submit:active {
   background-color: #064A7A;
   background-image: none;
   outline: 0;
@@ -1901,7 +1938,7 @@ input, textarea {
   box-sizing: border-box;
 }
 
-.alert, .edd_has_purchased, .edd_errors {
+.alert, .edd_has_purchased, .edd_errors, .edd_success {
   padding: 0.615em 2.692em 0.615em 1.077em;
   margin-bottom: 1.385em;
   text-shadow: 0 0.077em 0 rgba(255, 255, 255, 0.5);

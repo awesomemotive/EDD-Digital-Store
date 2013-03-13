@@ -1502,7 +1502,18 @@ form input.edd-input, #comments form input {
   border-color: #c4554e;
 }
 
-#edd_purchase_form label, #comments form label {
+#edd_purchase_form legend { display:block; font-size: 120%; font-weight: bold; background: transparent; }
+#edd_purchase_form label { font-weight: bold; display:block; position: relative; line-height: 100%; font-size: 95%; margin: 0 0 5px; }
+#edd_purchase_form label:after { display: block; visibility: hidden; float: none; clear: both; height: 0; text-indent: -9999px; content: "."; }
+#edd_purchase_form span.edd-description { color: #666; font-size: 80%; display: block; margin: 0 0 5px; }
+#edd_purchase_form input.edd-input { display:block; width: 80%; }
+#edd_purchase_form select.edd-select { display:block; width: 60%; }
+#edd_purchase_form select.edd-select.edd-select-small { display:inline; width: auto; }
+#edd_purchase_form input.edd-input.error { border-color: #c4554e; }
+#edd_checkout_form_wrap fieldset#edd_cc_fields { background: #f9f9f9; }
+#edd_checkout_form_wrap fieldset#edd_cc_fields #edd-card-number-wrap { margin-top: 5px; }
+
+#comments form label {
   display: inline-block;
   zoom: 1;
   *display: inline;
@@ -1537,6 +1548,7 @@ form input.edd-input, #comments form input {
 #edd_checkout_form_wrap fieldset, #comments fieldset {
   border: 1px solid #dfdfdf;
   padding: 1.462em;
+  margin-bottom: 10px;
 }
 
 fieldset#edd_purchase_submit, #edd_checkout_form_wrap fieldset fieldset, fieldset#edd_payment_mode_submit {
@@ -1548,12 +1560,18 @@ fieldset#edd_purchase_submit, #edd_checkout_form_wrap fieldset fieldset, fieldse
   padding-left: 0;
 }
 
-#edd_checkout_form_wrap #edd_discount_code, #edd_checkout_form_wrap #edd_terms_agreement {
-  border-top: 0;
-}
-
 fieldset#edd_terms_agreement {
 	padding: 0.1em 1.462em;
+}
+
+fieldset#edd_terms_agreement label {
+  width: auto;
+  display: inline-block;
+}
+
+fieldset#edd_terms_agreement input {
+  float: left;
+  margin: 0 0.5em 0 0;
 }
 
 .edd_cart_actions a:hover {

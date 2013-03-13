@@ -1587,6 +1587,20 @@ fieldset#edd_terms_agreement input {
   margin-bottom:0;
 }
 
+/* EDD Receipt */
+#edd_purchase_receipt_products ul {
+  margin-left: 0.5em;
+}
+#edd_purchase_receipt_products li.edd_download_file {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.5em;
+}
+
+#edd_purchase_receipt_products tfoot td {
+  border-bottom: 1px solid #bfbfbf;
+}
+
 /* =404
 -------------------------------------------------------------- */
 .topics {

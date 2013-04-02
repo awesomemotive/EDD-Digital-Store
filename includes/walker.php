@@ -1,5 +1,5 @@
 <?php
-/** 
+/**
  * DigitalStore Nav Menu Walker
  *
  * Adds a caret to menu items with childrens.
@@ -15,7 +15,7 @@
 
 if ( ! class_exists( 'DigitalStore_Walker_Nav_Menu' ) ) {
     class DigitalStore_Walker_Nav_Menu extends Walker_Nav_Menu {
-        
+
         function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
             global $wp_query;
             $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
@@ -47,22 +47,22 @@ if ( ! class_exists( 'DigitalStore_Walker_Nav_Menu' ) ) {
             $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 
         }
-        
+
         function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ) {
-            
+
             if ( !$element )
                 return;
-            
+
             $id_field = $this->db_fields['id'];
-            
+
             //display this element
-            if ( is_array( $args[0] ) ) 
+            if ( is_array( $args[0] ) )
                 $args[0]['has_children'] = ! empty( $children_elements[$element->$id_field] );
-            else if ( is_object( $args[0] ) ) 
-                $args[0]->has_children = ! empty( $children_elements[$element->$id_field] ); 
+            else if ( is_object( $args[0] ) )
+                $args[0]->has_children = ! empty( $children_elements[$element->$id_field] );
             $cb_args = array_merge( array(&$output, $element, $depth), $args);
             call_user_func_array(array(&$this, 'start_el'), $cb_args);
-            
+
             $id = $element->$id_field;
 
             // descend only when the depth is right and there are childrens for this element

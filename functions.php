@@ -688,17 +688,17 @@ if ( ! function_exists( 'digitalstore_add_to_cart_callback' ) ) {
 
         $filterable_actions = array(
             'twitter' => array(
-                'href' => sprintf( 'http://twitter.com/home?status=%s', sprintf( __( 'Check this out: %s', 'edd-digitalstore' ), $permalink ) ),
+                'href' => sprintf( 'http://twitter.com/home?status=%s', urlencode( sprintf( __( 'Check this out: %s', 'edd-digitalstore' ), $permalink ) ) ),
                 'title' => sprintf( __( 'Share %s on Twitter', 'edd-digitalstore' ), $title ),
                 'text' => __( 'Share on Twitter', 'edd-digitalstore' ),
             ),
             'googleplus' => array(
-                'href' => sprintf( 'https://plus.google.com/share?url=%s', $permalink ),
+                'href' => sprintf( 'https://plus.google.com/share?url=%s', urlencode( $permalink ) ),
                 'title' => sprintf( __( 'Add %s to Google Plus', 'edd-digitalstore' ), $title ),
                 'text' => __( 'Add to Google+', 'edd-digitalstore' ),
             ),
             'facebook' => array(
-                'href' => sprintf( 'http://www.facebook.com/sharer.php?u=%s&t=%s', $permalink, __( 'Check this out', 'edd-digitalstore' ) ),
+                'href' => sprintf( 'http://www.facebook.com/sharer.php?u=%s&t=%s', urlencode( $permalink ), urlencode( __( 'Check this out', 'edd-digitalstore' ) ) ),
                 'title' => sprintf( __( 'Share %s on Facebook', 'edd-digitalstore' ), $title ),
                 'text' => __( 'Share on Facebook', 'edd-digitalstore' ),
             )

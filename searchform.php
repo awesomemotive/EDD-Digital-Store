@@ -15,6 +15,6 @@
     <fieldset>
         <label for="search"><?php _e( 'Search For', 'edd-digitalstore' ); ?></label>
         <input type="text" name="s" id="search" placeholder="<?php _e( 'Search this site', 'edd-digitalstore' ); ?>" value="<?php the_search_query(); ?>" />
-        <input type="submit" class="button" name="submit" value="<?php _e( 'Seach', 'edd-digitalstore' ) ?>" />
+        <input type="submit" class="button" name="submit" value="<?php _e( 'Search', 'edd-digitalstore' ) ?>" />
     </fieldset>
 </form>

@@ -2380,8 +2380,14 @@ a.widget-download-title:hover {
 
 /* =Recommended Products extension
 -------------------------------------------------------------- */
-#edd-rp-single-header {
+#edd-rp-single-header, #edd-rp-checkout-header {
   margin: 0 0 0.5em;
+}
+
+#edd-rp-checkout-wrapper {
+  border: 1px solid #dfdfdf;
+  padding: 1.462em;
+  margin-bottom: 10px;
 }
 
 #edd-rp-single-header span {

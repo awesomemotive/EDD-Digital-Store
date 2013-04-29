@@ -2390,6 +2390,10 @@ a.widget-download-title:hover {
   margin-bottom: 10px;
 }
 
+#edd-rp-checkout-wrapper .edd_download_purchase_form {
+  margin-bottom: 0;
+}
+
 #edd-rp-single-header span {
   font-style: italic;
 }

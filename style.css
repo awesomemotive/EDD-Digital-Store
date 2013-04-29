@@ -2358,6 +2358,34 @@ a.widget-download-title:hover {
     display:inline;
 }
 
+/* =Recommended Products extension
+-------------------------------------------------------------- */
+#edd-rp-single-header {
+  margin: 0 0 0.5em;
+}
+
+#edd-rp-single-header span {
+  font-style: italic;
+}
+
+#edd-rp-items-wrapper .edd-rp-item  {
+  text-align: left;
+}
+
+#edd-rp-items-wrapper .edd-rp-item a span {
+  display: block;
+  margin: 0 0 0.5em;
+}
+
+#edd-rp-items-wrapper .edd_price_options {
+  border: none;
+  padding: 0;
+}
+
+#edd-rp-items-wrapper .edd_price_options li {
+  padding: 0;
+}
+
 /* =Media Queries
 --------------------------------------------------------------
 

@@ -1562,6 +1562,26 @@ fieldset#edd_purchase_submit, #edd_checkout_form_wrap fieldset fieldset, fieldse
   padding-left: 0;
 }
 
+fieldset#edd_tax_opt_in_fields {
+  padding: 0;
+}
+
+fieldset#edd_tax_opt_in_fields input {
+  float: left;
+  width: auto;
+  min-width: 0;
+  margin: 0.2em 0.5em 0 0;
+}
+
+fieldset#edd_tax_opt_in_fields label {
+  display: inline;
+}
+
+fieldset#edd_tax_opt_in_fields label:after {
+  clear: none;
+  display: inline;
+}
+
 fieldset#edd_terms_agreement {
 	padding: 0.1em 1.462em;
 }

@@ -59,7 +59,7 @@ if ( ! function_exists( 'digitalstore_latest_downloads' ) ) {
         if ( $downloads->have_posts() ) { $i = 1; ?>
         <div class="section-latest latest-<?php echo strtolower( $post_type_obj->label ); ?>">
             <div class="section-title">                        
-                <h3 class="latest-<?php echo $class; ?>-title"><?php  printf( $atts['title'], $post_type_obj->labels->menu_name ); ?></h3>
+                <h3 class="latest-title"><?php  printf( $atts['title'], $post_type_obj->labels->menu_name ); ?></h3>
                 <?php if ( $atts['all'] == 1 ): ?>
                     <a href="<?php echo get_post_type_archive_link( 'download' ); ?>" class="view-all" ><span><?php _e( 'View All', 'edd-digitalstore' ); ?></span></a><!-- .view-all -->
                 <?php endif; ?>

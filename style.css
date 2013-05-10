@@ -1796,6 +1796,11 @@ input, textarea {
   position: relative;
   margin-bottom: 1.462em;
 }
+
+.button-group .edd_price_options li {
+  display: inline;
+}
+
 .button-group .edd_submit_plain, .button-group .edd_go_to_checkout {
   height: 1.2em;
   float: left;

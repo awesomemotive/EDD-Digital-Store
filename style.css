@@ -2213,7 +2213,7 @@ li.edd-cart-item:nth-last-of-type(2) {
   border-bottom-color: #bfbfbf;
 }
 
-.edd_checkout {
+.edd_checkout, .edd_subtotal {
   margin-top: 0.385em;
   margin-bottom: 0;
 }
@@ -2221,7 +2221,12 @@ li.edd-cart-item:nth-last-of-type(2) {
 .edd-cart-item-title {
   float: left;
   width: 70%;
-  clear: left;
+}
+
+.edd-cart-item-price {
+  float: right;
+  width: 30%;
+  text-align: right;
 }
 
 .edd-cart-item-separator {

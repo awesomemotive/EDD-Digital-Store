@@ -10,23 +10,24 @@ class EDD_SL_Theme_Updater {
 
 	function __construct( $args = array() ) {
 		$args = wp_parse_args( $args, array(
-			'remote_api_url' => 'http://easydigitaldownloads.com',
-			'request_data' => array(),
-			'theme_slug' => get_template(),
-			'item_name' => '',
-			'license' => '',
-			'version' => '',
-			'author' => ''
+			'remote_api_url' => 'https://easydigitaldownloads.com',
+			'request_data'   => array(),
+			'theme_slug'     => get_template(),
+			'item_name'      => '',
+			'license'        => '',
+			'version'        => '',
+			'author'         => ''
 		) );
 		extract( $args );
 
-		$this->license = $license;
-		$this->item_name = $item_name;
-		$this->version = $version;
-		$this->theme_slug = sanitize_key( $theme_slug );
-		$this->author = $author;
+		$theme                = wp_get_theme( sanitize_key( $theme_slug ) );
+		$this->license        = $license;
+		$this->item_name      = $item_name;
+		$this->version        = ! empty( $version ) ? $version : $theme->get( 'Version' );
+		$this->theme_slug     = sanitize_key( $theme_slug );
+		$this->author         = $author;
 		$this->remote_api_url = $remote_api_url;
-		$this->response_key = $this->theme_slug . '-update-response';
+		$this->response_key   = $this->theme_slug . '-update-response';
 
 
 		add_filter( 'site_transient_update_themes', array( &$this, 'theme_update_transient' ) );
@@ -52,7 +53,7 @@ class EDD_SL_Theme_Updater {
 		$update_url = wp_nonce_url( 'update.php?action=upgrade-theme&amp;theme=' . urlencode( $this->theme_slug ), 'upgrade-theme_' . $this->theme_slug );
 		$update_onclick = ' onclick="if ( confirm(\'' . esc_js( __( "Updating this theme will lose any customizations you have made. 'Cancel' to stop, 'OK' to update." ) ) . '\') ) {return true;}return false;"';
 
-		if ( version_compare( $theme->get( 'Version' ), $api_response->new_version, '<' ) ) {
+		if ( version_compare( $this->version, $api_response->new_version, '<' ) ) {
 
 			echo '<div id="update-nag">';
 				printf( '<strong>%1$s %2$s</strong> is available. <a href="%3$s" class="thickbox" title="%4s">Check out what\'s new</a> or <a href="%5$s"%6$s>update now</a>.',
@@ -90,6 +91,9 @@ class EDD_SL_Theme_Updater {
 		if ( false === $update_data ) {
 			$failed = false;
 
+			if( empty( $this->license ) )
+				return false;
+
 			$api_params = array(
 				'edd_action' 	=> 'get_version',
 				'license' 		=> $this->license,
@@ -114,7 +118,7 @@ class EDD_SL_Theme_Updater {
 			// if the response failed, try again in 30 minutes
 			if ( $failed ) {
 				$data = new stdClass;
-				$data->new_version = $theme->get( 'Version' );
+				$data->new_version = $this->version;
 				set_transient( $this->response_key, $data, strtotime( '+30 minutes' ) );
 				return false;
 			}
@@ -126,7 +130,7 @@ class EDD_SL_Theme_Updater {
 			}
 		}
 
-		if ( version_compare( $theme->get( 'Version' ), $update_data->new_version, '>=' ) ) {
+		if ( version_compare( $this->version, $update_data->new_version, '>=' ) ) {
 			return false;
 		}
 

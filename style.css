@@ -1993,6 +1993,9 @@ input, textarea {
   border-radius: 0.308em;
   color: #c09853;
 }
+.edd_errors p {
+  margin: 0;
+}
 
 .alert-heading {
   color: inherit;

@@ -1504,7 +1504,16 @@ form input.edd-input, #comments form input {
 #edd_purchase_form input.edd-input.error {
   border-color: #c4554e;
 }
-
+#edd_checkout_form_wrap .edd-payment-icons { height: 32px; display: block; margin: 0 0 8px; }
+#edd_checkout_form_wrap .edd-payment-icons img.payment-icon{ max-height: 32px; width: auto; margin: 0 3px 0 0; float: left; background: none; padding: none; border: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none;}
+@media
+(-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+  /* Admin Menu - 16px @2x */
+  #edd_checkout_form_wrap .edd-payment-icons img.payment-icon { max-height: 64px; }
+}
+#edd_checkout_form_wrap #edd-payment-mode-wrap label { display: inline-block; margin: 0 20px 0 0; }
+#edd_checkout_form_wrap #edd-payment-mode-wrap input { margin: 0 10px 0 0; }
 #edd_purchase_form legend { display:block; font-size: 120%; font-weight: bold; background: transparent; }
 #edd_purchase_form label { font-weight: bold; display:block; position: relative; line-height: 100%; font-size: 95%; margin: 0 0 5px; }
 #edd_purchase_form label:after { display: block; visibility: hidden; float: none; clear: both; height: 0; text-indent: -9999px; content: "."; }

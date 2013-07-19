@@ -130,6 +130,10 @@ class EDD_SL_Theme_Updater {
 			}
 		}
 
+		if( ! isset( $update_data->new_version ) ) {
+			return false;
+		}
+
 		if ( version_compare( $this->version, $update_data->new_version, '>=' ) ) {
 			return false;
 		}

@@ -595,7 +595,7 @@ if ( ! function_exists( 'digitalstore_posted_on' ) ) {
         $out = "";
 
         if ( $features['show_date'] == 1 )
-            $out .= '<time class="entry-date">' . get_the_time( 'F j, Y' ) . '</time>';
+            $out .= '<time class="entry-date" datetime="' . get_the_time( 'Y-m-d' ) . '">' . get_the_time( 'F j, Y' ) . '</time>';
 
         if ( $features['show_author'] == 1 ) {
             $out .= ( $out != "" ) ? ' ' : '';

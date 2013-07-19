@@ -1487,6 +1487,7 @@ h2.entry-title a:hover {
   float: left;
   margin: 0 0.615em 0 0;
 }
+#edd_checkout_cart input.edd-item-quantity { width: 3em; max-height: 90%; padding: 2px; }
 
 /* checkout fields */
 form {
@@ -1770,7 +1771,7 @@ input, textarea {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#27a5ff', endColorstr='#0063e4',GradientType=0 );
 }
 
-#submit:active, .button:active, button:active, .edd_submit_plain:active, .button-group .dropdown-toggle:active, .button-group .dropdown-toggle.active, .edd_go_to_checkout:active, 
+#submit:active, .button:active, button:active, .edd_submit_plain:active, .button-group .dropdown-toggle:active, .button-group .dropdown-toggle.active, .edd_go_to_checkout:active,
 #edd_purchase_submit input:active, #edd_next_button:active, .edd-add-to-cart:active, #edd_profile_editor_submit:active {
   background-color: #064A7A;
   background-image: none;

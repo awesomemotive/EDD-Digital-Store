@@ -871,6 +871,9 @@ function digitalstore_theme_updater() {
 
     $license = trim( $options['license_key'] );
 
+    if( empty( $license ) )
+        return;
+
     $edd_updater = new EDD_SL_Theme_Updater( array(
             'remote_api_url'    => EDD_DIGITAL_STORE_STORE_URL,
             'version'           => EDD_DIGITAL_STORE_VERSION,

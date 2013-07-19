@@ -79,3 +79,9 @@ a.edd-remove-from-cart:hover {
 code {
     background: #262727;
 }
+
+#edd_checkout_form_wrap fieldset,
+#edd_checkout_form_wrap fieldset#edd_discount_code {
+    border-color: #35352f;
+    background: transparent;
+}

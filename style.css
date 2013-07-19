@@ -1515,6 +1515,14 @@ form input.edd-input, #comments form input {
 #edd_purchase_form input.edd-input.error { border-color: #c4554e; }
 #edd_checkout_form_wrap fieldset#edd_cc_fields { background: #f9f9f9; }
 #edd_checkout_form_wrap fieldset#edd_cc_fields #edd-card-number-wrap { margin-top: 5px; }
+#edd_checkout_form_wrap fieldset#edd_discount_code {
+  border: 1px solid #bfbfbf;
+  text-align: left;
+  background: #F8F8F8;
+}
+#edd_checkout_form_wrap fieldset#edd_discount_code p {
+  margin: 0;
+}
 
 #comments form label {
   display: inline-block;
@@ -1543,8 +1551,7 @@ form input.edd-input, #comments form input {
 
 #edd_payment_mode label { margin: 0 1em 0 0.2em; }
 
-#edd_register_fields, #edd_login_fields, #edd_checkout_user_info,
-#edd_discount_code, #edd_terms_agreement, #edd_payment_mode_select  {
+#edd_register_fields, #edd_login_fields, #edd_checkout_user_info, #edd_terms_agreement, #edd_payment_mode_select  {
   background: white;
 }
 

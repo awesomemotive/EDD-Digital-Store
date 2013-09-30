@@ -1987,7 +1987,7 @@ input, textarea {
   box-sizing: border-box;
 }
 
-.alert, .edd_has_purchased, #edd_checkout_form_wrap .edd_errors, .edd_success, #edd_msg_edd_cart_save_successful {
+.alert, .edd_has_purchased, #edd_checkout_form_wrap .edd_errors, .edd_success, #edd_msg_edd_cart_save_successful, #edd_msg_edd_cart_restoration_successful {
   padding: 0.615em 2.692em 0.615em 1.077em;
   margin-bottom: 1.385em;
   text-shadow: 0 0.077em 0 rgba(255, 255, 255, 0.5);
@@ -2026,7 +2026,7 @@ input, textarea {
   color: #b94a48;
 }
 
-.alert-info, .edd_has_purchased, #edd_msg_edd_cart_save_successful {
+.alert-info, .edd_has_purchased, #edd_msg_edd_cart_save_successful, #edd_msg_edd_cart_restoration_successful {
   background-color: #d9edf7;
   border-color: #bce8f1;
   color: #3a87ad;

@@ -1811,7 +1811,7 @@ input, textarea {
   clear: both;
   width: 100%;
   position: relative;
-  margin-bottom: 1.462em;
+  margin-bottom: 2em;
 }
 
 .button-group .edd_price_options li {
@@ -1843,6 +1843,11 @@ input, textarea {
   border-left-color: #064A7A;
 }
 
+.button-group .edd_purchase_tax_rate {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+}
 .latest-listing .edd_button, .latest-listing .edd_submit_plain, .downloads-wrapper .edd_submit_plain, .button.btn-small {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;

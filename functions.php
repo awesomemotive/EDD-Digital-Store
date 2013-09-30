@@ -22,7 +22,7 @@ if( !class_exists( 'Easy_Digital_Downloads' ) ) return;
 
 define( 'EDD_DIGITAL_STORE_STORE_URL', 'https://easydigitaldownloads.com' );
 define( 'EDD_DIGITAL_STORE_THEME_NAME', 'Digital Store Theme' );
-define( 'EDD_DIGITAL_STORE_VERSION', '1.2.2' );
+define( 'EDD_DIGITAL_STORE_VERSION', '1.2.3' );
 
 
 // Set content width

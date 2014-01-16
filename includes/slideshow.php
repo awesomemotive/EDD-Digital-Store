@@ -127,8 +127,8 @@ function digitalstore_slide_add_meta_boxes() {
     remove_meta_box( 'postimagediv', 'edd_slide', 'side' );
 
     // Add a custom featured image meta box
-    add_meta_box( 'postimagediv`',  __( 'Slide Image', 'edd-digitalstore' ), 'post_thumbnail_meta_box', 'edd_slide', 'normal', 'high' );
-    
+    add_meta_box( 'postimagediv',  __( 'Slide Image', 'edd-digitalstore' ), 'post_thumbnail_meta_box', 'edd_slide', 'normal', 'high' );
+
     // add the URL input
     add_meta_box( 'digitalstore_slide_meta',  __( 'Slide Meta', 'edd-digitalstore' ), 'digitalstore_slide_meta_box', 'edd_slide', 'normal', 'high' );
 

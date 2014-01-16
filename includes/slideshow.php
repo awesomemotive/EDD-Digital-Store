@@ -251,8 +251,7 @@ function digitalstore_slide_custom_columns( $column ) {
         case 'thumbnail' :
             if ( has_post_thumbnail( $post->ID ) ) { // the current post has a thumbnail
                 the_post_thumbnail( $post->ID );
-            }
-            else { // the current post lacks a thumbnail
+            } else { // the current post lacks a thumbnail
                _e('No Image', 'edd-digitalstore');
             }
 

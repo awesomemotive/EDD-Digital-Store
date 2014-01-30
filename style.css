@@ -2608,3 +2608,28 @@ a.widget-download-title:hover {
     margin: 0 auto;
   }
 }
+
+/* =Frontend Submissions
+-------------------------------------------------------------- */
+nav.fes-vendor-menu:after { 
+  display: block;
+  content: ".";
+  clear: both;
+  float: none;
+  height: 1px;
+  visibility: hidden;
+  text-indent: -9999px;
+}
+nav.fes-vendor-menu ul {
+  margin: 0;
+}
+nav.fes-vendor-menu a {
+  border-bottom: 1px solid transparent;
+}
+fieldset.fes-el.password .fes-label,
+fieldset.fes-el.password .fes-fields {
+  margin-bottom: 1em;
+}
+.fes-cmt-submit-form {
+  margin-right: 0.5em;
+}

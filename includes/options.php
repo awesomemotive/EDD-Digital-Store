@@ -653,7 +653,8 @@ function digitalstore_activate_license() {
         $api_params = array(
             'edd_action' => 'activate_license',
             'license'    => $key,
-            'item_name'  => urlencode( EDD_DIGITAL_STORE_THEME_NAME )
+            'item_name'  => urlencode( EDD_DIGITAL_STORE_THEME_NAME ),
+            'url'        => home_url()
         );
 
         $response = wp_remote_get( add_query_arg( $api_params, EDD_DIGITAL_STORE_STORE_URL ), array( 'timeout' => 15, 'sslverify' => false ) );

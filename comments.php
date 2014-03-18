@@ -45,16 +45,7 @@
             <p class="nocomments"><?php _e( 'Comments are closed.', 'edd-digitalstore' ); ?></p>
     <?php endif; ?>
 
-    <?php 
-        comment_form(
-        array(
-            'title_reply' => __( 'Leave a comment', 'edd-digitalstore' ),
-            'comment_notes_before' => '',
-            'comment_field' => '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun', 'edd-digitalstore' ) . '</label><textarea id="comment" name="comment" rows="10" aria-required="true"></textarea></p>',
-            'label_submit' => __( 'Submit Comment', 'edd-digitalstore' ),
-            'class_submit' => 'button primary'
-        ) ); 
-    ?>
+    <?php comment_form(); ?>
 
 </div><!-- #comments -->
 

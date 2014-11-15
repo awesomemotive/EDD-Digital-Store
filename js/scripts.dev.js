@@ -39,7 +39,7 @@ var digitalstore_theme_js_params;
     $('.dropdown-menu a[href=#addtocart]').on('click', function (e) {
         var self = $(this);
         if ( self.attr('href') === '#addtocart' ) {
-            self.parents('.add-to-cart').find('.edd-add-to-cart').click();
+            self.parents('.add-to-cart').find('input.edd-add-to-cart').click();
             if ( digitalstore_theme_js_params.checkout_uri.length > 0 ) {
                 self.text(digitalstore_theme_js_params.in_gotocheckout).attr('href',digitalstore_theme_js_params.checkout_uri);
             }

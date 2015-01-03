@@ -497,7 +497,7 @@ if ( ! function_exists( 'digitalstore_settings_field_license_key' ) ) {
 
         $options = digitalstore_get_theme_options(); ?>
         <input class="regular-text" type="text" name="digitalstore_theme_options[license_key]" id="license-text" value="<?php echo esc_textarea( $options['license_key'] ); ?>"/>
-        <label class="description" for="sample-text-input"><?php _e( 'Theme license key for automatic updatess', 'edd-digitalstore' ); ?>.</label>
+        <label class="description" for="sample-text-input"><?php _e( 'Theme license key for automatic updates', 'edd-digitalstore' ); ?>.</label>
         <?php
     }
 }

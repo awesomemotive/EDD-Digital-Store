@@ -21,21 +21,21 @@ if ( post_password_required() )
 do_action( 'digitalstore_before_content', $post ); ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-        
+
         <div class="entry">
-            
+
             <?php if ( has_post_thumbnail() ): ?>
                 <div class="entry-image">
-                   <?php the_post_thumbnail( 'digitalstore_thumb_155x156' ); ?>
+                   <?php the_post_thumbnail( 'digitalstore_thumb_small' ); ?>
                 </div><!-- .entry-image -->
             <?php endif ?>
-            
+
             <header class="entry-header">
-                
+
                 <h2 class="entry-title">
                     <a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'edd-digitalstore' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
                 </h2><!-- entry-title -->
-                
+
                 <?php if ( 'post' == get_post_type() ) : ?>
                     <div class="entry-meta">
                         <?php digitalstore_posted_on(); ?>
@@ -43,8 +43,8 @@ do_action( 'digitalstore_before_content', $post ); ?>
                 <?php endif; ?>
 
             </header><!-- .entry-header -->
-            
-            
+
+
             <?php if ( is_search() || is_archive() || is_home() ): ?>
                 <div class="entry-summary">
                     <?php the_excerpt( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'edd-digitalstore' ) ); ?>
@@ -55,7 +55,7 @@ do_action( 'digitalstore_before_content', $post ); ?>
                     <?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'edd-digitalstore' ), 'after' => '</div>' ) ); ?>
                 </div><!-- .entry-content -->
             <?php endif ?>
-            
+
                 <footer class="entry-meta">
                     <?php $show_sep = false; ?>
                     <?php if ( 'post' == get_post_type() ) : ?>
@@ -89,7 +89,7 @@ do_action( 'digitalstore_before_content', $post ); ?>
                     <?php endif; ?>
 
                 </footer><!-- #entry-meta -->
-                        
+
         </div><!-- .entry -->
 
 </article><!-- #post-<?php the_ID(); ?> -->

@@ -52,21 +52,27 @@ do_action( 'digitalstore_before_content', $post ); ?>
                 <?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'edd-digitalstore' ), 'after' => '</div>' ) ); ?>
             </div><!-- .entry-content -->
 
-            <footer class="entry-utility">
-                <?php
-                    $tag_list = get_the_term_list( $post->ID, 'download_tag', '', ', ', '' );
-                    if ( '' != $tag_list ) {
-                        $utility_text = __( 'Posted in %1$s and tagged %2$s.', 'edd-digitalstore' );
-                    } else {
-                        $utility_text = __( 'Posted in %1$s.', 'edd-digitalstore' );
-                    }
-                    printf(
-                        $utility_text,
-                        get_the_term_list( $post->ID, 'download_category', '', ', ', '' ),
-                        $tag_list
-                     );
-                ?>
-            </footer><!-- .entry-meta -->
+            <?php
+            $tag_list = get_the_term_list( $post->ID, 'download_tag', '', ', ', '' );
+            $cat_list = get_the_term_list( $post->ID, 'download_category', '', ', ', '' );
+            if( $tag_list || $cat_list ): ?>
+                <footer class="entry-utility">
+                    <?php
+                        if ( '' !=$cat_list && '' != $tag_list ) {
+                            $utility_text = __( 'Posted in %1$s and tagged %2$s.', 'edd-digitalstore' );
+                        } else if ( ''!= $cat_list ) {
+                            $utility_text = __( 'Posted in %1$s.', 'edd-digitalstore' );
+                        } else if ( ''!= $tag_list ) {
+                            $utility_text = __( 'Tagged %2$s.', 'edd-digitalstore' );
+                        }
+                        printf(
+                            $utility_text,
+                            $cat_list,
+                            $tag_list
+                         );
+                    ?>
+                </footer><!-- .entry-meta -->
+            <?php endif; ?>
 
         </div><!-- .entry -->
 

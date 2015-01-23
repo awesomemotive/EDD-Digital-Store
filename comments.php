@@ -23,7 +23,9 @@
     ?>
     <?php if ( have_comments() ) : ?>
 
-        <h3 id="comments-title"><?php printf( _n( '1 Response for "%2s"', '%1s Responses for "%2s"', get_comments_number(), 'edd-digitalstore' ), number_format_i18n( get_comments_number() ), get_the_title() ); ?></h3>
+        <h3 id="comments-title">
+            <?php printf( _n( '1 Response for "%2$s"', '%1s Responses for "%2s"', get_comments_number(), 'edd-digitalstore' ), number_format_i18n( get_comments_number() ), get_the_title() ); ?>
+        </h3>
 
         <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ): ?>
             <nav class="navigation">

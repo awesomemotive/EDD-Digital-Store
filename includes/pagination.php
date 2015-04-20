@@ -39,7 +39,7 @@ function digitalstore_pagination( $range = 4, $return = false, $_wp_query = null
     $out .= '<span class="pages">' . $pages_text . '</span>';
 
     $pagination = array(
-      'base'        => add_query_arg( 'paged', '%#%' ),
+      'base'        => esc_url( add_query_arg( 'paged', '%#%' ) ),
       'format'      => '',
       'total'       => $wp_query->max_num_pages,
       'current'     => $current,
@@ -53,7 +53,7 @@ function digitalstore_pagination( $range = 4, $return = false, $_wp_query = null
         $base_url = get_pagenum_link( 1 );
         if ( is_search() )
           $base_url = preg_replace( '/\?.*/', '', $base_url );
-        $pagination['base'] = user_trailingslashit( trailingslashit( remove_query_arg( array( 's' ), $base_url ) ) . 'page/%#%/', 'paged' );
+        $pagination['base'] = user_trailingslashit( trailingslashit( esc_url( remove_query_arg( array( 's' ), $base_url ) ) ) . 'page/%#%/', 'paged' );
     }
 
     if ( ! empty( $wp_query->query_vars['s'] ) )

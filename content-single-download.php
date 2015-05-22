@@ -18,7 +18,7 @@ do_action( 'digitalstore_before_content', $post ); ?>
 
             <div class="entry-image">
                 <?php if ( has_post_thumbnail() ): ?>
-                    <?php the_post_thumbnail( 'digitalstore_thumb_321x292' ); ?>
+                    <?php the_post_thumbnail( 'digitalstore_thumb_large' ); ?>
                 <?php else: ?>
                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/nopic-large.gif" alt="<?php the_title_attribute(); ?>"/>
                 <?php endif ?>

@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: edd-digitalstore\n"
-"Report-Msgid-Bugs-To: https://easydigitaldownloads.com/support/\n"
+"Report-Msgid-Bugs-To: https://easydigitaldownloads.com/support\n"
 "POT-Creation-Date: 2015-06-11 09:26+0100\n"
-"PO-Revision-Date: 2015-06-11 09:38+0100\n"
+"PO-Revision-Date: 2015-06-11 09:50+0100\n"
 "Last-Translator: fxbenard | FxB <fx@fxbenard.com>\n"
 "Language-Team: fxbenard | FxB <fx@fxbenard.com>\n"
 "Language: fr_FR\n"
@@ -398,7 +398,7 @@ msgstr "Catégorie :"
 
 #: includes/breadcrumbs.php:92
 msgid "Tag: "
-msgstr "Mot-clef :"
+msgstr "Étiquette :"
 
 #: includes/breadcrumbs.php:107 searchform.php:18
 msgid "Search"
@@ -767,7 +767,7 @@ msgid ""
 "different keywords."
 msgstr ""
 "Désolé, mais rien ne correspond à votre critères de recherche. Veuillez "
-"réessayer avec d&rsquo;autres mots-clefs."
+"réessayer avec d&rsquo;autres étiquettes."
 
 #: searchform.php:16
 msgid "Search For"
@@ -779,7 +779,7 @@ msgstr "Rechercher sur ce site"
 
 #: tag.php:22
 msgid "Tag Archives: %s"
-msgstr "Archives du mot-clefr&nbsp;: %s"
+msgstr "Archives de l'étiquetter&nbsp;: %s"
 
 #: tag.php:48
 msgid ""
@@ -802,7 +802,7 @@ msgstr ""
 
 #: taxonomy-download_tag.php:23
 msgid "Tag: <span class=\"current\">%s</span>"
-msgstr "Mot-clef : <span class=\"current\">%s</span>"
+msgstr "Étiquette : <span class=\"current\">%s</span>"
 
 #. Theme Name of the plugin/theme
 msgid "Digital Store"

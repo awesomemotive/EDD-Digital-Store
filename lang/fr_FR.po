@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: edd-digitalstore\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-24 15:52+0100\n"
-"PO-Revision-Date: 2015-03-27 11:36+0100\n"
+"Report-Msgid-Bugs-To: https://easydigitaldownloads.com/support/\n"
+"POT-Creation-Date: 2015-06-11 09:26+0100\n"
+"PO-Revision-Date: 2015-06-11 09:38+0100\n"
 "Last-Translator: fxbenard | FxB <fx@fxbenard.com>\n"
 "Language-Team: fxbenard | FxB <fx@fxbenard.com>\n"
 "Language: fr_FR\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.7.5\n"
+"X-Generator: Poedit 1.8.1\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: 404.php:26 includes/breadcrumbs.php:105
@@ -28,6 +28,9 @@ msgid ""
 "been moved or even deleted. Please try searching or use one of the links "
 "below."
 msgstr ""
+"Désolé, mais le contenu que vous cherchez est introuvable. Il peut avoir été "
+"déplacé ou même supprimé. Veuillez essayer de lancer une nouvelle recherche "
+"ou utiliser l'un des liens ci-dessous."
 
 #: 404.php:34
 msgid "Recent Posts"
@@ -37,8 +40,16 @@ msgstr "Articles récents"
 msgid "Topics"
 msgstr "Sujets"
 
+#: EDD_SL_Theme_Updater.php:54
+msgid ""
+"Updating this theme will lose any customizations you have made. 'Cancel' to "
+"stop, 'OK' to update."
+msgstr ""
+"Mettre à jour ce thème vous fera perdre toutes les modifications "
+"personnelles que vous y avez apportées. « Annuler » pour arrêter, « OK » "
+"pour mettre à jour."
+
 #: archive-download.php:22
-#, php-format
 msgid "All %s"
 msgstr "Tous les %s"
 
@@ -49,45 +60,42 @@ msgid "Nothing Found"
 msgstr "Rien n&rsquo;a été trouvé"
 
 #: archive-download.php:40 archive.php:40 date.php:75
-#, fuzzy
 msgid ""
 "Apologies, but no results were found for the requested archive. Perhaps "
 "searching will help find a related post."
 msgstr ""
 "Toutes nos excuses, mais votre requête pour cette archive n&rsquo;a donné "
-"aucun résultat. Peut-être aurez-vous plus de chance en lançant une recherche."
+"aucun résultat. Peut-être aurez-vous plus de chance en lançant une "
+"recherche..."
 
 #: archive.php:22 date.php:35
 msgid "Archives"
 msgstr "Archives"
 
 #: author.php:24
-#, php-format
 msgid "Author Archives: <span class=\"vcard\">%s</span>"
 msgstr "Archives de l'auteur : <span class=\"vcard\">%s</span>"
 
 #: author.php:42
-#, fuzzy
 msgid ""
 "Apologies, but no results were found for the requested author. Perhaps "
 "searching will help find a related post."
 msgstr ""
 "Toutes nos excuses, mais votre requête pour cet auteur n&rsquo;a donné aucun "
-"résultat. Peut-être aurez-vous plus de chance en lançant une recherche."
+"résultat. Peut-être aurez-vous plus de chance en lançant une recherche..."
 
 #: category.php:23 taxonomy-download_category.php:22
-#, php-format
 msgid "Category: <span class=\"current\">%s</span>"
 msgstr "Catégorie : <span class=\"current\">%s</span>"
 
 #: category.php:48
-#, fuzzy
 msgid ""
 "Apologies, but no results were found for the requested category. Perhaps "
 "searching will help find a related post."
 msgstr ""
 "Toutes nos excuses, mais votre requête pour cette catégorie n&rsquo;a donné "
-"aucun résultat. Peut-être aurez-vous plus de chance en lançant une recherche."
+"aucun résultat. Peut-être aurez-vous plus de chance en lançant une "
+"recherche..."
 
 #: comments.php:18
 msgid ""
@@ -97,7 +105,6 @@ msgstr ""
 "lire ses commentaires."
 
 #: comments.php:26
-#, php-format
 msgid "1 Response for \"%2s\""
 msgid_plural "%1s Responses for \"%2s\""
 msgstr[0] "%1s réponse pour \"%2s\""
@@ -132,11 +139,11 @@ msgstr "Envoyer le commentaire"
 msgid "View Details"
 msgstr "Afficher les détails de la commande"
 
-#: content-download.php:43 functions.php:663
+#: content-download.php:43 functions.php:664
 msgid "Add To Cart"
 msgstr "Ajouter au panier"
 
-#: content-download.php:46 functions.php:665 functions.php:684
+#: content-download.php:46 functions.php:666 functions.php:685
 msgid "Checkout"
 msgstr "Commander"
 
@@ -155,17 +162,14 @@ msgid "Description"
 msgstr "Description"
 
 #: content-single-download.php:59 content-single.php:42
-#, php-format
 msgid "Posted in %1$s and tagged %2$s."
 msgstr "Publié dans %1$s et étiqueté %2$s."
 
 #: content-single-download.php:61 content-single.php:44
-#, php-format
 msgid "Posted in %1$s."
 msgstr "Publié dans %1$s."
 
 #: content.php:36
-#, php-format
 msgid "Permalink to %s"
 msgstr "Permalien vers %s"
 
@@ -175,12 +179,10 @@ msgid ", "
 msgstr ", "
 
 #: content.php:67
-#, php-format
 msgid "<span class=\"%1$s\">Posted in</span> %2$s"
 msgstr "<span class=\"%1$s\">Publié dans</span> %2$s"
 
 #: content.php:78
-#, php-format
 msgid "<span class=\"%1$s\">Tagged</span> %2$s"
 msgstr "<span class=\"%1$s\">Taggué :</span> %2$s"
 
@@ -197,56 +199,40 @@ msgid "% Replies"
 msgstr "% Réponses"
 
 #: date.php:29
-#, php-format
 msgid "Daily Archives: <span>%s</span>"
 msgstr "Archives quotidiennes&nbsp;: <span>%s</span>"
 
 #: date.php:31
-#, php-format
 msgid "Monthly Archives: <span>%s</span>"
 msgstr "Archives mensuelles&nbsp;: <span>%s</span>"
 
 #: date.php:33
-#, php-format
 msgid "Yearly Archives: <span>%s</span>"
 msgstr "Archives annuelles&nbsp;: <span>%s</span>"
 
 #: date.php:44
-#, php-format
 msgid "One entry was published in %2$s."
 msgid_plural "%1$s entries were published in %2$s."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Une entrée a été publiée dans %2$s."
+msgstr[1] "%1$s entrées ont été publiées dans %2$s."
 
 #: date.php:46
-#, fuzzy, php-format
 msgid "One entry was published on %2$s."
 msgid_plural "%1$s entries were published on %2$s."
-msgstr[0] "Publié le [entry-published] [entry-edit-link before=\"| \"]"
-msgstr[1] "Publié le [entry-published] [entry-edit-link before=\"| \"]"
+msgstr[0] "Une entrée a été publiée le %2$s."
+msgstr[1] "%1$s entrées ont été publiées le %2$s."
 
 #: date.php:50
-#, php-format
 msgid "One entry was published in the month of %2$s."
 msgid_plural "%1$s entries were published in the month of %2$s."
 msgstr[0] "Une entrée a été publiée dans le mois de %2$s."
 msgstr[1] "%1$s entrées ont été publiées dans le mois de %2$s."
 
 #: date.php:52
-#, php-format
 msgid "One entry was published in %2$s of %3$s."
 msgid_plural "%1$s entries were published in %2$s of %3$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: EDD_SL_Theme_Updater.php:53
-msgid ""
-"Updating this theme will lose any customizations you have made. 'Cancel' to "
-"stop, 'OK' to update."
-msgstr ""
-"Mettre à jour ce thème vous fera perdre toutes les modifications "
-"personnelles que vous y avez apportées. « Annuler » pour arrêter, « OK » "
-"pour mettre à jour."
+msgstr[0] "Une entrée a été publiée dans %2$s de%3$s."
+msgstr[1] "%1$s entrées ont été publiées dans %2$s de %3$s."
 
 #: functions.php:79
 msgid "Primary Menu"
@@ -260,7 +246,7 @@ msgstr "Menu secondaire"
 msgid "Go to..."
 msgstr "Aller à..."
 
-#: functions.php:191 functions.php:685
+#: functions.php:191 functions.php:686
 msgid "Go to Checkout"
 msgstr "Allez à la page des commandes"
 
@@ -282,7 +268,6 @@ msgstr "Le message doit faire au moins 2 caractères de long."
 
 #: functions.php:319 functions.php:325 functions.php:328 functions.php:334
 #: functions.php:337
-#, php-format
 msgid "Archive for %1$s"
 msgstr "Archive pour %1$s"
 
@@ -291,7 +276,6 @@ msgid "g:i a"
 msgstr "G \\h i \\m\\i\\n"
 
 #: functions.php:322
-#, php-format
 msgid "Archive for minute %1$s"
 msgstr "Archive pour %1$s minute "
 
@@ -308,7 +292,6 @@ msgid "F jS, Y"
 msgstr "l j F Y"
 
 #: functions.php:331
-#, php-format
 msgid "Archive for week %1$s of %2$s"
 msgstr "Archive pour la semaine %1$s de %2$s"
 
@@ -321,7 +304,6 @@ msgid "Y"
 msgstr "Y"
 
 #: functions.php:344
-#, php-format
 msgid "Search results for &quot;%1$s&quot;"
 msgstr "Les résultats de la recherche pour &quot;%1$s&quot;"
 
@@ -330,7 +312,6 @@ msgid "404 Not Found"
 msgstr "404 Non trouvé"
 
 #: functions.php:354
-#, php-format
 msgid "%1$s Page %2$s"
 msgstr "%1$s Page %2$s"
 
@@ -350,49 +331,43 @@ msgstr "sous"
 msgid "tagged: "
 msgstr "étiqueté :"
 
-#: functions.php:677
-#, php-format
+#: functions.php:678
 msgid "Buy %s"
 msgstr "Acheter %s"
 
-#: functions.php:678
+#: functions.php:679
 msgid "Buy this File"
 msgstr "Acheter ce fichier"
 
-#: functions.php:691
-#, fuzzy, php-format
-msgid "Check this out: %s"
-msgstr "Départ"
-
 #: functions.php:692
-#, php-format
+msgid "Check this out: %s"
+msgstr "Regardez ça : %s"
+
+#: functions.php:693
 msgid "Share %s on Twitter"
 msgstr "Partager %s sur Twitter"
 
-#: functions.php:693
+#: functions.php:694
 msgid "Share on Twitter"
 msgstr "Partager sur Twitter"
 
-#: functions.php:697
-#, php-format
+#: functions.php:698
 msgid "Add %s to Google Plus"
 msgstr "Ajouter %s à Google +"
 
-#: functions.php:698
+#: functions.php:699
 msgid "Add to Google+"
 msgstr "Ajouter à Google +"
 
-#: functions.php:701
-#, fuzzy
-msgid "Check this out"
-msgstr "Départ"
-
 #: functions.php:702
-#, php-format
+msgid "Check this out"
+msgstr "Regardez ça"
+
+#: functions.php:703
 msgid "Share %s on Facebook"
 msgstr "Partager %s sur Facebook"
 
-#: functions.php:703
+#: functions.php:704
 msgid "Share on Facebook"
 msgstr "Partager sur Facebook"
 
@@ -401,7 +376,6 @@ msgid "Our Blog"
 msgstr "Notre blog"
 
 #: image.php:26
-#, php-format
 msgid ""
 "<span class=\"meta-prep meta-prep-entry-date\">Published </span> <span class="
 "\"entry-date\"><abbr class=\"published\" title=\"%1$s\">%2$s</abbr></span> "
@@ -413,70 +387,6 @@ msgstr ""
 "<a href=\"%3$s\" title=\"Lien vers l'image en taille originale\">%4$s "
 "&times; %5$s</a> dans <a href=\"%6$s\" title=\"Revenir à %7$s\" rel=\"gallery"
 "\">%8$s</a>"
-
-#: pagination.php:20
-msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
-msgstr "<span class=\"meta-nav\">&larr;</span> Articles plus anciens"
-
-#: pagination.php:21
-msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
-msgstr "Articles plus récents <span class=\"meta-nav\">&rarr;</span>"
-
-#: search.php:22
-#, fuzzy, php-format
-msgid "%1$s result was found for \"%2$s\"."
-msgid_plural "%1$s results were found for \"%2$s\"."
-msgstr[0] "Fichier non trouvé."
-msgstr[1] "Le résultat de la vérification de la table %1$s est : %2$s"
-
-#: search.php:40
-msgid ""
-"Sorry, but nothing matched your search criteria. Please try again with some "
-"different keywords."
-msgstr ""
-"Désolé, mais rien ne correspond à votre critères de recherche. Veuillez "
-"réessayer avec d&rsquo;autres mots-clefs."
-
-#: searchform.php:16
-msgid "Search For"
-msgstr "Recherche pour"
-
-#: searchform.php:17
-msgid "Search this site"
-msgstr "Rechercher sur ce site"
-
-#: searchform.php:18
-msgid "Seach"
-msgstr "Chercher"
-
-#: tag.php:22
-#, php-format
-msgid "Tag Archives: %s"
-msgstr "Archives du mot-clefr&nbsp;: %s"
-
-#: tag.php:48
-#, fuzzy
-msgid ""
-"Apologies, but no results were found for the requested tag. Perhaps "
-"searching will help find a related post."
-msgstr ""
-"Toutes nos excuses, mais votre requête pour ce mot-clef n&rsquo;a donné "
-"aucun résultat. Peut-être aurez-vous plus de chance en lançant une recherche."
-
-#: taxonomy-download_category.php:46 taxonomy-download_tag.php:48
-#: taxonomy.php:50
-#, fuzzy
-msgid ""
-"Apologies, but no results were found for the requested taxonomy. Perhaps "
-"searching will help find a related post."
-msgstr ""
-"Toutes nos excuses, mais votre requête pour cette taxinomie n&rsquo;a donné "
-"aucun résultat. Peut-être aurez-vous plus de chance en lançant une recherche."
-
-#: taxonomy-download_tag.php:23
-#, php-format
-msgid "Tag: <span class=\"current\">%s</span>"
-msgstr "Mot-clef : <span class=\"current\">%s</span>"
 
 #: includes/breadcrumbs.php:44 includes/breadcrumbs.php:46
 msgid "Home"
@@ -490,7 +400,7 @@ msgstr "Catégorie :"
 msgid "Tag: "
 msgstr "Mot-clef :"
 
-#: includes/breadcrumbs.php:107
+#: includes/breadcrumbs.php:107 searchform.php:18
 msgid "Search"
 msgstr "Rechercher"
 
@@ -504,12 +414,10 @@ msgid "Edit"
 msgstr "Modifier"
 
 #: includes/comments.php:52
-#, php-format
 msgid "<span class=\"fn\">%s</span>"
 msgstr "<span class=\"fn\">%s</span>"
 
 #: includes/comments.php:58
-#, php-format
 msgid "%1$s %2$s"
 msgstr "%1$s %2$s"
 
@@ -541,6 +449,20 @@ msgstr "Marquer le commentaire comme indésirable"
 msgid "Spam"
 msgstr "Indésirable"
 
+#: includes/customize/class-wp-customize-controls.php:39
+#: includes/options.php:28 includes/options.php:380
+msgid "Logo Image"
+msgstr "Image du logo"
+
+#: includes/customize/class-wp-customize-controls.php:44
+#: includes/slideshow.php:256
+msgid "No Image"
+msgstr "Aucune image"
+
+#: includes/customize/class-wp-customize-controls.php:45
+msgid "Removed"
+msgstr "Supprimé"
+
 #: includes/customize.php:44
 msgid "Skins"
 msgstr "Skins"
@@ -562,7 +484,6 @@ msgid "Footer Text"
 msgstr "Texte du pied de page"
 
 #: includes/latest.php:30
-#, php-format
 msgid "Latest %s"
 msgstr "Dernier %s"
 
@@ -577,11 +498,6 @@ msgstr "Options d&rsquo;affichage"
 #: includes/options.php:27
 msgid "Branding"
 msgstr "Image de marque"
-
-#: includes/options.php:28 includes/options.php:380
-#: includes/customize/class-wp-customize-controls.php:39
-msgid "Logo Image"
-msgstr "Image du logo"
 
 #: includes/options.php:29
 msgid "Color Scheme"
@@ -624,7 +540,6 @@ msgid "Dark"
 msgstr "Foncé"
 
 #: includes/options.php:316
-#, php-format
 msgid "%s Theme Options"
 msgstr "Options du thème %s"
 
@@ -657,7 +572,6 @@ msgid "Select a Color"
 msgstr "Choisir une couleur"
 
 #: includes/options.php:456
-#, php-format
 msgid "Default color: %s"
 msgstr "Couleur par défaut : %s"
 
@@ -666,11 +580,8 @@ msgid "The footer bottom left text"
 msgstr "Le texte à gauche du pied de page"
 
 #: includes/options.php:500
-#, fuzzy
 msgid "Theme license key for automatic updatess"
-msgstr ""
-"Le numéro de licence est utilisé pour accéder aux mises à jour automatiques "
-"et à l'aide"
+msgstr "Clé de licence de thème pour les mises à jour automatiques"
 
 #: includes/options.php:520
 msgid "Thumbnail"
@@ -689,7 +600,6 @@ msgid "Full Size"
 msgstr "Grand format"
 
 #: includes/pagination.php:37
-#, php-format
 msgid "Page %d of %d"
 msgstr "Page %d de %d"
 
@@ -702,7 +612,6 @@ msgid "&raquo;"
 msgstr "&raquo;"
 
 #: includes/related.php:110
-#, php-format
 msgid "Related %s"
 msgstr "%s relatifs"
 
@@ -715,9 +624,8 @@ msgid "The primary widgets area"
 msgstr "Zone principale de widgets"
 
 #: includes/sidebars.php:38
-#, fuzzy
 msgid "Complementary | Widget Area"
-msgstr "Une zone de widgets chargée dans le pied de page du site."
+msgstr "Zone complémentaire de widgets"
 
 #: includes/sidebars.php:40
 msgid "The complementary widgets area"
@@ -782,9 +690,8 @@ msgid "Select / Upload a slide image"
 msgstr "Choisir / Envoyer une image de diapo"
 
 #: includes/slideshow.php:153
-#, fuzzy
 msgid "Remove slide image"
-msgstr "Image d&rsquo;arrière-plan de la diapo"
+msgstr "Supprimer l'image de la diapo"
 
 #: includes/slideshow.php:176
 msgid "Slide URL"
@@ -797,11 +704,6 @@ msgstr "http://"
 #: includes/slideshow.php:232
 msgid "Slide"
 msgstr "Diapo"
-
-#: includes/slideshow.php:256
-#: includes/customize/class-wp-customize-controls.php:44
-msgid "No Image"
-msgstr "Aucune image"
 
 #: includes/slideshow.php:266
 msgid "Edit this item"
@@ -844,31 +746,110 @@ msgid "Button Small"
 msgstr "Petit bouton"
 
 #: includes/tinymce.php:61
-#, fuzzy
 msgid "Utility"
-msgstr ""
-"Il s'agit d'une fonction pour les articles d'événements qui ont des données "
-"d'événement."
+msgstr "Utilitaire"
 
 #: includes/tinymce.php:63
 msgid "Highlight"
 msgstr "Surbrillance"
 
-#: includes/customize/class-wp-customize-controls.php:45
-msgid "Removed"
-msgstr "Supprimé"
+#: pagination.php:20
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr "<span class=\"meta-nav\">&larr;</span> Articles plus anciens"
 
-#: lang/strings.php:15
+#: pagination.php:21
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Articles plus récents <span class=\"meta-nav\">&rarr;</span>"
+
+#: search.php:40
+msgid ""
+"Sorry, but nothing matched your search criteria. Please try again with some "
+"different keywords."
+msgstr ""
+"Désolé, mais rien ne correspond à votre critères de recherche. Veuillez "
+"réessayer avec d&rsquo;autres mots-clefs."
+
+#: searchform.php:16
+msgid "Search For"
+msgstr "Recherche pour"
+
+#: searchform.php:17
+msgid "Search this site"
+msgstr "Rechercher sur ce site"
+
+#: tag.php:22
+msgid "Tag Archives: %s"
+msgstr "Archives du mot-clefr&nbsp;: %s"
+
+#: tag.php:48
+msgid ""
+"Apologies, but no results were found for the requested tag. Perhaps "
+"searching will help find a related post."
+msgstr ""
+"Toutes nos excuses, mais votre requête pour cette étiquette n&rsquo;a donné "
+"aucun résultat. Peut-être aurez-vous plus de chance en lançant une "
+"recherche..."
+
+#: taxonomy-download_category.php:46 taxonomy-download_tag.php:48
+#: taxonomy.php:50
+msgid ""
+"Apologies, but no results were found for the requested taxonomy. Perhaps "
+"searching will help find a related post."
+msgstr ""
+"Toutes nos excuses, mais votre requête pour cette taxonomie n&rsquo;a donné "
+"aucun résultat. Peut-être aurez-vous plus de chance en lançant une "
+"recherche..."
+
+#: taxonomy-download_tag.php:23
+msgid "Tag: <span class=\"current\">%s</span>"
+msgstr "Mot-clef : <span class=\"current\">%s</span>"
+
+#. Theme Name of the plugin/theme
 msgid "Digital Store"
 msgstr "Digital Store"
 
-#: lang/strings.php:16
+#. Theme URI of the plugin/theme
+msgid "http://www.easydigitaldownloads.com/theme/digitalstore"
+msgstr "http://www.easydigitaldownloads.com/theme/digitalstore"
+
+#. Description of the plugin/theme
 msgid "A semantic & responsive HTML5 theme for your awesome digital store."
 msgstr ""
+"Un thème en HTML5 sémantique& responsive pour votre magnifique boutique "
+"numérique."
 
-#: lang/strings.php:17
+#. Author of the plugin/theme
 msgid "Easy Digital Downloads"
 msgstr "Easy Digital Downloads"
+
+#. Author URI of the plugin/theme
+msgid "http://www.easydigitaldownloads.com/"
+msgstr "http://www.easydigitaldownloads.com/"
+
+#. Template Name of the plugin/theme
+msgid "Full-width, no title"
+msgstr "Pleine largeur, pas de titre"
+
+#. Template Name of the plugin/theme
+msgid "Full-width"
+msgstr "Pleine largeur"
+
+#. Template Name of the plugin/theme
+msgid "Sidebar Left"
+msgstr "Colonne latérale gauche"
+
+#. Template Name of the plugin/theme
+msgid "Store Front"
+msgstr "Store Front"
+
+#, fuzzy
+#~ msgid "%1$s result was found for \"%2$s\"."
+#~ msgid_plural "%1$s results were found for \"%2$s\"."
+#~ msgstr[0] "Fichier non trouvé."
+#~ msgstr[1] "Le résultat de la vérification de la table %1$s est : %2$s"
+
+#~ msgid "Seach"
+#~ msgstr "Chercher"
 
 #~ msgid "Name of the plugin"
 #~ msgstr "Nom de l&rsquo;extension"

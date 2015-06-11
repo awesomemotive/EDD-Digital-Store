@@ -3,9 +3,9 @@ msgstr ""
 "Project-Id-Version: edd-digitalstore\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-24 15:52+0100\n"
-"PO-Revision-Date: 2013-04-24 16:06+0100\n"
-"Last-Translator: FxB <traductions@fxbenard.com>\n"
-"Language-Team: FxB <traductions@fxbenard.com>\n"
+"PO-Revision-Date: 2015-03-27 11:36+0100\n"
+"Last-Translator: fxbenard | FxB <fx@fxbenard.com>\n"
+"Language-Team: fxbenard | FxB <fx@fxbenard.com>\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,8 +14,8 @@ msgstr ""
 "_x;_n:1,2;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c\n"
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.5.5\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.7.5\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: 404.php:26 includes/breadcrumbs.php:105
@@ -40,7 +40,7 @@ msgstr "Sujets"
 #: archive-download.php:22
 #, php-format
 msgid "All %s"
-msgstr "Tous %s"
+msgstr "Tous les %s"
 
 #: archive-download.php:36 archive.php:36 author.php:38 category.php:44
 #: date.php:71 search.php:36 tag.php:44 taxonomy-download_category.php:42
@@ -49,6 +49,7 @@ msgid "Nothing Found"
 msgstr "Rien n&rsquo;a été trouvé"
 
 #: archive-download.php:40 archive.php:40 date.php:75
+#, fuzzy
 msgid ""
 "Apologies, but no results were found for the requested archive. Perhaps "
 "searching will help find a related post."
@@ -63,9 +64,10 @@ msgstr "Archives"
 #: author.php:24
 #, php-format
 msgid "Author Archives: <span class=\"vcard\">%s</span>"
-msgstr ""
+msgstr "Archives de l'auteur : <span class=\"vcard\">%s</span>"
 
 #: author.php:42
+#, fuzzy
 msgid ""
 "Apologies, but no results were found for the requested author. Perhaps "
 "searching will help find a related post."
@@ -79,6 +81,7 @@ msgid "Category: <span class=\"current\">%s</span>"
 msgstr "Catégorie : <span class=\"current\">%s</span>"
 
 #: category.php:48
+#, fuzzy
 msgid ""
 "Apologies, but no results were found for the requested category. Perhaps "
 "searching will help find a related post."
@@ -152,9 +155,9 @@ msgid "Description"
 msgstr "Description"
 
 #: content-single-download.php:59 content-single.php:42
-#, fuzzy, php-format
+#, php-format
 msgid "Posted in %1$s and tagged %2$s."
-msgstr "%1$s a publié une note pour le groupe %2$s:"
+msgstr "Publié dans %1$s et étiqueté %2$s."
 
 #: content-single-download.php:61 content-single.php:44
 #, php-format
@@ -183,7 +186,7 @@ msgstr "<span class=\"%1$s\">Taggué :</span> %2$s"
 
 #: content.php:88
 msgid "Leave a reply"
-msgstr "Répondre"
+msgstr "﻿Laisser un commentaire"
 
 #: content.php:88
 msgid "1 Reply"
@@ -274,9 +277,8 @@ msgid "Please use a valid website address."
 msgstr "Veuillez utiliser une adresse de messagerie valide."
 
 #: functions.php:197
-#, fuzzy
 msgid "Message must be at least 2 characters long."
-msgstr "L&#8217;identifiant du site doit utiliser au moins 4 caractères"
+msgstr "Le message doit faire au moins 2 caractères de long."
 
 #: functions.php:319 functions.php:325 functions.php:328 functions.php:334
 #: functions.php:337
@@ -346,7 +348,7 @@ msgstr "sous"
 
 #: functions.php:619
 msgid "tagged: "
-msgstr "Taggé :"
+msgstr "étiqueté :"
 
 #: functions.php:677
 #, php-format
@@ -360,7 +362,7 @@ msgstr "Acheter ce fichier"
 #: functions.php:691
 #, fuzzy, php-format
 msgid "Check this out: %s"
-msgstr "Se déconnecter de ce compte"
+msgstr "Départ"
 
 #: functions.php:692
 #, php-format
@@ -383,7 +385,7 @@ msgstr "Ajouter à Google +"
 #: functions.php:701
 #, fuzzy
 msgid "Check this out"
-msgstr "Se déconnecter de ce compte"
+msgstr "Départ"
 
 #: functions.php:702
 #, php-format
@@ -445,7 +447,7 @@ msgstr "Rechercher sur ce site"
 
 #: searchform.php:18
 msgid "Seach"
-msgstr ""
+msgstr "Chercher"
 
 #: tag.php:22
 #, php-format
@@ -453,6 +455,7 @@ msgid "Tag Archives: %s"
 msgstr "Archives du mot-clefr&nbsp;: %s"
 
 #: tag.php:48
+#, fuzzy
 msgid ""
 "Apologies, but no results were found for the requested tag. Perhaps "
 "searching will help find a related post."
@@ -462,6 +465,7 @@ msgstr ""
 
 #: taxonomy-download_category.php:46 taxonomy-download_tag.php:48
 #: taxonomy.php:50
+#, fuzzy
 msgid ""
 "Apologies, but no results were found for the requested taxonomy. Perhaps "
 "searching will help find a related post."
@@ -535,7 +539,7 @@ msgstr "Marquer le commentaire comme indésirable"
 
 #: includes/comments.php:87
 msgid "Spam"
-msgstr "Spam"
+msgstr "Indésirable"
 
 #: includes/customize.php:44
 msgid "Skins"
@@ -625,16 +629,14 @@ msgid "%s Theme Options"
 msgstr "Options du thème %s"
 
 #: includes/options.php:383
-#, fuzzy
 msgid "Remove Logo Image"
-msgstr "Réglages du logo"
+msgstr "Supprimer l'image du logo"
 
 #: includes/options.php:384
 msgid "This will remove the logo image."
 msgstr "Cela supprimera l'image du logo."
 
 #: includes/options.php:389
-#, fuzzy
 msgid "Choose an image from your computer:"
 msgstr "Choisissez une image sur votre ordinateur&nbsp;:"
 
@@ -664,8 +666,11 @@ msgid "The footer bottom left text"
 msgstr "Le texte à gauche du pied de page"
 
 #: includes/options.php:500
+#, fuzzy
 msgid "Theme license key for automatic updatess"
 msgstr ""
+"Le numéro de licence est utilisé pour accéder aux mises à jour automatiques "
+"et à l'aide"
 
 #: includes/options.php:520
 msgid "Thumbnail"
@@ -681,7 +686,7 @@ msgstr "Grande"
 
 #: includes/options.php:520
 msgid "Full Size"
-msgstr "Taille originale"
+msgstr "Grand format"
 
 #: includes/pagination.php:37
 #, php-format
@@ -699,7 +704,7 @@ msgstr "&raquo;"
 #: includes/related.php:110
 #, php-format
 msgid "Related %s"
-msgstr "Relatif %s"
+msgstr "%s relatifs"
 
 #: includes/sidebars.php:28
 msgid "Primary | Widget Area"
@@ -712,7 +717,7 @@ msgstr "Zone principale de widgets"
 #: includes/sidebars.php:38
 #, fuzzy
 msgid "Complementary | Widget Area"
-msgstr "Zone de widgets de la barre latérale"
+msgstr "Une zone de widgets chargée dans le pied de page du site."
 
 #: includes/sidebars.php:40
 msgid "The complementary widgets area"
@@ -779,7 +784,7 @@ msgstr "Choisir / Envoyer une image de diapo"
 #: includes/slideshow.php:153
 #, fuzzy
 msgid "Remove slide image"
-msgstr "Supprimer l&rsquo;image d&rsquo;arrière-plan"
+msgstr "Image d&rsquo;arrière-plan de la diapo"
 
 #: includes/slideshow.php:176
 msgid "Slide URL"
@@ -803,19 +808,16 @@ msgid "Edit this item"
 msgstr "Modifier cet élément"
 
 #: includes/slideshow.php:270
-#, fuzzy
 msgid "Restore this item from the Trash"
-msgstr "Récupérer cette entrée depuis la Corbeille"
+msgstr "Récupérer cet élément depuis la Corbeille"
 
 #: includes/slideshow.php:270
-#, fuzzy
 msgid "Restore"
 msgstr "Restaurer"
 
 #: includes/slideshow.php:272
-#, fuzzy
 msgid "Move this item to the Trash"
-msgstr "Déplacer cette entrée dans la Corbeille"
+msgstr "Mettre cet article à la corbeille"
 
 #: includes/slideshow.php:272
 msgid "Trash"
@@ -842,13 +844,15 @@ msgid "Button Small"
 msgstr "Petit bouton"
 
 #: includes/tinymce.php:61
+#, fuzzy
 msgid "Utility"
 msgstr ""
+"Il s'agit d'une fonction pour les articles d'événements qui ont des données "
+"d'événement."
 
 #: includes/tinymce.php:63
-#, fuzzy
 msgid "Highlight"
-msgstr "Couleur de la mise en évidence"
+msgstr "Surbrillance"
 
 #: includes/customize/class-wp-customize-controls.php:45
 msgid "Removed"

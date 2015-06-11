@@ -393,8 +393,8 @@ if ( ! function_exists( 'digitalstore_settings_field_logo_image' ) ) {
             <?php submit_button( __( 'Upload', 'edd-digitalstore' ), 'button', 'digitalstore-upload-logo-image', false ); ?>
             <?php
                 $image_library_url = get_upload_iframe_src( 'image', null, 'library' );
-        	    $image_library_url = remove_query_arg( 'TB_iframe', $image_library_url );
-        	    $image_library_url = add_query_arg( array( 'context' => 'custom-logo-image', 'TB_iframe' => 1 ), $image_library_url );
+        	    $image_library_url = esc_url( remove_query_arg( 'TB_iframe', $image_library_url ) );
+        	    $image_library_url = esc_url( add_query_arg( array( 'context' => 'custom-logo-image', 'TB_iframe' => 1 ), $image_library_url ) );
             ?>
             <span class="howto">or</span>
             <a class="thickbox" href="<?php echo $image_library_url; ?>"><?php _e( 'Choose from image library', 'edd-digitalstore' ); ?></a>
@@ -497,7 +497,7 @@ if ( ! function_exists( 'digitalstore_settings_field_license_key' ) ) {
 
         $options = digitalstore_get_theme_options(); ?>
         <input class="regular-text" type="text" name="digitalstore_theme_options[license_key]" id="license-text" value="<?php echo esc_textarea( $options['license_key'] ); ?>"/>
-        <label class="description" for="sample-text-input"><?php _e( 'Theme license key for automatic updatess', 'edd-digitalstore' ); ?>.</label>
+        <label class="description" for="sample-text-input"><?php _e( 'Theme license key for automatic updates', 'edd-digitalstore' ); ?>.</label>
         <?php
     }
 }
@@ -653,10 +653,11 @@ function digitalstore_activate_license() {
         $api_params = array(
             'edd_action' => 'activate_license',
             'license'    => $key,
-            'item_name'  => urlencode( EDD_DIGITAL_STORE_THEME_NAME )
+            'item_name'  => urlencode( EDD_DIGITAL_STORE_THEME_NAME ),
+            'url'        => home_url()
         );
 
-        $response = wp_remote_get( add_query_arg( $api_params, EDD_DIGITAL_STORE_STORE_URL ), array( 'timeout' => 15, 'sslverify' => false ) );
+        $response = wp_remote_get( esc_url_raw( add_query_arg( $api_params, EDD_DIGITAL_STORE_STORE_URL ), array( 'timeout' => 15, 'sslverify' => false ) ) );
 
         if ( is_wp_error( $response ) )
             return false;

@@ -21,7 +21,7 @@ do_action( 'digitalstore_before_content', $post ); ?>
             <div class="entry-image">
                 <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                     <?php if ( has_post_thumbnail() ): ?>
-                        <?php the_post_thumbnail( 'digitalstore_thumb_216x217' ); ?>
+                        <?php the_post_thumbnail( 'digitalstore_thumb_medium' ); ?>
                     <?php else: ?>
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/nopic-medium.gif" alt="<?php the_title(); ?>"/>
                     <?php endif ?>
@@ -45,7 +45,7 @@ do_action( 'digitalstore_before_content', $post ); ?>
                     } else {
                         echo '<a href="' . get_permalink( $edd_options['purchase_page'] ) . '" class="edd_go_to_checkout edd_button">' . __( 'Checkout', 'edd-digitalstore' ) . '</a>';
                     }
-                ?>                
+                ?>
                 <span class="entry-price"><?php echo digitalstore_edd_the_price( $post->ID ); ?></span>
             </div><!-- .entry-meta -->
 

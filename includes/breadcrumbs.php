@@ -1,5 +1,5 @@
 <?php
-/** 
+/**
  * Theme Breadcrumbs
  *
  * @package      Digital Store
@@ -12,11 +12,11 @@
 */
 
 
-/** 
- * Breadcrumbs 
- * 
+/**
+ * Breadcrumbs
+ *
  * Echoes the current breadcrumbs. Supports EDD built in taxs.
- * 
+ *
  * @return   string
  * @access   private
  * @since    1.0
@@ -25,38 +25,38 @@
 if ( ! function_exists( 'digitalstore_breadcrubms' ) ) {
     function digitalstore_breadcrubms() {
         global $wp_query, $post, $paged;
-        
+
         $space      = ' ';
         $on_front   = get_option( 'show_on_front' );
         $blog_page  = get_option( 'page_for_posts' );
         $separator  = $space . '<span class="bredcrumb-separator">' . apply_filters( 'digitalstore_breadcrumb_separator', '/' ) . '</span>' . $space;
         $link       = apply_filters( 'digitalstore_breadcrumb_link', '<a href="%1$s" title="%2$s" rel="bookmark" class="breadcrumb-item">%2$s</a>' );
         $current    = apply_filters( 'digitalstore_breadcrumb_current', '<span class="breadcrumb-current">%s</span>' );
-                  
+
         if ( ( $on_front == 'page' && is_front_page() ) || ( $on_front == 'posts' && is_home() ) ) {
             return;
         }
-        
-        $out = '<p class="breadcrumbs">';          
-                
+
+        $out = '<p class="breadcrumbs">';
+
         if ( $on_front == "page" && is_home() ) {
             $blog_title = isset( $blog_page ) ? get_the_title( $blog_page ) : __( 'Our Blog', 'edd-digitalstore' );
-            $out .= sprintf( $link, site_url(), __( 'Home', 'edd-digitalstore' ) ) . $separator . sprintf( $current, $blog_title );
+            $out .= sprintf( $link, home_url(), __( 'Home', 'edd-digitalstore' ) ) . $separator . sprintf( $current, $blog_title );
         } else {
-            $out .= sprintf( $link, site_url(), __( 'Home', 'edd-digitalstore' ) );
+            $out .= sprintf( $link, home_url(), __( 'Home', 'edd-digitalstore' ) );
         }
-        
+
         if ( is_singular() ) {
-            
+
             if ( is_singular( 'post' ) && $blog_page > 0 ) {
                 $out .= $separator . sprintf( $link, get_permalink( $blog_page ), esc_attr( get_the_title( $blog_page ) ) );
             }
-            
+
             if ( $post->post_parent > 0 ) {
                 if ( isset( $post->ancestors ) ) {
                     if ( is_array( $post->ancestors ) )
                         $ancestors = array_values( $post->ancestors );
-                    else 
+                    else
                         $ancestors = array( $post->ancestors );
                 } else {
                     $ancestors = array( $post->post_parent );
@@ -65,15 +65,15 @@ if ( ! function_exists( 'digitalstore_breadcrubms' ) ) {
                     $out .= $separator . sprintf( $link, get_permalink( $value ), esc_attr( get_the_title( $value ) ) );
                 }
             }
-            
+
             $post_type = get_post_type();
             if ( get_post_type_archive_link( $post_type ) ) {
                 $post_type_obj = get_post_type_object( $post_type );
                 $out .= $separator . sprintf( $link, get_post_type_archive_link( $post_type ), esc_attr( $post_type_obj->labels->menu_name ) );
             }
-            
+
             $out .= $separator . sprintf( $current, get_the_title() );
-        
+
         } else {
             if ( is_post_type_archive() ) {
                 $post_type = get_post_type();
@@ -106,9 +106,9 @@ if ( ! function_exists( 'digitalstore_breadcrubms' ) ) {
             } else if ( is_search() ) {
                 $out .= $separator . sprintf( $current, __( 'Search', 'edd-digitalstore' ) );
             }
-            
-        } 
-        
+
+        }
+
         $out .= '</p>';
         echo apply_filters( 'digitalstore_breadcrumbs_out', $out );
     }

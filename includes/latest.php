@@ -85,7 +85,7 @@ if ( ! function_exists( 'digitalstore_latest_downloads' ) ) {
                 </li>
             <?php $i++; endwhile; ?>
             </ul><!-- .latest-listing -->
-        </div><!-- .section-latest.<?php echo $class ?> -->
+        </div><!-- .section-latest-->
         <?php
         }
         wp_reset_query();

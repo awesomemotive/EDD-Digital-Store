@@ -473,7 +473,7 @@ if ( ! function_exists( 'digitalstore_settings_field_footer_text' ) ) {
         $options = digitalstore_get_theme_options(); ?>
 
         <?php if ( function_exists( 'wp_editor' ) ): ?>
-            <?php wp_editor( $options['footer_text'], 'digitalstore_theme_options[footer_text]', array( 'textarea_rows' => 4, 'teeny' => true ) ); ?>
+            <?php wp_editor( $options['footer_text'], 'digitalstore_theme_options_footer_text', array( 'textarea_name' => 'digitalstore_theme_options[footer_text]', 'textarea_rows' => 4, 'teeny' => true ) ); ?>
         <?php else: ?>
             <textarea class="large-text" name="digitalstore_theme_options[footer_text]" id="footer-text" cols="50" rows="4"><?php echo esc_textarea( $options['footer_text'] ); ?></textarea>
         <?php endif ?>

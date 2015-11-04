@@ -949,6 +949,32 @@ html[xmlns] .slides {
   display: inline-block;
 }
 
+/* =Downloads shortcode
+-------------------------------------------------------------- */
+
+.edd_download {
+  float: left;
+}
+.edd_download_columns_1 .edd_download {
+  width: 100%;
+}
+.edd_download_columns_2 .edd_download {
+  width: 50%;
+}
+.edd_download_columns_0 .edd_download,
+.edd_download_columns_3 .edd_download {
+  width: 33%;
+}
+.edd_download_columns_4 .edd_download {
+  width: 25%;
+}
+.edd_download_columns_5 .edd_download {
+  width: 20%;
+}
+.edd_download_columns_6 .edd_download {
+  width: 16.6%;
+}
+
 /* =Latest Downloads
 -------------------------------------------------------------- */
 

@@ -17,12 +17,9 @@
 |--------------------------------------------------------------------------
 */
 
-// Make sure EDD is active
-if( !class_exists( 'Easy_Digital_Downloads' ) ) return;
-
 define( 'EDD_DIGITAL_STORE_STORE_URL', 'https://easydigitaldownloads.com' );
 define( 'EDD_DIGITAL_STORE_THEME_NAME', 'Digital Store Theme' );
-define( 'EDD_DIGITAL_STORE_VERSION', '1.3.3' );
+define( 'EDD_DIGITAL_STORE_VERSION', '1.3.4' );
 
 
 // Set content width
@@ -191,7 +188,7 @@ if ( ! function_exists( 'digitalstore_theme_scripts' ) ) {
             'in_goto'           => __( 'Go to...', 'edd-digitalstore' ),
             // EDD widget
             'in_gotocheckout'   => __( 'Go to Checkout', 'edd-digitalstore' ),
-            'checkout_uri'      => edd_get_checkout_uri(),
+            'checkout_uri'      => function_exists( 'edd_get_checkout_uri' ) ? edd_get_checkout_uri() : home_url(),
             // Comments validation
             'in_author'         => __( 'Please enter a valid name.', 'edd-digitalstore' ),
             'in_email'          => __( 'Please enter a valid email address.', 'edd-digitalstore' ),

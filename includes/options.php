@@ -473,7 +473,7 @@ if ( ! function_exists( 'digitalstore_settings_field_footer_text' ) ) {
         $options = digitalstore_get_theme_options(); ?>
 
         <?php if ( function_exists( 'wp_editor' ) ): ?>
-            <?php wp_editor( $options['footer_text'], 'digitalstore_theme_options[footer_text]', array( 'textarea_rows' => 4, 'teeny' => true ) ); ?>
+            <?php wp_editor( $options['footer_text'], 'digitalstore_theme_options_footer_text', array( 'textarea_name' => 'digitalstore_theme_options[footer_text]', 'textarea_rows' => 4, 'teeny' => true ) ); ?>
         <?php else: ?>
             <textarea class="large-text" name="digitalstore_theme_options[footer_text]" id="footer-text" cols="50" rows="4"><?php echo esc_textarea( $options['footer_text'] ); ?></textarea>
         <?php endif ?>
@@ -642,22 +642,24 @@ function digitalstore_activate_license() {
 
     if( isset( $_POST['digitalstore_theme_options'] ) ) {
 
-        if( isset( $_POST['digitalstore_theme_options']['license_key'] ) )
+        if( isset( $_POST['digitalstore_theme_options']['license_key'] ) ) {
             $key = trim( $_POST['digitalstore_theme_options']['license_key'] );
-        else
+        } else {
             return;
+        }
 
-        if( get_option('digitalstore_license_key_status') == 'valid' )
+        if( get_option('digitalstore_license_key_status') == 'valid' ) {
             return; // License already activated
+        }
 
         $api_params = array(
             'edd_action' => 'activate_license',
             'license'    => $key,
-            'item_name'  => urlencode( EDD_DIGITAL_STORE_THEME_NAME ),
+            'item_id'    => 3047,
             'url'        => home_url()
         );
 
-        $response = wp_remote_get( esc_url_raw( add_query_arg( $api_params, EDD_DIGITAL_STORE_STORE_URL ), array( 'timeout' => 15, 'sslverify' => false ) ) );
+        $response = wp_remote_post( EDD_DIGITAL_STORE_STORE_URL, array( 'timeout' => 15, 'body' => $api_params ) );
 
         if ( is_wp_error( $response ) )
             return false;

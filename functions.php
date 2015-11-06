@@ -19,7 +19,7 @@
 
 define( 'EDD_DIGITAL_STORE_STORE_URL', 'https://easydigitaldownloads.com' );
 define( 'EDD_DIGITAL_STORE_THEME_NAME', 'Digital Store Theme' );
-define( 'EDD_DIGITAL_STORE_VERSION', '1.3.4' );
+define( 'EDD_DIGITAL_STORE_VERSION', '1.3.5' );
 
 
 // Set content width
